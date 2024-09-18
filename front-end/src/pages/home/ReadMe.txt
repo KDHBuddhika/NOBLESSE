@@ -1,2 +1,3 @@
-create the .js files and corrosponding CSS
+create the .js files and corrosponding Styles
+
 
