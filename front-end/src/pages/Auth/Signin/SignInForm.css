@@ -16,7 +16,7 @@ body {
   }
   
   /* Container for the form and logo */
-  .container {
+  .signin-container {
   display: flex;
   margin-top: 30px;
   flex-direction: column;
@@ -37,7 +37,7 @@ body {
   }
   
   /* Form container */
-  .login-box {
+  .signin-login-box {
     background-color: #ECECF1;
     padding: 40px;
     border-radius: 12px;

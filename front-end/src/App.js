@@ -1,25 +1,33 @@
+// src/App.js
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import SignInForm from './pages/Auth/Signin/SignInForm';
+import SignUpForm from './pages/Auth/Signup/SignUpForm';
 import Logo from './pages/Auth/logo/Logo';
 import CloseIcon from './pages/Auth/closeIcon/CloseIcon';
-import SignInForm from './pages/Auth/Signin/SignInForm';
 
 
 function App() {
   const handleClose = () => {
-    console.log('Close icon clicked'); 
+    console.log('Close button clicked');
+    // You can add custom logic for the CloseIcon here
   };
 
   return (
-    <div className="container">
-      <Logo />
-      <div className="login-box">
-        <h2>Sign In to your Account</h2>
-        {
-          <SignInForm />
-          }
+    <Router>
+      <div className="signin-container">
+        <Logo/>
+        
+        <CloseIcon onClick={handleClose} className="custom-close-icon" />
+        
+        <Routes>
+          <Route path="/signin" element={<SignInForm />} />
+          <Route path="/signup" element={<SignUpForm />} />
+          {/* Redirect any unknown route to /signin */}
+          <Route path="*" element={<Navigate to="/signin" />} />
+        </Routes>
       </div>
-      <CloseIcon onClick={handleClose} />
-    </div>
+    </Router>
   );
 }
 

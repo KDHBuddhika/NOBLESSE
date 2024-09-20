@@ -1,18 +1,20 @@
+// src/pages/Auth/Signin/SignInForm.js
 import React, { useState } from 'react';
-import './../Signin/SignInForm.css'; 
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
-
+import { Link } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import './SignInForm.css';
 
 function SignInForm() {
-    const [passwordVisible, setPasswordVisible] = useState(false);
-  
-    // Function to toggle password visibility
-    const togglePasswordVisibility = () => {
-      setPasswordVisible(!passwordVisible);
-    };
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
 
   return (
     <form>
+      <div className="signin-login-box">
+      <h2>Sign In to your Account</h2>
       <div className="input-group">
         <input type="email" placeholder="Email Address" required />
       </div>
@@ -24,7 +26,6 @@ function SignInForm() {
             placeholder="Password"
             required
           />
-          {/* Font Awesome show/hide icon */}
           <i className="show-password-icon" onClick={togglePasswordVisibility}>
             {passwordVisible ? <FaEye /> : <FaEyeSlash />}
           </i>
@@ -36,11 +37,12 @@ function SignInForm() {
       </div>
 
       <button className="sign-in-btn" type="submit">
-        Sign in
+        Sign In
       </button>
 
       <div className="sign-up">
-        Don't have an account? <a href="">Sign up</a>
+        Don't have an account? <Link to="/signup">Sign Up</Link>
+      </div>
       </div>
     </form>
   );
