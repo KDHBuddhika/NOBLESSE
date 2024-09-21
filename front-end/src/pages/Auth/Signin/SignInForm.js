@@ -33,7 +33,8 @@ function SignInForm() {
       </div>
 
       <div className="forgot-password">
-        <a href="/">Forgot your password?</a>
+      <Link to="/forgotpw">Forgot your password?
+      </Link>
       </div>
 
       <button className="sign-in-btn" type="submit">

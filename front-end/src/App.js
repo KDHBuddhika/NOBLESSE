@@ -5,6 +5,8 @@ import SignInForm from './pages/Auth/Signin/SignInForm';
 import SignUpForm from './pages/Auth/Signup/SignUpForm';
 import Logo from './pages/Auth/logo/Logo';
 import CloseIcon from './pages/Auth/closeIcon/CloseIcon';
+import Forgot from './pages/Auth/forgotpw/Forgot'; 
+
 
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
         <CloseIcon onClick={handleClose} className="custom-close-icon" />
         
         <Routes>
+          <Route path="/forgotpw" element={<Forgot />} />
           <Route path="/signin" element={<SignInForm />} />
           <Route path="/signup" element={<SignUpForm />} />
           {/* Redirect any unknown route to /signin */}
