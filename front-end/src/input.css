@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply font-Roboto -tracking-wide bg-black;
+    @apply font-Roboto -tracking-wide bg-white;
   }
 
   html {
@@ -16,7 +16,7 @@
 
 @layer components {
   section {
-    @apply py-20 md:py-28;
+    @apply py-0 md:py-0;
   }
 
   h1, h3 {
@@ -31,16 +31,16 @@
     @apply text-xl md:text-2xl font-normal;
   }
 
-  .nav-link {
+  /* .nav-link {
     @apply text-lg font-bold duration-300;
   }
 
   .nav-link:hover {
     @apply text-blue-400;
-  }
+  } */
 
   .description {
-    @apply text-lg leading-relaxed text-white mt-10 mx-auto;
+    @apply text-lg leading-relaxed text-black mt-10 mx-auto;
   }
 }
 
