@@ -7,7 +7,8 @@ import Logo from './pages/Auth/logo/Logo';
 import CloseIcon from './pages/Auth/closeIcon/CloseIcon';
 import Forgot from './pages/Auth/forgotpw/Forgot'; 
 import Verification from './pages/Auth/forgotpwVerify/Verification';
-import SignVerification from './pages/Auth/SignupVerify/SignVerification'; // Updated Import
+import SignVerification from './pages/Auth/SignupVerify/SignVerification';
+import ChangePassword from './pages/Auth/Changepw/ChangePassword';
 
 function App() {
   const handleClose = () => {
@@ -24,7 +25,8 @@ function App() {
         <Routes>
           <Route path="/forgotpw" element={<Forgot />} />
           <Route path="/forgotpwVerify" element={<Verification />} />
-          <Route path="/SignupVerify" element={<SignVerification />} /> {/* Updated Route Path */}
+          <Route path="/SignupVerify" element={<SignVerification />} />
+          <Route path="/Changepw" element={<ChangePassword />} /> 
           <Route path="/signin" element={<SignInForm />} />
           <Route path="/signup" element={<SignUpForm />} />
           {/* Redirect any unknown route to /signin */}

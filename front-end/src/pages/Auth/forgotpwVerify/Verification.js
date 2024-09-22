@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Verification.css';
 
 function VerificationCodeForm() {
     const [code, setCode] = useState(new Array(5).fill(""));
+    const navigate = useNavigate(); // Initialize navigate here
 
     const handleChange = (element, index) => {
         if (isNaN(element.value)) return false;
@@ -19,6 +21,21 @@ function VerificationCodeForm() {
         console.log('Resend code clicked');
         // Example: trigger an API call to resend the code, show a message, etc.
     };
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        // Add verification logic here (e.g., compare code with expected value)
+        const isCodeValid = code.join('') === "12345"; // Example validation logic
+        if (isCodeValid) {
+          navigate('/changepassword');  // Navigate to change password page if code is valid
+        } else {
+          alert("Invalid verification code.");
+        }
+      };
+    
+     
 
     return (
         <form className="verification-form">
@@ -45,7 +62,7 @@ function VerificationCodeForm() {
 
                 <p className="resend-text" onClick={handleResendCode}>Send a code again.</p>
                 
-                <button className="verify-btn" type="submit">Verify</button>
+                <button className="verify-btn" type="submit"  onClick={() => navigate('/Changepw')}>Verify</button>
             </div>
         </form>
     );
