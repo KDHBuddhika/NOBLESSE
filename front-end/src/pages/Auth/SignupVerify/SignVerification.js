@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './SignVerification.css';
 
 function SignVerificationCodeForm() {
     const [code, setCode] = useState(new Array(5).fill(""));
+    const navigate = useNavigate();
 
     const handleChange = (element, index) => {
         if (isNaN(element.value)) return false;
@@ -18,6 +20,13 @@ function SignVerificationCodeForm() {
     const handleResendCode = () => {
         console.log('Resend code clicked');
         // Example: trigger an API call to resend the code, show a message, etc.
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Here you can add verification logic if needed
+        // For now, we'll navigate to the Terms and Conditions page
+        navigate('/termsform');
     };
 
     return (
@@ -45,7 +54,7 @@ function SignVerificationCodeForm() {
 
                 <p className="resend-text" onClick={handleResendCode}>Send a code again.</p>
                 
-                <button className="verify-btn" type="submit">Verify</button>
+                <button className="verify-btn" type="submit" onClick={handleSubmit}>Verify</button>
             </div>
         </form>
     );

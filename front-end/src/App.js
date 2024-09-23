@@ -1,14 +1,14 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import SignInForm from './pages/Auth/Signin/SignInForm';
 import SignUpForm from './pages/Auth/Signup/SignUpForm';
 import Logo from './pages/Auth/logo/Logo';
 import CloseIcon from './pages/Auth/closeIcon/CloseIcon';
-import Forgot from './pages/Auth/forgotpw/Forgot'; 
+import Forgot from './pages/Auth/forgotpw/Forgot';
 import Verification from './pages/Auth/forgotpwVerify/Verification';
 import SignVerification from './pages/Auth/SignupVerify/SignVerification';
 import ChangePassword from './pages/Auth/Changepw/ChangePassword';
+import TermsCondition from './pages/Auth/termsform/termsCondition'; // Updated to match new component name
 
 function App() {
   const handleClose = () => {
@@ -19,17 +19,18 @@ function App() {
   return (
     <Router>
       <div className="signin-container">
-        <Logo/>
+        <Logo />
         <CloseIcon onClick={handleClose} className="custom-close-icon" />
-        
+
         <Routes>
           <Route path="/forgotpw" element={<Forgot />} />
+          <Route path="/termsform" element={<TermsCondition />} /> {/* Updated component name */}
           <Route path="/forgotpwVerify" element={<Verification />} />
           <Route path="/SignupVerify" element={<SignVerification />} />
-          <Route path="/Changepw" element={<ChangePassword />} /> 
+          <Route path="/Changepw" element={<ChangePassword />} />
           <Route path="/signin" element={<SignInForm />} />
           <Route path="/signup" element={<SignUpForm />} />
-          {/* Redirect any unknown route to /signin */}
+          {/* Redirect any unknown route to /t&c */}
           <Route path="*" element={<Navigate to="/signin" />} />
         </Routes>
       </div>
