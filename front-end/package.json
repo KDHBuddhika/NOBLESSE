@@ -15,7 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "watch": "tailwindcss -i ./src/input.css -o ./src/output.css --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -37,6 +37,12 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.1.1"
-  }
+    "gh-pages": "^6.1.1",
+    "tailwindcss": "^3.4.12"
+  },
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
