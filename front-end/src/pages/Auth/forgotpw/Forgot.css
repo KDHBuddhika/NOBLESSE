@@ -10,9 +10,20 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     background-color: #f8f8f8;
     
+  }
+
+  .forgot-container{
+  display: flex;
+  margin-top: 30px;
+  flex-direction: column;
+  width: 750px;
+  height: 700px;
+  align-items: center;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden; 
   }
   
   /* Logo styling */

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Logo from '../logo/Logo';
+import CloseIcon from '../closeIcon/CloseIcon';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './ChangePassword.css';
 
@@ -24,7 +26,16 @@ function ChangePassword() {
     }
   };
 
+  const handleClose = () => {
+    console.log('Close button clicked');
+    // You can add custom logic for the CloseIcon here
+  };
+
   return (
+    <div className="forgot-container">
+  <Logo />
+  <CloseIcon onClick={handleClose} className="custom-close-icon" />
+
     <div className="change-password-container">
          <form onSubmit={handleSubmit} className="change-password-box">
         <h2>Change your password</h2>
@@ -60,7 +71,7 @@ function ChangePassword() {
         <div className="btn-sub">
         <button type="submit" className="submit-btn">Submit</button>
         </div>
-      </form>
+      </form></div>
     </div>
   );
 }

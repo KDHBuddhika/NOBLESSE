@@ -1,5 +1,7 @@
 // src/pages/Auth/Forgot/Forgot.js
 import React, { useState } from 'react';
+import Logo from '../logo/Logo';
+import CloseIcon from '../closeIcon/CloseIcon';
 import './Forgot.css';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -13,8 +15,16 @@ function Forgot() {
       navigate('/forgotpwVerify');
     };
   
+    const handleClose = () => {
+      console.log('Close button clicked');
+      // You can add custom logic for the CloseIcon here
+    };
 
 return (
+  <div className="forgot-container">
+  <Logo />
+  <CloseIcon onClick={handleClose} className="custom-close-icon" />
+
     <form>
       <div className="forgot-login-box">
       <h2>Forgot your password?</h2>
@@ -39,7 +49,7 @@ return (
       
       </div>
      </div>
-    </form>
+    </form></div>
   );
 }
 

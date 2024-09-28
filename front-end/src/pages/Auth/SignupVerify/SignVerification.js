@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Logo from '../logo/Logo';
+import CloseIcon from '../closeIcon/CloseIcon';
 import './SignVerification.css';
 
 function SignVerificationCodeForm() {
@@ -29,7 +31,15 @@ function SignVerificationCodeForm() {
         navigate('/termsform');
     };
 
+    const handleClose = () => {
+        console.log('Close button clicked');
+        // You can add custom logic for the CloseIcon here
+      };
+
     return (
+        <div className="forgot-container">
+        <Logo />
+        <CloseIcon onClick={handleClose} className="custom-close-icon" />
         <form className="verification-form">
             <div className="verification-box">
                 <h2>Enter Verification Code</h2>
@@ -56,7 +66,7 @@ function SignVerificationCodeForm() {
                 
                 <button className="verify-btn" type="submit" onClick={handleSubmit}>Verify</button>
             </div>
-        </form>
+        </form></div>
     );
 }
 
