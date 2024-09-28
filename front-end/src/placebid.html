@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,10 @@
     <style>
         .half-bg {
             position: relative;
-            margin-top:  6%; /* Adjust this to move the card as needed */
+            margin-top: 9%;
             z-index: 20;
         }
+
         .half-bg .form-container {
             position: absolute;
             bottom: 0;
@@ -22,6 +24,7 @@
             border-radius: 12px;
             z-index: 30;
         }
+
         .half-bg .form-container input {
             border: 1px solid #e2e8f0;
             padding: 10px;
@@ -30,57 +33,66 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-100">
 
-    <!-- First Section: Auction Item Description -->
+    
     <div class="relative w-full h-screen bg-cover bg-center">
-        <!-- Blurred Background Image -->
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('assets/bracelet 1.jpg'); filter: blur(8px); -webkit-filter: blur(8px);"></div>
-        
-        <!-- Overlay -->
+      
+        <div class="absolute inset-0 bg-cover bg-center"
+            style="background-image: url('assets/bracelet 1.jpg'); filter: blur(8px); -webkit-filter: blur(8px);"></div>
+
         <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-        
-        <!-- Content: Centered Auction Item Information -->
+
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-12">
             <h1 class="text-4xl lg:text-5xl font-bold text-shadow-md">Emerald & Diamond Bracelet</h1>
-            <h3 class="text-xl lg:text-2xl mt-4 text-shadow-md">Make Your Bid For Elegant Vintage Jewelry With Delicate Design</h3>
-            <button class="mt-6 bg-transparent border border-white hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 mb-28">
+            <h3 class="text-xl lg:text-2xl mt-4 text-shadow-md">Make Your Bid For Elegant Vintage Jewelry With Delicate
+                Design</h3>
+            <button
+                class="mt-6 bg-transparent border border-white hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 ">
                 Add to Watch
             </button>
 
-            <!-- Added margin below the button -->
-            <h2 class="text-3xl lg:text-4xl font-bold text-white mt-20 text-shadow-md">Recent Bids</h2>
+           
+            
         </div>
     </div>
+
     
-    <!-- Bids Section -->
     <div class="bg-[#0e151f] py-8 lg:py-16 px-4 lg:px-32 text-center">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Recent Bids -->
-            <div class="space-y-4">
-                <div class="text-2xl text-white">$2750 <span class="text-sm text-gray-400">1hr ago</span></div>
-                <div class="text-2xl text-white">$2730 <span class="text-sm text-gray-400">1hr ago</span></div>
-                <div class="text-2xl text-white">$2700 <span class="text-sm text-gray-400">1hr ago</span></div>
-                <div class="text-2xl text-white">$2690 <span class="text-sm text-gray-400">1hr ago</span></div>
-                <div class="text-2xl text-white">$2670 <span class="text-sm text-gray-400">1hr ago</span></div>
-            </div>
+   
+        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-12 text-shadow-md">Recent Bids</h2>
+        <div class="recent-bids">
+            <div class="text-2xl text-white">$2750 <span class="text-sm text-gray-400">1hr ago</span></div>
+            <hr class="w-52 border-gray-300 my-6">
+            <div class="text-2xl text-white">$2730 <span class="text-sm text-gray-400">1hr ago</span></div>
+            <hr class="w-full border-gray-300 my-6">
+            <div class="text-2xl text-white">$2700 <span class="text-sm text-gray-400">1hr ago</span></div>
+            <hr class="w-full border-gray-300 my-6">
+            <div class="text-2xl text-white">$2690 <span class="text-sm text-gray-400">1hr ago</span></div>
+            <hr class="w-full border-gray-300 my-6">
+            <div class="text-2xl text-white">$2670 <span class="text-sm text-gray-400">1hr ago</span></div>
+            <hr class="w-full border-gray-300 my-6 mb-32">
+        </div>
 
-            <!-- Bid Stats -->
-            <div class="space-y-4">
-                <div class="text-2xl text-white">Winning Bid: <span class="font-bold">$2750</span> USD</div>
-                <div class="text-2xl text-white">Days Left to Bid: <span class="font-bold">3 Days, 12 Hours</span></div>
-                <div class="text-2xl text-white">Watching Now: <span class="font-bold">105</span> people</div>
+
+        <div class="bid-stats flex justify-between text-2xl text-white mt-4">
+            <div class="winning-bid">Winning Bid: <span class="font-bold">$2750</span> USD</div>
+            <div class="other-stats text-right">
+                <div>Days Left to Bid: <span class="font-bold">3 Days, 12 Hours</span></div>
+                <div>Watching Now: <span class="font-bold">105</span> people</div>
             </div>
         </div>
     </div>
 
-    <!-- Bidding Form Half in Background Half in White -->
+
     <div class="half-bg">
-        <!-- Bidding Form -->
+   
         <div class="form-container bg-gray-100 rounded-lg px-8 py-6 shadow-lg">
             <div class="flex items-center space-x-4">
                 <button class="bg-gray-200 py-2 px-4 rounded-l-lg text-xl">$</button>
-                <input type="number" class="py-2 px-4 bg-white border border-gray-300 rounded-r-lg text-xl" value="2760">
+                <input type="number" class="py-2 px-4 bg-white border border-gray-300 rounded-r-lg text-xl"
+                    value="2760">
             </div>
             <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-8 rounded-lg font-semibold">
                 Place Bid
@@ -90,4 +102,5 @@
     </div>
 
 </body>
+
 </html>
