@@ -1,8 +1,19 @@
-import React from "react";
+import React from 'react';
+import AuctionPage from './AuctionPage'; 
+import PlaceABid from './PlaceABid';
+import HowItWork from './HowItWork';
+import AboutUs from './AboutUs';
 
 function App() {
   return (
-    // Add All Your Component Pages Here  
+    <div className="App">
+      <AuctionPage />
+      <PlaceABid />
+      <HowItWork />
+      <AboutUs />
+
+
+    </div>
   );
 }
 
