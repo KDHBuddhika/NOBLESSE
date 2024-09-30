@@ -7,10 +7,11 @@ import AboutUs from './AboutUs';
 function App() {
   return (
     <div className="App">
+      <AboutUs />
       <AuctionPage />
       <PlaceABid />
       <HowItWork />
-      <AboutUs />
+      
 
 
     </div>

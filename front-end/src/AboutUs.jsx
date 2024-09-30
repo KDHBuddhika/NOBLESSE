@@ -1,5 +1,5 @@
 import React from "react";
-import './App.css'; // Assuming you're using Tailwind CSS
+import styles from './output.css';
 
 const AboutUs = () => {
   return (
