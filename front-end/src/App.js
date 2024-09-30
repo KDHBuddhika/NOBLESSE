@@ -8,6 +8,7 @@ import SignVerification from './pages/Auth/SignupVerify/SignVerification';
 import ChangePassword from './pages/Auth/Changepw/ChangePassword';
 import TermsCondition from './pages/Auth/termsform/termsCondition'; 
 import PrivacyPolicyContent from './pages/Privacy&Policy/privacy'; 
+import AuctionListPage from './pages/Auction_List/AuctionListPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/signin" element={<SignInForm />} />
         <Route path="/signup" element={<SignUpForm />} />
         <Route path="/Privacy&Policy" element={<PrivacyPolicyContent />} />
+        <Route path='/auctionList' element={<AuctionListPage/>} />
         
         {/* Catch-all route */}
         <Route path="*" element={<Navigate to="/signin" />} />
