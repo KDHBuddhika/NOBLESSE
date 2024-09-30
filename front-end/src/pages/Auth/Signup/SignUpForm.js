@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // Imported useNavigate
 import './SignUpForm.css';
+import Logo from '../logo/Logo';
+import CloseIcon from '../closeIcon/CloseIcon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import { faCaretDown, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'; 
 
@@ -13,6 +15,7 @@ function CustomDropdown({ options, selected, onSelect }) {
         setIsOpen(false);
     };
 
+    
     return (
         <div className="custom-dropdown">
             <div className="dropdown-header" onClick={() => setIsOpen(!isOpen)}>
@@ -64,8 +67,18 @@ function SignUpForm() {
         navigate('/SignupVerify');
     };
 
+    const handleClose = () => {
+        console.log('Close button clicked');
+        // You can add custom logic for the CloseIcon here
+        navigate('/signin'); 
+    };
+
+
     return (
         <div className="signup-container">
+        <Logo />
+        <CloseIcon onClick={handleClose} className="custom-close-icon" />
+        <div className="si-container">
             <form className="form1">
                 <div className="signup-login-box">
                     <h2>Create An Account</h2>
@@ -117,7 +130,7 @@ function SignUpForm() {
                         Already have an account? <Link to="/signin">Sign In</Link>
                     </div>
                 </div>
-            </form><br /><br /><br /><br /><br /><br />
+            </form><br /><br /><br /><br /><br /><br /></div>
         </div>
     );
 }

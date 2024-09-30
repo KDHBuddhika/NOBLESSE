@@ -1,6 +1,6 @@
 // src/pages/Auth/logo/Logo.js
 import React from 'react';
-import logo from '../../../noblesselogo.png'; 
+import logo from '../../../assets/images/noblesselogo.png'; 
 import './../logo/Logo.css'; 
 
 

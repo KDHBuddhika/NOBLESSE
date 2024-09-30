@@ -1,7 +1,21 @@
 import React from 'react';
+import Logo from '../logo/Logo';
+import CloseIcon from '../closeIcon/CloseIcon';
 import './termsCondition.css'; 
+
+
 const TermsCondition = () => {
+
+  const handleClose = () => {
+    console.log('Close button clicked');
+    // You can add custom logic for the CloseIcon here
+  };
+
+
   return (
+    <div className="main-container">
+        <Logo />
+        <CloseIcon onClick={handleClose} className="custom-close-icon" />
     <div>
     <div className="terms-container">
       <div className="head">
@@ -121,7 +135,7 @@ const TermsCondition = () => {
       <div className="footer">
       <button className="btn">Accept</button>
       <br /><br />  </div>
-    </div><br /><br /><br /><br /><br /><br /></div>
+    </div><br /><br /><br /><br /><br /><br /></div></div>
   );
 }
 

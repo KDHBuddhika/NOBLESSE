@@ -1,6 +1,8 @@
 // src/pages/Auth/Signin/SignInForm.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Logo from '../logo/Logo';
+import CloseIcon from '../closeIcon/CloseIcon';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './SignInForm.css';
 
@@ -11,7 +13,16 @@ function SignInForm() {
     setPasswordVisible(!passwordVisible);
   };
 
+  const handleClose = () => {
+    console.log('Close button clicked');
+    // You can add custom logic for the CloseIcon here
+  };
+
   return (
+    <div className="signin-container">
+        <Logo />
+        <CloseIcon onClick={handleClose} className="custom-close-icon" />
+        
     <form>
       <div className="signin-login-box">
       <h2>Sign In to your Account</h2>
@@ -45,7 +56,7 @@ function SignInForm() {
         Don't have an account? <Link to="/signup">Sign Up</Link>
       </div>
       </div>
-    </form>
+    </form></div>
   );
 }
 
