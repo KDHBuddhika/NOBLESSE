@@ -1,5 +1,5 @@
 .auctionListContainer{
-  height: 0cap;
+  height:fit-content;
   width: 100vw; /* Viewport width */
   padding: 0;
   margin: 0;
