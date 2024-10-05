@@ -4,11 +4,13 @@ using Nobeless.api.Data;
 using Nobeless.api.Util;
 using System.Text.Json.Serialization;
 
+
 namespace Nobeless.api
 {
     public class Program
     {
         public static void Main(string[] args)
+
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,8 @@ namespace Nobeless.api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddScoped<IEmailService, EmailService>();
+
 
             builder.Services.AddScoped<EmailService>();
             builder.Services.AddTransient<EmailService>();

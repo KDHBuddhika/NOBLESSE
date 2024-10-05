@@ -1,33 +1,42 @@
-﻿using System.Net;
+﻿using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
+using MimeKit.Text;
+using System.Net;
 using System.Net.Mail;
+using static System.Net.Mime.MediaTypeNames;
+using SmtpClient = MailKit.Net.Smtp.SmtpClient;
 
 namespace Nobeless.api.Util
 {
-    public class EmailService
+
+    
+    public class EmailService : IEmailService
     {
+        private readonly IConfiguration _configuration;
+        public EmailService(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
 
         public async Task SendVerificationEmail(string email, string verificationLink)
         {
-            using (var smtpClient = new SmtpClient("smtp.gmail.com"))
-            {
+            string link = $"Click the link to verify your account: {verificationLink}";
+            var emails = new MimeMessage();
+            emails.From.Add(MailboxAddress.Parse(_configuration.GetSection("EmailUserName").Value));
+            emails.To.Add(MailboxAddress.Parse(email));
+            emails.Subject = "verify your account";
+            emails.Body = new TextPart(TextFormat.Html) { Text = link };
 
-                smtpClient.Port = 587;
-                smtpClient.Credentials = new NetworkCredential("dineshhashan001@gmail.com", "dineshzitao001");
-                smtpClient.EnableSsl = true;
 
-                var mailMessage = new MailMessage
-                {
-                    From = new MailAddress("dineshhashan001@gmail.com"),
-                    Subject = "Email Verification",
-                    Body = $"Click the link to verify your account: {verificationLink}",
-                    IsBodyHtml = true,
-                };
+            using var smtp = new SmtpClient();
+            smtp.Connect(_configuration.GetSection("EmailHost").Value,587,SecureSocketOptions.StartTls);
+            smtp.Authenticate(_configuration.GetSection("EmailUserName").Value, _configuration.GetSection("EmailPassword").Value);
+            smtp.Send(emails);
+            smtp.Disconnect(true);
 
-                mailMessage.To.Add(email);
 
-                await smtpClient.SendMailAsync(mailMessage);
 
-            }
         }
 
 

@@ -14,13 +14,15 @@ namespace Nobeless.api.Controllers
     {
 
         private readonly NobelessDbContext _dbContext;
-        private readonly EmailService _emailService;
+        private readonly IEmailService _emailService;
 
-        public UserController(NobelessDbContext dbContext,EmailService emailService)
+        public UserController(NobelessDbContext dbContext,IEmailService emailService)
         {
             this._dbContext = dbContext;
             this._emailService = emailService;
         }
+
+        //-----------------------------------------------user register----------------------------------------------
 
         [HttpPost]
         [Route("/register")]
@@ -66,6 +68,7 @@ namespace Nobeless.api.Controllers
 
 
 
+        //--------------------------------------------------user verify-------------------------------------------------
         [HttpGet("/verify")]
         public async Task<IActionResult> VerifyAccount(Guid token)
         {
@@ -92,10 +95,33 @@ namespace Nobeless.api.Controllers
 
 
 
+       //--------------------------------------------------------User Login----------------------------------------------------
+        [HttpPost]
+        [Route("/login")]
+        public async Task<IActionResult> UserLogin([FromBody] UserLoginDtos userLogin)
+        {
+            var user = await _dbContext.users.FirstOrDefaultAsync(u => u.Email == userLogin.Email);
+            if (user == null)
+            {
+                return NotFound("User Not Founded");
+
+            }
+
+            bool isPasswordValid = BCrypt.Net.BCrypt.Verify(userLogin.Password, user.Password);
+
+            if (!isPasswordValid)
+            {
+                return Unauthorized("User password is not correct");
+
+            }
+
+            return Ok(new { Message = "Login successful", UserId = user.Id });
 
 
 
 
+         }
 
-    }
+
+     }
 }

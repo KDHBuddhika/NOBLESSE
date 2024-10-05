@@ -135,3 +135,7 @@ C:\Users\asus\Desktop\Nobeless\server-side\Nobeless\Nobeless.api\bin\Debug\net8.
 C:\Users\asus\Desktop\Nobeless\server-side\Nobeless\Nobeless.api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\asus\Desktop\Nobeless\server-side\Nobeless\Nobeless.api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\asus\Desktop\Nobeless\server-side\Nobeless\Nobeless.api\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\asus\Desktop\Nobeless\server-side\Nobeless\Nobeless.api\bin\Debug\net8.0\libman.json
+C:\Users\asus\Desktop\Nobeless\server-side\Nobeless\Nobeless.api\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\asus\Desktop\Nobeless\server-side\Nobeless\Nobeless.api\bin\Debug\net8.0\MailKit.dll
+C:\Users\asus\Desktop\Nobeless\server-side\Nobeless\Nobeless.api\bin\Debug\net8.0\MimeKit.dll
