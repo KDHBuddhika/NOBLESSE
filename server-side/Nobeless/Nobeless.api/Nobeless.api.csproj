@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
@@ -18,7 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Model\Dtos\ResponseDtos\" />
-    <Folder Include="Model\Dtos\RequestDtos\" />
     <Folder Include="Model\NewFolder1\" />
     <Folder Include="Model\NewFolder2\" />
     <Folder Include="Model\NewFolder\" />

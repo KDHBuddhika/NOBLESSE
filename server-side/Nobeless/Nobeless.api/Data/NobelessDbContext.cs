@@ -13,5 +13,7 @@ namespace Nobeless.api.Data
         public DbSet<User> users { get; set; }
         public DbSet<UserVarification> userVarifications { get; set; }
 
+        public DbSet<Product> products { get; set; }
+
     }
 }
