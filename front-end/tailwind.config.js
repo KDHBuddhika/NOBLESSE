@@ -1,5 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+<<<<<<< HEAD
+  content: [ "./src/**/*.{js,jsx,ts,tsx}",],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+=======
   content: ["./src/**/*.{html,js}"],
   theme: {
     screens: {
@@ -24,3 +33,4 @@ module.exports = {
   },
   plugins: [],
 }
+>>>>>>> main-prasad

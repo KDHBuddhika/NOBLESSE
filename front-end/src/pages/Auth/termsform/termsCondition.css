@@ -1,0 +1,99 @@
+/* Main container for the terms and conditions */
+* {
+    margin: 2px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+
+.main-container{
+    display: flex;
+  margin-top: 30px;
+  flex-direction: column;
+  width: 750px;
+  height: 950px;
+  align-items: center;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden; 
+}
+  
+.terms-container {
+    width: 550px;
+    height: 700px;
+    background-color: #ECECF1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.head{
+    background-color: #DDDDE6;
+    width: 550px;
+    margin-right: 50px;
+    height: 95px;
+    padding: 20px;
+}
+
+/* Scrollable content area */
+.terms-content {
+    overflow-y: auto;
+    max-height: 600px;
+    margin-bottom: 20px;
+    padding: 30px;
+}
+
+/* Title styles */
+h2 {
+    font-size: 20px;
+    color: #0C0F50;
+    margin-bottom: 10px;
+    margin-top: 1px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 16px;
+    color: #0C0F50;
+    margin-bottom: 8px;
+    font-weight: 600;
+
+}
+
+p, ul {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    font-weight: medium;
+}
+
+/* Button styles */
+
+.footer{
+    margin-left: 85px;
+    height: 70px;
+    margin-bottom: 5px;
+}
+
+.btn {
+    background-color: #fff;
+    color: #0C0F50;
+    padding: 12px;
+    border: 2px solid #0C0F50;
+    width: 330px;
+    font-size: 25;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0C0F50;
+    color: #fff;
+}
