@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nobeless.api.Data;
 
@@ -11,9 +12,11 @@ using Nobeless.api.Data;
 namespace Nobeless.api.Migrations
 {
     [DbContext(typeof(NobelessDbContext))]
-    partial class NobelessDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241006173149_sa")]
+    partial class sa
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,23 +25,6 @@ namespace Nobeless.api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Nobeless.api.Model.Domain.Categories", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("CategoriesName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("categories");
-                });
-
             modelBuilder.Entity("Nobeless.api.Model.Domain.Products", b =>
                 {
                     b.Property<int>("ProductId")
@@ -46,12 +32,6 @@ namespace Nobeless.api.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
-
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -64,9 +44,6 @@ namespace Nobeless.api.Migrations
                     b.Property<double>("StartingPrise")
                         .HasColumnType("float");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<bool>("is_approved")
                         .HasColumnType("bit");
 
@@ -75,10 +52,6 @@ namespace Nobeless.api.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductId");
-
-                    b.HasIndex("CategoriesId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("products");
                 });
@@ -135,25 +108,6 @@ namespace Nobeless.api.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("userVarifications");
-                });
-
-            modelBuilder.Entity("Nobeless.api.Model.Domain.Products", b =>
-                {
-                    b.HasOne("Nobeless.api.Model.Domain.Categories", "Categories")
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Nobeless.api.Model.Domain.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Categories");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Nobeless.api.Model.Domain.UserVarification", b =>

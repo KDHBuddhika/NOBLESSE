@@ -26,6 +26,21 @@ namespace Nobeless.api
             builder.Services.AddScoped<EmailService>();
             builder.Services.AddTransient<EmailService>();
 
+
+            //--------------------react enable-----------------
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowReactApp",
+                    builder => builder
+                        .WithOrigins("http://localhost:3000")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+            });
+
+            
+     
+
+
             builder.Services.AddControllers()
             .AddJsonOptions(options =>
             {
@@ -48,7 +63,7 @@ namespace Nobeless.api
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
+            app.UseCors("AllowReactApp");
 
             app.MapControllers();
 
