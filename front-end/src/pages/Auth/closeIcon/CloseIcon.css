@@ -1,0 +1,15 @@
+/* src/components/CloseIcon.css */
+.close-icon {
+    position: fixed;
+    right: 25px;
+    top: 20px;
+    font-size: 24px; /* Adjust font size for the icon */
+    color: #0C0F50; /* Adjust the color */
+    cursor: pointer;
+    user-select: none;
+    z-index: 1000;
+    max-height: 30px;
+    height: 30px;
+  }
+  
+ 
