@@ -1,113 +1,111 @@
 /* General container and typography settings */
 .privacy-container {
-  max-width: 2300px;
-  margin: 0 auto;
-  font-family: 'Montserrat', sans-serif;
-  color: #333;
+	max-width: 2300px;
+	margin: 0 auto;
+	font-family: "Montserrat", sans-serif;
+	color: #333;
 }
 
 .header-section {
-  text-align: center;
-  height: 600px;
-  position: relative;
-  padding: 80px 20px;
-  color: #fff;
-  z-index: 1; /* Ensure it's above other content */
+	text-align: center;
+	height: 600px;
+	position: relative;
+	padding: 80px 20px;
+	color: #fff;
+	z-index: 1; /* Ensure it's above other content */
 }
 
 .header-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('../../assets/images/privacy.png'); /* Correct path to the image */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: blur(00.2rem); /* Apply the blur effect */
-  z-index: -1; /* Position the blur behind the text */
-  opacity: 1.00; /* Optional: Adjust opacity if needed */
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image: url("../../assets/images/privacy.png"); /* Correct path to the image */
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	filter: blur(00.2rem); /* Apply the blur effect */
+	z-index: -1; /* Position the blur behind the text */
+	opacity: 1; /* Optional: Adjust opacity if needed */
 }
 
-
 .header-section h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-  position: relative;
-  z-index: 1;
-  margin-top: 30px ;
-  
+	font-size: 3rem;
+	margin-bottom: 10px;
+	position: relative;
+	z-index: 1;
+	margin-top: 30px;
 }
 
 .header-section h2 {
-  font-size: 20px;
-  font-weight: 500;
-  position: relative;
-  z-index: 1;
-  color: #fff;
+	font-size: 20px;
+	font-weight: 500;
+	position: relative;
+	z-index: 1;
+	color: #fff;
 }
 
 .privacy-content {
-  padding: 50px;
-  margin-top: 0px; /* Pull it up over the background */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 0; /* Make sure it's not covered */
-  position: relative;
-  
+	padding: 50px;
+	margin-top: 0px; /* Pull it up over the background */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	z-index: 0; /* Make sure it's not covered */
+	position: relative;
 }
 
-.intro{
-  margin-top: 20px;
+.intro {
+	margin-top: 20px;
 }
 
 .privacy-content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #0C0F50; /* Dark blue color for headings */
+	font-size: 1.5rem;
+	margin-bottom: 10px;
+	color: #0c0f50; /* Dark blue color for headings */
 }
 
 .privacy-content p {
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  color: #0C0F50;
+	font-size: 15px;
+	line-height: 1.6;
+	margin-bottom: 20px;
+	color: #0c0f50;
 }
 
 .privacy-content ul {
-  margin-bottom: 20px;
-  list-style-type: disc;
-  margin-left: 20px;
-  color: #0C0F50;
+	margin-bottom: 20px;
+	list-style-type: disc;
+	margin-left: 20px;
+	color: #0c0f50;
 }
 
 .privacy-content li {
-  margin-bottom: 10px;
-  color: #0C0F50;
+	margin-bottom: 10px;
+	color: #0c0f50;
 }
 
 /* Section spacing */
 .privacy-content section {
-  margin-bottom: 40px;
+	margin-bottom: 40px;
 }
 
 @media (max-width: 768px) {
-  .header-section h1 {
-      font-size: 2rem;
-  }
+	.header-section h1 {
+		font-size: 2rem;
+	}
 
-  .header-section h2 {
-      font-size: 1.2rem;
-  }
+	.header-section h2 {
+		font-size: 1.2rem;
+	}
 
-  .privacy-content {
-      padding: 15px;
-  }
+	.privacy-content {
+		padding: 15px;
+	}
 }
 
 /* Ensure no hidden content or overflow */
-body, html {
-  overflow: auto;
-  height: auto;
+body,
+html {
+	overflow: auto;
+	height: auto;
 }
