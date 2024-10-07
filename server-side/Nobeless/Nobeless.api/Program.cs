@@ -67,6 +67,8 @@ namespace Nobeless.api
 
             app.MapControllers();
 
+            app.UseStaticFiles();
+
             app.Run();
         }
     }

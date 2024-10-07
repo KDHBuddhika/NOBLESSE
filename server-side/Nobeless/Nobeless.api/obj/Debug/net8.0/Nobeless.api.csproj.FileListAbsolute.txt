@@ -139,3 +139,4 @@ C:\Users\asus\Desktop\Nobeless\server-side\Nobeless\Nobeless.api\bin\Debug\net8.
 C:\Users\asus\Desktop\Nobeless\server-side\Nobeless\Nobeless.api\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 C:\Users\asus\Desktop\Nobeless\server-side\Nobeless\Nobeless.api\bin\Debug\net8.0\MailKit.dll
 C:\Users\asus\Desktop\Nobeless\server-side\Nobeless\Nobeless.api\bin\Debug\net8.0\MimeKit.dll
+C:\Users\asus\Desktop\Nobeless\server-side\Nobeless\Nobeless.api\bin\Debug\net8.0\Nobeless.api.staticwebassets.runtime.json

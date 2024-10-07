@@ -7,6 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Model\NewFolder1\**" />
+    <Compile Remove="Model\NewFolder2\**" />
+    <Compile Remove="Model\NewFolder\**" />
+    <Content Remove="Model\NewFolder1\**" />
+    <Content Remove="Model\NewFolder2\**" />
+    <Content Remove="Model\NewFolder\**" />
+    <EmbeddedResource Remove="Model\NewFolder1\**" />
+    <EmbeddedResource Remove="Model\NewFolder2\**" />
+    <EmbeddedResource Remove="Model\NewFolder\**" />
+    <None Remove="Model\NewFolder1\**" />
+    <None Remove="Model\NewFolder2\**" />
+    <None Remove="Model\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="MailKit" Version="4.8.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
@@ -20,9 +35,7 @@
 
   <ItemGroup>
     <Folder Include="Model\Dtos\ResponseDtos\" />
-    <Folder Include="Model\NewFolder1\" />
-    <Folder Include="Model\NewFolder2\" />
-    <Folder Include="Model\NewFolder\" />
+    <Folder Include="Service\IMPL\" />
     <Folder Include="Uploads\" />
   </ItemGroup>
 
