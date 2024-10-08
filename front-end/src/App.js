@@ -1,8 +1,8 @@
 import React from 'react';
-import AuctionPage from './AuctionPage'; 
-import PlaceABid from './PlaceABid';
-import HowItWork from './HowItWork';
-import AboutUs from './AboutUs';
+import AuctionPage from './pages/Auction/AuctionPage'; 
+import PlaceABid from './pages/PlaceABid/PlaceABid';
+import HowItWork from './pages/HowItWork/HowItWork';
+import AboutUs from './pages/AboutUs/AboutUs';
 
 function App() {
   return (
@@ -12,8 +12,6 @@ function App() {
       <PlaceABid />
       <HowItWork />
       
-
-
     </div>
   );
 }
