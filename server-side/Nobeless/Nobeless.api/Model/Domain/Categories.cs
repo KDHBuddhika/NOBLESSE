@@ -11,5 +11,7 @@ namespace Nobeless.api.Model.Domain
         public int Id { get; set; }
 
         public String CategoriesName { get; set; }
+
+        public ICollection<Products> Products { get; set; }
     }
 }

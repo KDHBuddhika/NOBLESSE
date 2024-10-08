@@ -20,9 +20,9 @@ namespace Nobeless.api.Model.Domain
         public Guid UserId { get; set; }
 
         public int CategoryId { get; set; }
-
+        [ForeignKey("User")]
         public User User { get; set; }
-
+        [ForeignKey("Category")]
         public Categories Categories { get; set; }
 
      

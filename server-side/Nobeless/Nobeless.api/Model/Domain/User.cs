@@ -15,5 +15,6 @@ namespace Nobeless.api.Model.Domain
 
         public bool isVerified { get; set; }
 
+        public ICollection<Products> Products { get; set; }
     }
 }
