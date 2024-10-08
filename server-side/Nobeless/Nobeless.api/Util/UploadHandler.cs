@@ -3,32 +3,48 @@
     public class UploadHandler
     {
 
+        private readonly string _uploadPath;
+
+        public UploadHandler()
+        {
+            _uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+
+            // Ensure the upload directory exists
+            if (!Directory.Exists(_uploadPath))
+            {
+                Directory.CreateDirectory(_uploadPath);
+            }
+        }
+
         public string Upload(IFormFile file)
         {
-            //extention
-            List<string> validExtention = new List<string>() { ".jpg",".jpge",".png",".gif"};
-
-            string extention = Path.GetExtension(file.FileName);
-            if (!validExtention.Contains(extention))
+            // Validate extension
+            List<string> validExtensions = new List<string> { ".jpg", ".jpeg", ".png", ".gif" };
+            string extension = Path.GetExtension(file.FileName).ToLowerInvariant();
+            if (!validExtensions.Contains(extension))
             {
-                return $"extention is not validExtention({string.Join(',',validExtention)})";
+                throw new InvalidOperationException($"Invalid file extension. Allowed extensions are: {string.Join(", ", validExtensions)}");
             }
 
-            //file size 
-            long size = file.Length;
-            if (size > (10*1024*1024)) {
-                return "maximum size can be 10MB";
+            // Validate file size (max 10MB)
+            const long maxSize = 10 * 1024 * 1024; // 10MB
+            if (file.Length > maxSize)
+            {
+                throw new InvalidOperationException("File size exceeds the 10MB limit.");
             }
 
-            //name changing
-            string fileName = Guid.NewGuid().ToString() + extention;
-            string path = Path.Combine(Directory.GetCurrentDirectory(),"Uploads");
+            // Generate a unique file name
+            string fileName = $"{Guid.NewGuid()}{extension}";
+            string filePath = Path.Combine(_uploadPath, fileName);
 
-            using FileStream stream = new FileStream(path + fileName, FileMode.Create);
-            file.CopyTo(stream);
+            // Save the file
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
 
-
-            return fileName ;
+            // Return the relative path or URL as needed
+            return fileName; // Adjust this based on how you serve the uploaded files
         }
     }
 }

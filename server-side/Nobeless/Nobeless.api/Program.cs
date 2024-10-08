@@ -22,6 +22,12 @@ namespace Nobeless.api
             builder.Services.AddSwaggerGen();
             builder.Services.AddScoped<IEmailService, EmailService>();
 
+            builder.Services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+                options.JsonSerializerOptions.WriteIndented = true; // Optional for readability
+            });
+
 
             builder.Services.AddScoped<EmailService>();
             builder.Services.AddTransient<EmailService>();
@@ -50,6 +56,8 @@ namespace Nobeless.api
             builder.Services.AddDbContext<NobelessDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("NobelessConnectionString")
             ));
+
+            builder.Services.AddTransient<UploadHandler>();
 
             var app = builder.Build();
 

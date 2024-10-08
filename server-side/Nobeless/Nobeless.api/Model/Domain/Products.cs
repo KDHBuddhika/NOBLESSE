@@ -17,15 +17,15 @@ namespace Nobeless.api.Model.Domain
 
         public string thumbnailImage { get; set; }
 
+
+
         public Guid UserId { get; set; }
-
-        public int CategoryId { get; set; }
-        [ForeignKey("User")]
         public User User { get; set; }
-        [ForeignKey("Category")]
-        public Categories Categories { get; set; }
 
-     
+        public Guid CategoryId { get; set; }
+        public Categories Category { get; set; }
+
+
 
 
 
