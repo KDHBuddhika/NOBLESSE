@@ -22,7 +22,7 @@ namespace Nobeless.api.Controllers
 
         [HttpPost]
         [Route("/addCategory")]
-        public async Task<IActionResult> Addcategory(String category)
+        public async Task<IActionResult> Addcategory(string category)
         {
             var existingCategory = await _context.categories.FirstOrDefaultAsync( c => c.CategoriesName == category);
 

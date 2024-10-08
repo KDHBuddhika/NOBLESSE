@@ -31,6 +31,9 @@ namespace Nobeless.api.Controllers
         [Route("/addproduct")]
         public async Task<IActionResult> AddProduct([FromForm] ProductDtos productDto)
         {
+
+
+
             // Check if image is uploaded
             if (productDto.thumbnailImage == null || productDto.thumbnailImage.Length == 0)
             {
@@ -43,11 +46,21 @@ namespace Nobeless.api.Controllers
                 return BadRequest("Invalid Category ID. Category does not exist.");
             }
 
+
+            var userExists = await _dbContext.users.FindAsync(productDto.UserId);
+            if (userExists == null)
+            {
+                return BadRequest("Invalid User ID. User does not exist.");
+            }
+
+
+
+
             string imageUrl = _uploadHandler.Upload(productDto.thumbnailImage);
-
-            
-
-           
+            if (imageUrl.StartsWith("extension is not valid") || imageUrl.StartsWith("maximum size"))
+            {
+                return BadRequest(imageUrl);
+            }
 
             // Create a new Product object to save in the database
             var product = new Products
@@ -55,7 +68,7 @@ namespace Nobeless.api.Controllers
                 Name = productDto.Name,
                 Description = productDto.Description,
                 StartingPrise = productDto.StartingPrise,
-                thumbnailImage = imageUrl,  // Save the image URL as a string
+                thumbnailImage =imageUrl,  // Save the image URL as a string
                 UserId = productDto.UserId,
                 CategoryId = productDto.CategoryId,
                 is_approved = false  // Assume product is available by default
