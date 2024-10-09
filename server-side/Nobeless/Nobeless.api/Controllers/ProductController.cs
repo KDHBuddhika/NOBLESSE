@@ -2,10 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Nobeless.api.Data;
+using Nobeless.api.Exceptions;
 using Nobeless.api.Model.Domain;
 using Nobeless.api.Model.Dtos.RequestDtos;
+using Nobeless.api.Service;
 using Nobeless.api.Util;
 using System.Numerics;
+using InvalidOperationException = Nobeless.api.Exceptions.InvalidOperationException;
 
 namespace Nobeless.api.Controllers
 {
@@ -16,95 +19,119 @@ namespace Nobeless.api.Controllers
 
         private readonly NobelessDbContext _dbContext;
         private readonly UploadHandler _uploadHandler;
+        private readonly ProductService _productService;
 
-        public ProductController(NobelessDbContext nobelessDbContext , UploadHandler uploadHandler)
+        public ProductController(NobelessDbContext nobelessDbContext , UploadHandler uploadHandler,ProductService productService)
         {
             this._dbContext = nobelessDbContext;
             this._uploadHandler = uploadHandler;
+            this._productService = productService;
 
         }
 
 
 
+
+        // -------------------------- Add Product ---------------------------------------
 
         [HttpPost]
         [Route("/addproduct")]
         public async Task<IActionResult> AddProduct([FromForm] ProductDtos productDto)
         {
-
-
-
-            // Check if image is uploaded
-            if (productDto.thumbnailImage == null || productDto.thumbnailImage.Length == 0)
+            try
             {
-                return BadRequest("Image is required.");
+                String status = await _productService.AddProduct(productDto);
+                return Ok(status);
+            }
+            catch (InvalidOperationException ex) {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch(BadRequestException ex) {
+                return BadRequest(new { message = ex.Message });
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An unexpected error occurred.", details = ex.Message });
             }
 
-            var categoryExists = await _dbContext.categories.FindAsync(productDto.CategoryId);
-            if (categoryExists == null)
-            {
-                return BadRequest("Invalid Category ID. Category does not exist.");
-            }
-
-
-            var userExists = await _dbContext.users.FindAsync(productDto.UserId);
-            if (userExists == null)
-            {
-                return BadRequest("Invalid User ID. User does not exist.");
-            }
-
-
-
-
-            string imageUrl = _uploadHandler.Upload(productDto.thumbnailImage);
-            if (imageUrl.StartsWith("extension is not valid") || imageUrl.StartsWith("maximum size"))
-            {
-                return BadRequest(imageUrl);
-            }
-
-            // Create a new Product object to save in the database
-            var product = new Products
-            {
-                Name = productDto.Name,
-                Description = productDto.Description,
-                StartingPrise = productDto.StartingPrise,
-                thumbnailImage =imageUrl,  // Save the image URL as a string
-                UserId = productDto.UserId,
-                CategoryId = productDto.CategoryId,
-                is_approved = false  // Assume product is available by default
-            };
-
-            // Save the product to the database
-            await _dbContext.products.AddAsync(product);
-            await _dbContext.SaveChangesAsync();
-
-            return Ok(product);
         }
 
 
+        // ------------------------Get Product By User Id --------------------------------------
+
+        [HttpGet]
+        [Route("/getProductsByUserId/{id}")]
+        public async Task<IActionResult> getProductByUserId(Guid id)
+        {
+
+            try
+            {
+                var products = await _productService.GetProductsByUserIdAsyn(id);
+                return Ok(products);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An unexpected error occurred.");
+            }
+        }
+
+
+
+
+        //----------------------Get product By Product Id------------------------------------
 
 
         [HttpGet]
-        [Route("/getProduct/{id}")]
-        public async Task<IActionResult> getProduct(String id)
+        [Route("/getProductsByProductId/{id}")]
+        public async Task<IActionResult> GetProductById(int productId)
         {
-            Guid productId = Guid.Parse(id);
-
-            var product = await _dbContext.products.FindAsync(productId);
-
-            if (product == null)
+            try
             {
-                return NotFound("not founded");
+                var product = await _productService.GetProductByIdAsync(productId);
+                return Ok(product);
             }
+            catch (NotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An unexpected error occurred.");
+            }
+        }
 
 
-            return Ok(product);
 
+        //----------------Product Delete by product id--------------------------
 
+        [HttpDelete]
+        [Route("/deleteProduct/{id}")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            try
+            {
+                await _productService.DeleteProductByIdAsync(id);
+                return NoContent(); // Returns a 204 No Content response
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An unexpected error occurred.");
+            }
 
 
         }
 
+
+        //----------------------product Updated----------------------
 
 
         [HttpPut]
@@ -136,27 +163,10 @@ namespace Nobeless.api.Controllers
 
         }
 
-        [HttpDelete]
-        [Route("/deleteProduct/{id}")]
-        public async Task<IActionResult> DeleteProduct(String id)
-        {
 
 
-            Guid productId = Guid.Parse(id);
-            var product = await _dbContext.products.FindAsync(productId);
-            if (product == null)
-            {
-                return NotFound();
-            }
 
-
-            _dbContext.products.Remove(product);
-
-            await _dbContext.SaveChangesAsync();
-
-
-            return Ok();
-        }
+        
 
 
 

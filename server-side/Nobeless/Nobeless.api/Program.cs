@@ -1,6 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
 using Nobeless.api.Data;
+using Nobeless.api.Service;
+using Nobeless.api.Service.IMPL;
 using Nobeless.api.Util;
 using System.Text.Json.Serialization;
 
@@ -20,7 +22,9 @@ namespace Nobeless.api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
             builder.Services.AddScoped<IEmailService, EmailService>();
+            builder.Services.AddScoped<ProductService,ProductServiceIMPL>();
 
             builder.Services.AddControllers().AddJsonOptions(options =>
             {
