@@ -1,37 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply font-Roboto -tracking-wide bg-white;
-  }
+	body {
+		@apply font-Roboto -tracking-wide bg-white;
+	}
 
-  html {
-    scroll-behavior: smooth;
-  }
+	html {
+		scroll-behavior: smooth;
+	}
 }
 
 @layer components {
-  section {
-    @apply py-0 md:py-0;
-  }
+	section {
+		@apply py-0 md:py-0;
+	}
 
-  h1, h3 {
-    @apply text-white text-center relative z-10 max-w-[80%] mx-auto;
-  }
+	h1,
+	h3 {
+		@apply text-white text-center relative z-10 max-w-[80%] mx-auto;
+	}
 
-  h1 {
-    @apply text-3xl md:text-5xl font-bold mb-4;
-  }
+	h1 {
+		@apply text-3xl md:text-5xl font-bold mb-4;
+	}
 
-  h3 {
-    @apply text-xl md:text-2xl font-normal;
-  }
+	h3 {
+		@apply text-xl md:text-2xl font-normal;
+	}
 
-  /* .nav-link {
+	/* .nav-link {
     @apply text-lg font-bold duration-300;
   }
 
@@ -39,14 +40,14 @@
     @apply text-blue-400;
   } */
 
-  .description {
-    @apply text-lg leading-relaxed text-black mt-10 mx-auto;
-  }
+	.description {
+		@apply text-lg leading-relaxed text-black mt-10 mx-auto;
+	}
 }
 
 @layer utilities {
-  /* Additional utilities */
-  .bg-black-opacity {
-    background-color: rgba(0, 0, 0, 0.5); /* Used for the text overlay */
-  }
+	/* Additional utilities */
+	.bg-black-opacity {
+		background-color: rgba(0, 0, 0, 0.5); /* Used for the text overlay */
+	}
 }
