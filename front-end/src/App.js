@@ -10,6 +10,9 @@ import TermsCondition from './pages/Auth/termsform/termsCondition';
 import PrivacyPolicyContent from './pages/Privacy&Policy/privacy'; 
 import YourInfo from './pages/UserProfile/YourInfo/Infoform/Info'; 
 import Delete from './pages/UserProfile/YourInfo/DeleteAcc/Modal'; 
+import Bids from './pages/UserProfile/yourBids/bidsmain/main'; 
+import Openauc from './pages/UserProfile/yourBids/OpenAuc/open'; 
+
 
 
 
@@ -28,8 +31,11 @@ function App() {
         <Route path="/Privacy&Policy" element={<PrivacyPolicyContent />} />
         <Route path="/Infoform" element={<YourInfo />} />
         <Route path="/DeleteAcc" element={<Delete />} />
+        <Route path="/bidsmain" element={<Bids />} />
+        <Route path="/OpenAuc" element={<Openauc/>} />
+
         
-        <Route path="*" element={<Navigate to="/Infoform" />} />
+        <Route path="*" element={<Navigate to="/OpenAuc" />} />
       </Routes>
     </Router>
   );
