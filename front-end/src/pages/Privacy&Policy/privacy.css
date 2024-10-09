@@ -7,6 +7,7 @@
 }
 
 .header-section {
+
 	text-align: center;
 	height: 600px;
 	position: relative;
@@ -29,6 +30,7 @@
 	filter: blur(00.2rem); /* Apply the blur effect */
 	z-index: -1; /* Position the blur behind the text */
 	opacity: 1; /* Optional: Adjust opacity if needed */
+
 }
 
 .header-section h1 {
@@ -60,9 +62,11 @@
 }
 
 .privacy-content h3 {
+
 	font-size: 1.5rem;
 	margin-bottom: 10px;
 	color: #0c0f50; /* Dark blue color for headings */
+
 }
 
 .privacy-content p {
