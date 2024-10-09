@@ -1,0 +1,37 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\wwwroot\\images\\1f37f504-449d-4dc9-a007-847fe9d26e3f.jpg",
+      "PackagePath": "staticwebassets\\images\\1f37f504-449d-4dc9-a007-847fe9d26e3f.jpg"
+    },
+    {
+      "Id": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\wwwroot\\images\\3347a170-11f2-45d2-980c-7915d5b4679e.jpeg",
+      "PackagePath": "staticwebassets\\images\\3347a170-11f2-45d2-980c-7915d5b4679e.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\wwwroot\\images\\4a3308ef-9f07-4c66-9337-0da4b2e3f743.jpeg",
+      "PackagePath": "staticwebassets\\images\\4a3308ef-9f07-4c66-9337-0da4b2e3f743.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\wwwroot\\images\\dd57adee-e6be-4562-9520-e533beae3575.webp",
+      "PackagePath": "staticwebassets\\images\\dd57adee-e6be-4562-9520-e533beae3575.webp"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Nobeless.api.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Nobeless.api.props",
+      "PackagePath": "build\\Nobeless.api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Nobeless.api.props",
+      "PackagePath": "buildMultiTargeting\\Nobeless.api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Nobeless.api.props",
+      "PackagePath": "buildTransitive\\Nobeless.api.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
