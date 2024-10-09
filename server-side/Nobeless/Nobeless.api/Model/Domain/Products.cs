@@ -25,6 +25,8 @@ namespace Nobeless.api.Model.Domain
         public Guid CategoryId { get; set; }
         public Categories Category { get; set; }
 
+        public Auction? Auctions { get; set; }
+
 
 
 

@@ -23,6 +23,7 @@ namespace Nobeless.api.Service.IMPL
 
 
 
+        // ----------------------- Add product --------------------------------
 
         public async Task<string> AddProduct(ProductDtos productDto)
         {
@@ -77,7 +78,7 @@ namespace Nobeless.api.Service.IMPL
 
 
 
-
+        //-----------------------------get product by userid-------------------------------------------------
         public async Task<List<Products>> GetProductsByUserIdAsyn(Guid id)
         {
             var products = await _dbContext.products
@@ -95,7 +96,7 @@ namespace Nobeless.api.Service.IMPL
 
 
 
-
+        //----------------------get product by product id---------------------------------
         public async Task<Products> GetProductByIdAsync(int productId)
         {
             var product = await _dbContext.products
@@ -112,7 +113,7 @@ namespace Nobeless.api.Service.IMPL
 
 
 
-
+        //------------------- delete product ----------------------------------------------
 
         public async Task DeleteProductByIdAsync(int productId)
         {
@@ -128,5 +129,21 @@ namespace Nobeless.api.Service.IMPL
         }
 
 
+
+        //-------------------------- approved product ---------------------------------------
+        public async Task ApproveProductAsync(int productId)
+        {
+            var product = await _dbContext.products.FindAsync(productId);
+
+            if (product == null)
+            {
+                throw new NotFoundException($"Product with ID {productId} not found.");
+            }
+
+            product.is_approved = true; // Set is_approved to true
+
+            _dbContext.products.Update(product);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }
