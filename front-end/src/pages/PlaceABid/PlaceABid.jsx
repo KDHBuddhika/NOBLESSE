@@ -1,4 +1,5 @@
 import React from 'react';
+import imagepb from '../../assets/bracelet-1.jpg';
 
 
 const PlaceABid = () => {
@@ -9,7 +10,7 @@ const PlaceABid = () => {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('assets/bracelet 1.jpg')" }}
+          style={{ backgroundImage: `url(${imagepb})` }}
         ></div>
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
@@ -27,32 +28,39 @@ const PlaceABid = () => {
         </div>
       </div>
 
-      {/* Recent Bids Section */}
+
       <div className="bg-[#0e151f] py-8 lg:py-16 px-4 lg:px-32 text-center">
         <h2 className="text-3xl lg:text-4xl font-bold text-white mb-12 text-shadow-md">
           Recent Bids
         </h2>
-        <div className="recent-bids">
+        <div className="recent-bids text-center">
+
           <div className="text-2xl text-white">
             $2750 <span className="text-sm text-gray-400">1hr ago</span>
           </div>
           <hr className="w-52 border-gray-300 my-6" />
+  
+
           <div className="text-2xl text-white">
             $2730 <span className="text-sm text-gray-400">1hr ago</span>
           </div>
-          <hr className="w-full border-gray-300 my-6" />
+          <hr className="w-52 border-gray-300 my-6" />
+
           <div className="text-2xl text-white">
             $2700 <span className="text-sm text-gray-400">1hr ago</span>
           </div>
-          <hr className="w-full border-gray-300 my-6" />
+          <hr className="w-52 border-gray-300 my-6" />
+
           <div className="text-2xl text-white">
             $2690 <span className="text-sm text-gray-400">1hr ago</span>
           </div>
-          <hr className="w-full border-gray-300 my-6" />
+          <hr className="w-52 border-gray-300 my-6" />
+
           <div className="text-2xl text-white">
             $2670 <span className="text-sm text-gray-400">1hr ago</span>
           </div>
-          <hr className="w-full border-gray-300 my-6 mb-32" />
+          <hr className="w-52 border-gray-300 my-6 mb-32" />
+
         </div>
 
         {/* Bid Stats */}

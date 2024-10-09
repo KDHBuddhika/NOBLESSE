@@ -10,7 +10,7 @@ const AboutUs = () => {
     return (
         <main className="pt-12 bg-red-600">
 
-            {/* About Us Section */}
+            
             <section id="aboutus" className="flex flex-col">
                 <div
                     className="relative w-full"
@@ -29,9 +29,9 @@ const AboutUs = () => {
                     </div>
                 </div>
 
-                {/* Description Section */}
+                
                 <div className="py-12 px-4 md:px-20 text-center">
-                    <p className="max-w-3xl mx-auto text-lg text-gray-700">
+                    <p className="max-w-2xl mx-auto text-lg text-gray-700">
                         Established on May 15, 2015, Noblesse has become a premier auction house
                         specializing in jewelry, watches, antiques, art, and celebrity items. Offering
                         exclusive access to rare and luxurious collectibles, Noblesse connects buyers and
@@ -44,7 +44,7 @@ const AboutUs = () => {
                 </div>
             </section>
 
-            {/* Mission Section */}
+   
             <section className="flex flex-col lg:flex-row items-center py-12 px-4 lg:px-20">
                 <div className="lg:w-1/2 mb-8 lg:mb-0">
                     <h1 className="text-4xl font-bold text-black mb-6">Our Mission</h1>
@@ -53,6 +53,9 @@ const AboutUs = () => {
                         watches, antiques, art, and celebrity items, offering collectors and enthusiasts the
                         thrill of competitive bidding and the chance to uncover rare and extraordinary treasures.
                     </p>
+
+                    <hr className="my-8 border-gray-300 w-full" />
+                    
                     <div className="flex items-center">
                         <h2 className="text-6xl font-bold text-red-600">20</h2>
                         <div className="ml-6">
@@ -81,6 +84,9 @@ const AboutUs = () => {
                             { name: "Siriyalathaa", role: "Sales Representative", img: image4 },
                             { name: "Somapala", role: "Bid Spotter", img: image5 },
                             { name: "Asilin", role: "Marketing Specialist", img: image6 },
+                            { name: "Siriyalathaa", role: "Sales Representative", img: image4 },
+                            { name: "Somapala", role: "Bid Spotter", img: image5 },
+                            { name: "Asilin", role: "Marketing Specialist", img: image6 }
                         ].map((member, index) => (
                             <div key={index} className="min-w-[200px] bg-white shadow-lg rounded-lg overflow-hidden">
                                 <img src={member.img} alt={member.name} className="w-full h-48 object-cover" />

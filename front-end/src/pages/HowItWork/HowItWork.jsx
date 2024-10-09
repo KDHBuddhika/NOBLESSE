@@ -1,5 +1,5 @@
 import React from "react";
-
+import imageHIW from '../../assets/How-it-works.png';
 
 const HowItWork = () => {
   return (
@@ -11,7 +11,7 @@ const HowItWork = () => {
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: "url('assets/How it works.png')",
+              backgroundImage: `url(${imageHIW})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               filter: 'blur(8px)',
