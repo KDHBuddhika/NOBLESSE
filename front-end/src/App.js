@@ -8,6 +8,11 @@ import SignVerification from './pages/Auth/SignupVerify/SignVerification';
 import ChangePassword from './pages/Auth/Changepw/ChangePassword';
 import TermsCondition from './pages/Auth/termsform/termsCondition'; 
 import PrivacyPolicyContent from './pages/Privacy&Policy/privacy'; 
+import YourInfo from './pages/UserProfile/YourInfo/Infoform/Info'; 
+import Delete from './pages/UserProfile/YourInfo/DeleteAcc/Modal'; 
+
+
+
 
 function App() {
   return (
@@ -21,9 +26,10 @@ function App() {
         <Route path="/signin" element={<SignInForm />} />
         <Route path="/signup" element={<SignUpForm />} />
         <Route path="/Privacy&Policy" element={<PrivacyPolicyContent />} />
+        <Route path="/Infoform" element={<YourInfo />} />
+        <Route path="/DeleteAcc" element={<Delete />} />
         
-        {/* Catch-all route */}
-        <Route path="*" element={<Navigate to="/signin" />} />
+        <Route path="*" element={<Navigate to="/Infoform" />} />
       </Routes>
     </Router>
   );

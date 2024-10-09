@@ -1,0 +1,77 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: #CECFDC;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    height: 360px;
+    text-align: center;
+  }
+  
+ h2{
+  text-align: center;
+  margin-top: 20px;
+ }
+
+p{
+  color: #0C0F50;
+    font-size: 14px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+.send{
+  text-align: left;
+  margin-left: 10px;
+}
+  .code-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  .code-inputs input {
+    background-color: #fff;
+    border: 1px solid #0C0F50;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .delete-btn, .close-btn {
+    background-color: #ffff;
+    color: #0C0F50;
+    padding: 10px 20px;
+    border: none;
+    font-size: 25;
+    font-weight: bold;
+    border: 2px solid #0C0F50;
+    cursor: pointer;
+    margin: 5px;
+    width: 150px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .delete-btn:hover, .close-btn:hover {
+    background-color: #0C0F50;
+    color: #fff;
+  }

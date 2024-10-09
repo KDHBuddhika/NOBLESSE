@@ -1,0 +1,288 @@
+/* General styles */
+* {
+  margin: 2px;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+}
+
+.info-container{
+  width: 1400px;
+  padding: 20px;
+  
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #0C0F50;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 30px;
+  color: #0C0F50;
+  
+
+}
+
+.nimna {
+  margin: 0;
+  text-align: right;
+  color: #0C0F50;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.mail{
+  margin: 0;
+  text-align: right;
+  color: #0C0F50;
+  width: 100%;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.menu {
+  padding-left: 0;
+}
+
+.menu ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 40px;
+}
+
+.menu li {
+  margin: 10px 0;
+  cursor: pointer;
+  color: #0C0F50;
+  font-size: 12px;
+  font-weight: 600px;
+  margin-top: 25px;
+}
+
+.yi{
+  font-weight: 900;
+}
+
+.menu li:hover {
+  color: #000;
+}
+
+.menu li:nth-child(5) {
+  border-bottom: 1px solid #0C0F50;
+  padding-bottom: 25px;
+  width: 100px;
+}
+
+/*---------------------------------------------------------------------------------------------*/
+
+.details{
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin: 0 auto;
+  margin-left: 220px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-detail{
+  margin-top: -355px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 20px;
+  color: #0C0F50;
+  margin-bottom: 10px;
+  text-align: left;
+  margin-left: 22px;
+}
+
+.input-groups{
+  margin-bottom: 20px;
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.input-groups input {
+  background-color: #fff;
+  width: 430px;
+  height: 55px;
+  padding: 20px;
+  border-radius: 0px;
+  border: 0.5px solid #57554E;
+  font-size: 15px;
+  font-weight: Medium;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.savebtn {
+  background-color: #fff;
+  color: #0C0F50;
+  padding: 12px;
+  border: 2px solid #0C0F50;
+  width: 100px;
+  font-size: 25;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-right: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.savebtn:hover {
+  background-color: #0C0F50;
+  color: #fff;
+}
+
+.editbtn{
+  background-color: #fff;
+  color: #0C0F50;
+  padding: 12px;
+  border: 0.05px solid #57554E;
+  width: 100px;
+  height: 54px;
+  font-size: 25;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: -100px;
+  margin-top: -2px;
+}
+
+.savebtn2{
+  background-color: #fff;
+  color: #0C0F50;
+  padding: 12px;
+  border: 2px solid #0C0F50;
+  width: 100px;
+  font-size: 25;
+  height: 45px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-right: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.savebtn2:hover {
+  background-color: #0C0F50;
+  color: #fff;
+}
+
+.edit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.delete-account {
+  color: #0C0F50;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 12px;
+  font-weight: 900;
+  margin-left: 22px;
+}
+
+
+
+/*------------------Responsive styles------------------------*/
+
+/* Mobile view CSS */
+@media (max-width: 768px) {
+  .info-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .nimna, .mail {
+    font-size: 14px;
+  }
+
+  .menu {
+    margin: 20px 0;
+  }
+
+  .menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .menu li {
+    margin: 10px;
+    font-size: 14px;
+  }
+
+  .details {
+    margin-left: 0;
+    box-shadow: none;
+    margin-top: 20px;
+    padding: 15px;
+  }
+
+  .form-detail {
+    margin-top: 0;
+  }
+
+  section h2 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .input-groups input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 15px;
+  }
+
+  .savebtn, .editbtn, .savebtn2 {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .delete-account {
+    font-size: 14px;
+    text-align: center;
+  }
+}
