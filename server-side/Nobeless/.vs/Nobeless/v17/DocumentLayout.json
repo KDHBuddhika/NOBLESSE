@@ -3,16 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\service\\impl\\auctionserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\service\\impl\\auctionserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\service\\impl\\productserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\service\\impl\\productserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\data\\nobelessdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\data\\nobelessdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\controllers\\auctioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\controllers\\auctioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\service\\auctionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\service\\auctionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\model\\dtos\\responsedtos\\auctionproductdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\model\\dtos\\responsedtos\\auctionproductdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\model\\domain\\auction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\model\\domain\\auction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\model\\dtos\\requestdtos\\addauctiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\model\\dtos\\requestdtos\\addauctiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\model\\dtos\\requestdtos\\productdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\model\\dtos\\requestdtos\\productdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\model\\dtos\\requestdtos\\userlogindtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\model\\dtos\\requestdtos\\userlogindtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\model\\domain\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,44 +47,44 @@
       "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\util\\auctionstatuscheckerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\util\\auctionstatuscheckerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\model\\dtos\\requestdtos\\productdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\model\\dtos\\requestdtos\\productdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\service\\impl\\productserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\service\\impl\\productserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\exceptions\\invalidoperationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\exceptions\\invalidoperationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\model\\domain\\categories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\model\\domain\\categories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\exceptions\\badrequestexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\exceptions\\badrequestexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241009163547_updateforignkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Nobeless.api\\Migrations\\20241009163547_updateforignkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\exceptions\\alreadyexistsexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\exceptions\\alreadyexistsexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\model\\domain\\bid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\model\\domain\\bid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\util\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\util\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\model\\domain\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\model\\domain\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\util\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\util\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241009162920_add relationship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Nobeless.api\\Migrations\\20241009162920_add relationship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\data\\nobelessdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\data\\nobelessdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241009155051_Add bid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Nobeless.api\\Migrations\\20241009155051_Add bid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241009144805_Add-database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Nobeless.api\\Migrations\\20241009144805_Add-database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|c:\\users\\asus\\desktop\\nobeless\\server-side\\nobeless\\nobeless.api\\migrations\\20241008200112_database created.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEFDB566-AE62-442F-ADA2-9E1FBA2E9E75}|Nobeless.api\\Nobeless.api.csproj|solutionrelative:nobeless.api\\migrations\\20241008200112_database created.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241009144554_add auction 1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Nobeless.api\\Migrations\\20241009144554_add auction 1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,11 +94,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
+              "Title": "auctionproductDtos.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Dtos\\ResponseDtos\\auctionproductDtos.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Model\\Dtos\\ResponseDtos\\auctionproductDtos.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Dtos\\ResponseDtos\\auctionproductDtos.cs",
+              "RelativeToolTip": "Nobeless.api\\Model\\Dtos\\ResponseDtos\\auctionproductDtos.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T18:06:32.983Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserLoginDtos.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Dtos\\RequestDtos\\UserLoginDtos.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Model\\Dtos\\RequestDtos\\UserLoginDtos.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Dtos\\RequestDtos\\UserLoginDtos.cs",
+              "RelativeToolTip": "Nobeless.api\\Model\\Dtos\\RequestDtos\\UserLoginDtos.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T17:57:55.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AuctionStatusCheckerService.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Util\\AuctionStatusCheckerService.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Util\\AuctionStatusCheckerService.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Util\\AuctionStatusCheckerService.cs",
+              "RelativeToolTip": "Nobeless.api\\Util\\AuctionStatusCheckerService.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwBIAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T17:46:20.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ProductServiceIMPL.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Service\\IMPL\\ProductServiceIMPL.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Service\\IMPL\\ProductServiceIMPL.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Service\\IMPL\\ProductServiceIMPL.cs",
+              "RelativeToolTip": "Nobeless.api\\Service\\IMPL\\ProductServiceIMPL.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAA1wAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T17:25:06.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "ProductDtos.cs",
               "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Dtos\\RequestDtos\\ProductDtos.cs",
               "RelativeDocumentMoniker": "Nobeless.api\\Model\\Dtos\\RequestDtos\\ProductDtos.cs",
@@ -82,185 +158,216 @@
               "RelativeToolTip": "Nobeless.api\\Model\\Dtos\\RequestDtos\\ProductDtos.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T09:45:24.83Z",
+              "WhenOpened": "2024-10-09T17:25:03.932Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "BadRequestException.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Exceptions\\BadRequestException.cs",
-              "RelativeDocumentMoniker": "Nobeless.api\\Exceptions\\BadRequestException.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Exceptions\\BadRequestException.cs",
-              "RelativeToolTip": "Nobeless.api\\Exceptions\\BadRequestException.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAwAAAA",
+              "DocumentIndex": 6,
+              "Title": "AddAuctionDto.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Dtos\\RequestDtos\\AddAuctionDto.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Model\\Dtos\\RequestDtos\\AddAuctionDto.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Dtos\\RequestDtos\\AddAuctionDto.cs",
+              "RelativeToolTip": "Nobeless.api\\Model\\Dtos\\RequestDtos\\AddAuctionDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T09:22:52.667Z",
+              "WhenOpened": "2024-10-09T17:06:21.34Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "InvalidOperationException.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Exceptions\\InvalidOperationException.cs",
-              "RelativeDocumentMoniker": "Nobeless.api\\Exceptions\\InvalidOperationException.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Exceptions\\InvalidOperationException.cs",
-              "RelativeToolTip": "Nobeless.api\\Exceptions\\InvalidOperationException.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T09:16:13.507Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AlreadyExistsException.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Exceptions\\AlreadyExistsException.cs",
-              "RelativeDocumentMoniker": "Nobeless.api\\Exceptions\\AlreadyExistsException.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Exceptions\\AlreadyExistsException.cs",
-              "RelativeToolTip": "Nobeless.api\\Exceptions\\AlreadyExistsException.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAABzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T09:15:27.021Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "NotFoundException.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Exceptions\\NotFoundException.cs",
-              "RelativeDocumentMoniker": "Nobeless.api\\Exceptions\\NotFoundException.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Exceptions\\NotFoundException.cs",
-              "RelativeToolTip": "Nobeless.api\\Exceptions\\NotFoundException.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T09:10:23.167Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "EmailService.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Util\\EmailService.cs",
-              "RelativeDocumentMoniker": "Nobeless.api\\Util\\EmailService.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Util\\EmailService.cs",
-              "RelativeToolTip": "Nobeless.api\\Util\\EmailService.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T08:34:10.329Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "IEmailService.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Util\\IEmailService.cs",
-              "RelativeDocumentMoniker": "Nobeless.api\\Util\\IEmailService.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Util\\IEmailService.cs",
-              "RelativeToolTip": "Nobeless.api\\Util\\IEmailService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T08:34:04.604Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProductServiceIMPL.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Service\\IMPL\\ProductServiceIMPL.cs",
-              "RelativeDocumentMoniker": "Nobeless.api\\Service\\IMPL\\ProductServiceIMPL.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Service\\IMPL\\ProductServiceIMPL.cs",
-              "RelativeToolTip": "Nobeless.api\\Service\\IMPL\\ProductServiceIMPL.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAYwBkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T08:33:37.545Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProductService.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Service\\ProductService.cs",
-              "RelativeDocumentMoniker": "Nobeless.api\\Service\\ProductService.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Service\\ProductService.cs",
-              "RelativeToolTip": "Nobeless.api\\Service\\ProductService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T08:33:05.288Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Program.cs",
               "RelativeDocumentMoniker": "Nobeless.api\\Program.cs",
               "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Program.cs",
               "RelativeToolTip": "Nobeless.api\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAMAAAA",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAQwCYAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T20:09:32.806Z",
+              "WhenOpened": "2024-10-09T17:02:26.467Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "Nobeless.api\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "Nobeless.api\\Controllers\\ProductController.cs",
-              "ViewState": "AQIAAHkAAAAAAAAAAAAQwIUAAABFAAAA",
+              "Title": "AuctionServiceIMPL.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Service\\IMPL\\AuctionServiceIMPL.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Service\\IMPL\\AuctionServiceIMPL.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Service\\IMPL\\AuctionServiceIMPL.cs",
+              "RelativeToolTip": "Nobeless.api\\Service\\IMPL\\AuctionServiceIMPL.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADkAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T20:06:02.454Z",
+              "WhenOpened": "2024-10-09T17:02:14.902Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Products.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Domain\\Products.cs",
-              "RelativeDocumentMoniker": "Nobeless.api\\Model\\Domain\\Products.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Domain\\Products.cs",
-              "RelativeToolTip": "Nobeless.api\\Model\\Domain\\Products.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAASAAAA",
+              "Title": "AuctionService.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Service\\AuctionService.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Service\\AuctionService.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Service\\AuctionService.cs",
+              "RelativeToolTip": "Nobeless.api\\Service\\AuctionService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T20:05:59.342Z",
+              "WhenOpened": "2024-10-09T17:01:28.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuctionController.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Controllers\\AuctionController.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Controllers\\AuctionController.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Controllers\\AuctionController.cs",
+              "RelativeToolTip": "Nobeless.api\\Controllers\\AuctionController.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAuwC8AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T17:00:49.296Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "20241008200112_database created.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241008200112_database created.cs",
-              "RelativeDocumentMoniker": "Nobeless.api\\Migrations\\20241008200112_database created.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241008200112_database created.cs",
-              "RelativeToolTip": "Nobeless.api\\Migrations\\20241008200112_database created.cs",
+              "Title": "20241009163547_updateforignkey.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241009163547_updateforignkey.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Migrations\\20241009163547_updateforignkey.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241009163547_updateforignkey.cs",
+              "RelativeToolTip": "Nobeless.api\\Migrations\\20241009163547_updateforignkey.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAxwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T16:35:47.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "20241009162920_add relationship.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241009162920_add relationship.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Migrations\\20241009162920_add relationship.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241009162920_add relationship.cs",
+              "RelativeToolTip": "Nobeless.api\\Migrations\\20241009162920_add relationship.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T16:29:20.491Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "20241009155051_Add bid.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241009155051_Add bid.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Migrations\\20241009155051_Add bid.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241009155051_Add bid.cs",
+              "RelativeToolTip": "Nobeless.api\\Migrations\\20241009155051_Add bid.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T15:50:51.651Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "20241009144805_Add-database.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241009144805_Add-database.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Migrations\\20241009144805_Add-database.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241009144805_Add-database.cs",
+              "RelativeToolTip": "Nobeless.api\\Migrations\\20241009144805_Add-database.cs",
+              "ViewState": "AQIAAFUAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T14:48:05.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "20241009144554_add auction 1.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241009144554_add auction 1.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Migrations\\20241009144554_add auction 1.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Migrations\\20241009144554_add auction 1.cs",
+              "RelativeToolTip": "Nobeless.api\\Migrations\\20241009144554_add auction 1.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T20:01:12.567Z"
+              "WhenOpened": "2024-10-09T14:45:54.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Domain\\User.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Model\\Domain\\User.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Domain\\User.cs",
+              "RelativeToolTip": "Nobeless.api\\Model\\Domain\\User.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAUwBkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T14:45:18.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Bid.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Domain\\Bid.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Model\\Domain\\Bid.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Domain\\Bid.cs",
+              "RelativeToolTip": "Nobeless.api\\Model\\Domain\\Bid.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAA2wBcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T14:44:52.315Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Nobeless.api\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Nobeless.api\\Controllers\\UserController.cs",
+              "Title": "Categories.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Domain\\Categories.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Model\\Domain\\Categories.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Domain\\Categories.cs",
+              "RelativeToolTip": "Nobeless.api\\Model\\Domain\\Categories.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T20:00:47.24Z"
+              "WhenOpened": "2024-10-09T14:44:51.624Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 1,
               "Title": "NobelessDbContext.cs",
               "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Data\\NobelessDbContext.cs",
               "RelativeDocumentMoniker": "Nobeless.api\\Data\\NobelessDbContext.cs",
               "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Data\\NobelessDbContext.cs",
               "RelativeToolTip": "Nobeless.api\\Data\\NobelessDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAuwDgAAACQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T20:00:43.023Z"
+              "WhenOpened": "2024-10-09T14:38:43.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Products.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Domain\\Products.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Model\\Domain\\Products.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Domain\\Products.cs",
+              "RelativeToolTip": "Nobeless.api\\Model\\Domain\\Products.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAA7wB4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T14:36:26.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Auction.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Domain\\Auction.cs",
+              "RelativeDocumentMoniker": "Nobeless.api\\Model\\Domain\\Auction.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Model\\Domain\\Auction.cs",
+              "RelativeToolTip": "Nobeless.api\\Model\\Domain\\Auction.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAIwBYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T14:36:23.161Z",
+              "EditorCaption": ""
             }
           ]
         }

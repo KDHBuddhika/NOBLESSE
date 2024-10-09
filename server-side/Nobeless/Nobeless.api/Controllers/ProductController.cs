@@ -116,7 +116,7 @@ namespace Nobeless.api.Controllers
             try
             {
                 await _productService.DeleteProductByIdAsync(id);
-                return NoContent(); // Returns a 204 No Content response
+                return Ok("Delete Sucessfully"); 
             }
             catch (NotFoundException ex)
             {
@@ -164,9 +164,28 @@ namespace Nobeless.api.Controllers
         }
 
 
+        // ----------------------
 
 
-        
+        [HttpPut("ApproveProduct/{productId}")]
+        public async Task<IActionResult> ApproveProduct(int productId)
+        {
+            try
+            {
+                await _productService.ApproveProductAsync(productId);
+                return Ok(new { message = $"Product with ID {productId} has been approved." });
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An unexpected error occurred.");
+            }
+        }
+
+
 
 
 

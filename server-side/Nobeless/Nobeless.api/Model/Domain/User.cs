@@ -16,5 +16,10 @@ namespace Nobeless.api.Model.Domain
         public bool isVerified { get; set; }
 
         public ICollection<Products> Products { get; set; }
+
+        public List<Bid> Bids { get; } = [];
+        public List<Auction>? Auctions { get; set; } = [];
+
+
     }
 }

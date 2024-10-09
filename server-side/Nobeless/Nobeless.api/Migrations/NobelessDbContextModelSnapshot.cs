@@ -22,6 +22,70 @@ namespace Nobeless.api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Nobeless.api.Model.Domain.Auction", b =>
+                {
+                    b.Property<int>("AuctionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AuctionId"));
+
+                    b.Property<decimal>("CurrentHighestBid")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("AuctionId");
+
+                    b.HasIndex("ProductId")
+                        .IsUnique();
+
+                    b.ToTable("auctions");
+                });
+
+            modelBuilder.Entity("Nobeless.api.Model.Domain.Bid", b =>
+                {
+                    b.Property<int>("BidId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BidId"));
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("AuctionId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("BidTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("BidId");
+
+                    b.HasIndex("AuctionId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Bids");
+                });
+
             modelBuilder.Entity("Nobeless.api.Model.Domain.Categories", b =>
                 {
                     b.Property<Guid>("Id")
@@ -132,6 +196,36 @@ namespace Nobeless.api.Migrations
                     b.ToTable("userVarifications");
                 });
 
+            modelBuilder.Entity("Nobeless.api.Model.Domain.Auction", b =>
+                {
+                    b.HasOne("Nobeless.api.Model.Domain.Products", "Product")
+                        .WithOne("Auctions")
+                        .HasForeignKey("Nobeless.api.Model.Domain.Auction", "ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Nobeless.api.Model.Domain.Bid", b =>
+                {
+                    b.HasOne("Nobeless.api.Model.Domain.Auction", "Auction")
+                        .WithMany("Bids")
+                        .HasForeignKey("AuctionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Nobeless.api.Model.Domain.User", "User")
+                        .WithMany("Bids")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Auction");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Nobeless.api.Model.Domain.Products", b =>
                 {
                     b.HasOne("Nobeless.api.Model.Domain.Categories", "Category")
@@ -162,13 +256,25 @@ namespace Nobeless.api.Migrations
                     b.Navigation("user");
                 });
 
+            modelBuilder.Entity("Nobeless.api.Model.Domain.Auction", b =>
+                {
+                    b.Navigation("Bids");
+                });
+
             modelBuilder.Entity("Nobeless.api.Model.Domain.Categories", b =>
                 {
                     b.Navigation("Products");
                 });
 
+            modelBuilder.Entity("Nobeless.api.Model.Domain.Products", b =>
+                {
+                    b.Navigation("Auctions");
+                });
+
             modelBuilder.Entity("Nobeless.api.Model.Domain.User", b =>
                 {
+                    b.Navigation("Bids");
+
                     b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
