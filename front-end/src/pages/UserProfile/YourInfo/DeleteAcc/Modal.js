@@ -9,7 +9,7 @@ const Modal = ({ show, onClose }) => {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2>Delete My Account</h2>
+        <h2 className="my">Delete My Account</h2>
         <p>We have just sent a deletion code to your email.</p>
         <div className="code-inputs">
           {[...Array(5)].map((_, i) => (
