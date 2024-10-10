@@ -1,5 +1,6 @@
 import React from 'react';
 import imagepb from '../../assets/bracelet-1.jpg';
+import imagepb1 from '../../assets/bracelet-1-pic1.webp';
 
 
 const PlaceABid = () => {
@@ -29,43 +30,41 @@ const PlaceABid = () => {
       </div>
 
 
-      <div className="bg-[#0e151f] py-8 lg:py-16 px-4 lg:px-32 text-center">
+      <div className="bg-[#0e151f] py-8 lg:py-10 px-4 lg:px-32 flex flex-col items-center text-center">
         <h2 className="text-3xl lg:text-4xl font-bold text-white mb-12 text-shadow-md">
           Recent Bids
         </h2>
-        <div className="recent-bids text-center">
 
+        <div className="text-center w-52">
           <div className="text-2xl text-white">
             $2750 <span className="text-sm text-gray-400">1hr ago</span>
           </div>
-          <hr className="w-52 border-gray-300 my-6" />
-  
+          <hr className="w-full border-gray-300 my-3" />
 
           <div className="text-2xl text-white">
             $2730 <span className="text-sm text-gray-400">1hr ago</span>
           </div>
-          <hr className="w-52 border-gray-300 my-6" />
+          <hr className="w-full border-gray-300 my-3" />
 
           <div className="text-2xl text-white">
             $2700 <span className="text-sm text-gray-400">1hr ago</span>
           </div>
-          <hr className="w-52 border-gray-300 my-6" />
+          <hr className="w-full border-gray-300 my-3" />
 
           <div className="text-2xl text-white">
             $2690 <span className="text-sm text-gray-400">1hr ago</span>
           </div>
-          <hr className="w-52 border-gray-300 my-6" />
+          <hr className="w-full border-gray-300 my-3" />
 
           <div className="text-2xl text-white">
             $2670 <span className="text-sm text-gray-400">1hr ago</span>
           </div>
-          <hr className="w-52 border-gray-300 my-6 mb-32" />
-
+          <hr className="w-full border-gray-300 my-3 mb-32" />
         </div>
 
         {/* Bid Stats */}
-        <div className="bid-stats flex justify-between text-2xl text-white mt-4">
-          <div className="winning-bid">
+        <div className="bid-stats flex justify-between w-full lg:w-3/4 text-2xl text-white mt-4">
+          <div className="winning-bid text-left">
             Winning Bid: <span className="font-bold">$2750</span> USD
           </div>
           <div className="other-stats text-right">
@@ -80,23 +79,52 @@ const PlaceABid = () => {
       </div>
 
       {/* Bidding Form */}
-      <div className="half-bg">
-        <div className="form-container bg-gray-100 rounded-lg px-8 py-6 shadow-lg">
-          <div className="flex items-center space-x-4">
+      <div className="flex items-center justify-center bg-gray-100 py-48">
+        <div className="bg-white rounded-lg px-8 py-6 shadow-lg">
+          {/* Bidding Amount Section */}
+          <div className="flex items-center justify-center space-x-4">
             <button className="bg-gray-200 py-2 px-4 rounded-l-lg text-xl">$</button>
             <input
               type="number"
-              className="py-2 px-4 bg-white border border-gray-300 rounded-r-lg text-xl"
+              className="py-2 px-4 bg-white border border-gray-300 text-xl text-center"
               defaultValue="2760"
+              step="10"
             />
+            {/* Up and Down Arrows */}
+            <div className="flex flex-col">
+              <button className="bg-gray-300 py-1 px-2 rounded-t-md text-lg">▲</button>
+              <button className="bg-gray-300 py-1 px-2 rounded-b-md text-lg">▼</button>
+            </div>
           </div>
-          <button className="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-8 rounded-lg font-semibold">
+
+          {/* Place Bid Button */}
+          <button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white py-2 px-8 rounded-lg font-semibold w-full">
             Place Bid
           </button>
-          <p className="text-sm text-gray-500 mt-2">Bid Increment By: $10</p>
+
+          <p className="text-sm text-gray-500 mt-2 text-center">Bid Increment By: $10</p>
         </div>
       </div>
+      <section className="flex flex-col lg:flex-row items-center py-12 px-4 lg:px-20">
+                <div className="lg:w-1/2 mb-8 lg:mb-0">
+                    <h1 className="text-4xl font-bold text-black mb-6">Condition Report</h1>
+                    <p className="text-lg text-gray-700 mb-4">
+                    In good condition, with very minor wear and abrasions to the mounting. Stamped PT950/AU750 for platinum and 18 karat gold. The trapezoid-shaped diamonds, weighing a total of approximately 1.00 carat, are approximately G-H color, VS clarity. Accompanied by GIA report no. 5234356297 dated July 30, 2024 stating that the diamond is Natural, Fancy Intense Yellow color, SI2 clarity.
+                    </p>
+
+                    
+                </div>
+                <div className="lg:w-1/2 flex justify-center">
+                    <img
+                        src={imagepb1}
+                        alt="place bid"
+                        className="object-cover w-[80%] h-auto rounded-lg shadow-lg"
+                    />
+                </div>
+            </section>
+
     </div>
+    
   );
 };
 
