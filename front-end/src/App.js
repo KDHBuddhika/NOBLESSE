@@ -12,7 +12,8 @@ import AuctionListPage from './pages/Auction_List/AuctionListPage';
 import VerifyAccount from './pages/Auth/verifingAcc/VerifyAccount';
 import YourInfo from './pages/UserProfile/YourInfo/Infoform/Info'; 
 import Delete from './pages/UserProfile/YourInfo/DeleteAcc/Modal'; 
-
+import Bids from './pages/UserProfile/yourBids/bidsmain/main';
+import Openauc from './pages/UserProfile/yourBids/OpenAuc/open'; 
 import Layout from './pages/Components/Layout';
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         
         {/* Catch-all route */}
         <Route path="*" element={<Navigate to="/signin" />} />
+
       </Routes>
     </Router>
   );
