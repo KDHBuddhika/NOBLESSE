@@ -52,5 +52,8 @@ namespace Nobeless.api.Controllers
             return Ok(auctionProductDtos);
 
         }
+
+
+
     }
 }
