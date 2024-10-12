@@ -8,13 +8,13 @@ import SignVerification from './pages/Auth/SignupVerify/SignVerification';
 import ChangePassword from './pages/Auth/Changepw/ChangePassword';
 import TermsCondition from './pages/Auth/termsform/termsCondition'; 
 import PrivacyPolicyContent from './pages/Privacy&Policy/privacy'; 
+import AuctionListPage from './pages/Auction_List/AuctionListPage';
+import VerifyAccount from './pages/Auth/verifingAcc/VerifyAccount';
 import YourInfo from './pages/UserProfile/YourInfo/Infoform/Info'; 
 import Delete from './pages/UserProfile/YourInfo/DeleteAcc/Modal'; 
 import Bids from './pages/UserProfile/yourBids/bidsmain/main';
 import Openauc from './pages/UserProfile/yourBids/OpenAuc/open'; 
-
-
-
+import Layout from './pages/Components/Layout';
 
 function App() {
   return (
@@ -27,13 +27,24 @@ function App() {
         <Route path="/Changepw" element={<ChangePassword />} />
         <Route path="/signin" element={<SignInForm />} />
         <Route path="/signup" element={<SignUpForm />} />
-        <Route path="/Privacy&Policy" element={<PrivacyPolicyContent />} />
-        <Route path="/Infoform" element={<YourInfo />} />
-        <Route path="/DeleteAcc" element={<Delete />} />
-        <Route path="/bidsmain" element={<Bids />} />
-        <Route path="/OpenAuc" element={<Openauc />} />
+        {/* <Route path='/auctionList' element={<AuctionListPage/>} />
+        <Route path="/Privacy&Policy" element={<PrivacyPolicyContent />} /> */}
+       <Route exact path="/auctionList" element={<AuctionListPage />} />
+       <Route exact path="/Privacy&Policy" element={<PrivacyPolicyContent />} />
+
+       <Route path="/verifyAccount?token={token}" element={<VerifyAccount />} />
+
+       <Route path="/infoform" element={<YourInfo />} />
+       <Route path="/deleteAcc" element={<Delete />} />
+
+       <Route path="/navbar" element={<Layout />} />
+      
+
+
         
-        <Route path="*" element={<Navigate to="/OpenAuc" />} />
+        {/* Catch-all route */}
+        <Route path="*" element={<Navigate to="/signin" />} />
+
       </Routes>
     </Router>
   );

@@ -19,6 +19,23 @@ namespace Nobeless.api.Util
             _configuration = configuration;
         }
 
+        public async Task SendBidStateMassage(string email, string bidState)
+        {
+            string massage = bidState;
+            var emails = new MimeMessage();
+            emails.From.Add(MailboxAddress.Parse(_configuration.GetSection("EmailUserName").Value));
+            emails.To.Add(MailboxAddress.Parse(email));
+            emails.Subject = "Bidding State";
+            emails.Body = new TextPart(TextFormat.Plain) { Text = massage };
+
+
+            using var smtp = new SmtpClient();
+            smtp.Connect(_configuration.GetSection("EmailHost").Value, 587, SecureSocketOptions.StartTls);
+            smtp.Authenticate(_configuration.GetSection("EmailUserName").Value, _configuration.GetSection("EmailPassword").Value);
+            smtp.Send(emails);
+            smtp.Disconnect(true);
+        }
+
         public async Task SendVerificationEmail(string email, string verificationLink)
         {
             string link = $"Click the link to verify your account: {verificationLink}";
