@@ -17,6 +17,9 @@ namespace Nobeless.api.Controllers
             this._bidService = bidService;
         }
 
+
+        //  --------------------- add bid------------------------
+
         [HttpPost]
         [Route("/addBid")]
         public async Task<IActionResult> AddBid([FromBody] BidDtos bidDtos)
@@ -32,6 +35,44 @@ namespace Nobeless.api.Controllers
             }
 
         }
+
+
+
+        // --------------------------- get bids by auction id--------------------------------
+
+        [HttpGet]
+        [Route ("/getBid-by-AuctionId/{id}")]
+        public async Task<IActionResult> getBidsByAuctionId(int id)
+        {
+
+            try
+            {
+                var  bids = await _bidService.getBidsByAuctionId(id);
+                return Ok(bids);
+            }
+            catch (Exception ex) { 
+                
+              return BadRequest(ex);
+            
+            }
+
+            return null;
+        }
+
+
+
+
+
+        [HttpPost("process-auctions")]
+        public async Task<IActionResult> ProcessAuctions()
+        {
+            await _bidService.ProcessAuctionCompletion();
+            return Ok("Auctions processed successfully");
+        }
+
+
+
+
 
 
 

@@ -39,6 +39,11 @@ namespace Nobeless.api
             builder.Services.AddTransient<EmailService>();
             builder.Services.AddHostedService<AuctionStatusCheckerService>();
 
+          
+
+            // Register the hosted service
+            builder.Services.AddHostedService<AuctionCompletionHostedService>();
+
 
             //--------------------react enable-----------------
             builder.Services.AddCors(options =>
