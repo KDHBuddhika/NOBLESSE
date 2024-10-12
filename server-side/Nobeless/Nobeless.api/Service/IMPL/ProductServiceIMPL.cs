@@ -115,17 +115,45 @@ namespace Nobeless.api.Service.IMPL
 
         //------------------- delete product ----------------------------------------------
 
-        public async Task DeleteProductByIdAsync(int productId)
+        public async Task<bool> DeleteProductByIdAsync(int productId)
         {
-            var product = await _dbContext.products.FindAsync(productId);
-
-            if (product == null)
+            using var transaction = await _dbContext.Database.BeginTransactionAsync(); 
+            try
             {
-                throw new NotFoundException($"Product with ID {productId} not found.");
-            }
+               
+                var product = await _dbContext.products
+                    .Include(p => p.Auctions) 
+                    .FirstOrDefaultAsync(p => p.ProductId == productId);
 
-            _dbContext.products.Remove(product);
-            await _dbContext.SaveChangesAsync();
+                if (product == null)
+                {
+                    return false; 
+                }
+
+            
+                var auction = product.Auctions;
+
+                if (auction != null)
+                {
+                  
+                    var bids = await _dbContext.Bids.Where(b => b.AuctionId == auction.AuctionId).ToListAsync();
+                    _dbContext.Bids.RemoveRange(bids); 
+
+                    
+                    _dbContext.auctions.Remove(auction);
+                }
+
+                _dbContext.products.Remove(product);
+                await _dbContext.SaveChangesAsync(); 
+
+                await transaction.CommitAsync(); 
+                return true; 
+            }
+            catch (Exception)
+            {
+                await transaction.RollbackAsync(); 
+                throw; 
+            }
         }
 
 

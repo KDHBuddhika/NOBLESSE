@@ -115,16 +115,19 @@ namespace Nobeless.api.Controllers
         {
             try
             {
-                await _productService.DeleteProductByIdAsync(id);
-                return Ok("Delete Sucessfully"); 
-            }
-            catch (NotFoundException ex)
-            {
-                return NotFound(new { message = ex.Message });
+                var result = await _productService.DeleteProductByIdAsync(id);
+
+                if (!result)
+                {
+                    return NotFound("Product not found."); // Return 404 if product not found
+                }
+
+                return NoContent(); // Return 204 No Content on successful deletion
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "An unexpected error occurred.");
+                // Log the exception
+                return StatusCode(500, "Internal server error. Please try again later."); // Return 500
             }
 
 
