@@ -5,6 +5,7 @@ using Nobeless.api.Exceptions;
 using Nobeless.api.Model.Domain;
 using Nobeless.api.Model.Dtos.RequestDtos;
 using Nobeless.api.Model.Dtos.ResponseDtos;
+using Nobeless.api.Util;
 
 namespace Nobeless.api.Service.IMPL
 {
@@ -12,12 +13,12 @@ namespace Nobeless.api.Service.IMPL
     {
 
         private  readonly NobelessDbContext _DbContext;
-        private readonly IEmailSender _emailSender;
+        private readonly IEmailService _emailService;
 
-        public BidServiceIMPL(NobelessDbContext nobelessDbContext,IEmailSender emailSender)
+        public BidServiceIMPL(NobelessDbContext nobelessDbContext, IEmailService emailSender)
         {
              this._DbContext = nobelessDbContext;
-            this._emailSender = emailSender;
+            this._emailService = emailSender;
         }
         public async Task AddBid(BidDtos bidDtos)
         {
@@ -58,10 +59,7 @@ namespace Nobeless.api.Service.IMPL
             await _DbContext.SaveChangesAsync();
         }
 
-
-
-
-     
+    
 
         public async Task<List<BidResponseDtos>> getBidsByAuctionId(int id)
         {
@@ -110,7 +108,9 @@ namespace Nobeless.api.Service.IMPL
                     if (winnerEmail != null)
                     {
                         string winnerMessage = $"Congratulations! You have won the auction with Auction ID: {auction.AuctionId} for Product ID: {auction.ProductId}.";
-                        await _emailSender.SendBidStateMassage(winnerEmail, winnerMessage);
+                      
+                        await _emailService.SendBidStateMassage(winnerEmail, winnerMessage);
+                     
                     }
                 }
 
@@ -128,7 +128,7 @@ namespace Nobeless.api.Service.IMPL
                         if (loserEmail != null)
                         {
                             string loserMessage = $"Unfortunately, you did not win the auction with Auction ID: {auction.AuctionId} for Product ID: {auction.ProductId}.";
-                            await _emailSender.SendBidStateMassage(loserEmail, loserMessage);
+                            await _emailService.SendBidStateMassage(loserEmail, loserMessage);
                         }
                     }
                 }
@@ -139,6 +139,39 @@ namespace Nobeless.api.Service.IMPL
 
            
             await _DbContext.SaveChangesAsync();
+        }
+
+
+
+
+
+
+
+
+
+        public async Task<List<BidderItemDetailsDtos>> GetBidderItemsByUserId(Guid userId)
+        {
+            var bidderItems = await _DbContext.Bids
+            .Where(b => b.UserId == userId)
+            .Select(b => new BidderItemDetailsDtos
+            {
+                BidId = b.BidId,
+                BidAmount = b.Amount,
+                BidTime = b.BidTime,
+                BidStatus = b.State,
+                AuctionId = b.AuctionId,
+                StartTime = b.Auction.StartTime,
+                EndTime = b.Auction.EndTime,
+                CurrentHighestBid = b.Auction.CurrentHighestBid,
+                IsCompleted = b.Auction.IsCompleted,
+                ProductId = b.Auction.ProductId,
+                ProductName = b.Auction.Product.Name,
+                ProductDescription = b.Auction.Product.Description,
+                ThumbnailImage = b.Auction.Product.thumbnailImage
+            })
+            .ToListAsync();
+
+            return bidderItems;
         }
     }
 }

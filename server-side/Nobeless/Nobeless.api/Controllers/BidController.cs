@@ -61,13 +61,29 @@ namespace Nobeless.api.Controllers
 
 
 
+      //---------------------------------automatycally update bidding state-------------------------------
 
-
-        [HttpPost("process-auctions")]
+        [HttpPost("process-bid-state")]
         public async Task<IActionResult> ProcessAuctions()
         {
             await _bidService.ProcessAuctionCompletion();
             return Ok("Auctions processed successfully");
+        }
+
+
+
+        // -------------------------get bidder details by user id ---------------------------------------------
+
+        [HttpGet]
+        [Route("get-bidder-items/{userId}")]
+        public async Task<IActionResult> GetBidderItems(Guid userId)
+        {
+            var bidderItems = await _bidService.GetBidderItemsByUserId(userId);
+            if (bidderItems == null || !bidderItems.Any())
+            {
+                return NotFound(("No bidder items found for this user."));
+            }
+            return Ok(bidderItems);
         }
 
 
