@@ -10,10 +10,11 @@ import TermsCondition from './pages/Auth/termsform/termsCondition';
 import PrivacyPolicyContent from './pages/Privacy&Policy/privacy'; 
 import AuctionListPage from './pages/Auction_List/AuctionListPage';
 import VerifyAccount from './pages/Auth/verifingAcc/VerifyAccount';
-import YourInfo from './pages/UserProfile/YourInfo/Infoform/Info'; 
-import Delete from './pages/UserProfile/YourInfo/DeleteAcc/Modal'; 
+import HomePage from './pages/home/home';
+// import YourInfo from './pages/UserProfile/YourInfo/Infoform/Info'; 
+// import Delete from './pages/UserProfile/YourInfo/DeleteAcc/Modal'; 
 
-import Layout from './pages/Components/Layout';
+// import Layout from './pages/Components/Layout';
 
 function App() {
   return (
@@ -33,12 +34,12 @@ function App() {
 
        <Route path="/verifyAccount?token={token}" element={<VerifyAccount />} />
 
-       <Route path="/infoform" element={<YourInfo />} />
-       <Route path="/deleteAcc" element={<Delete />} />
+       {/* <Route path="/infoform" element={<YourInfo />} />
+       <Route path="/deleteAcc" element={<Delete />} /> */}
 
-       <Route path="/navbar" element={<Layout />} />
+       {/* <Route path="/navbar" element={<Layout />} /> */}
       
-
+       <Route path="/home" element={< HomePage/>} />
 
         
         {/* Catch-all route */}

@@ -39,6 +39,8 @@ function CustomDropdown({ options, selected, onSelect }) {
 }
 
 function SignUpForm() {
+    const [errorMessage, setErrorMessage] = useState('');
+
     const [selectedTitle, setSelectedTitle] = useState('Ms');
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [email, setEmail] = useState('');
@@ -66,14 +68,30 @@ function SignUpForm() {
         };
 
         try {
-            const response = await axios.post('https://localhost:7281/api/user/register', userRegisterDto);
+            const response = await axios.post('https://localhost:7281/register', userRegisterDto);
             console.log(response.data);
             if (response.status === 200) {
-                navigate('/SignupVerify');
+                navigate('/SignupVerify'); // Redirect user to the verification page
             }
         } catch (error) {
-            console.error('Error during registration:', error.response.data);
-            alert(error.response.data); // Show error message to the user
+            if (error.response) {
+                // Server responded with an error
+                console.error('Error during registration:', error.response.data);
+                if (error.response.status === 400) {
+                    // Display specific error like "Email is already registered"
+                    setErrorMessage(error.response.data);
+                } else {
+                    setErrorMessage('An error occurred during registration. Please try again later.');
+                }
+            } else if (error.request) {
+                // Request made but no response received
+                console.error('Error request:', error.request);
+                setErrorMessage('Unable to connect to the server. Please check your internet connection.');
+            } else {
+                // General error during setup
+                console.error('Error message:', error.message);
+                setErrorMessage('An unexpected error occurred. Please try again.');
+            }
         }
     };
 
@@ -87,6 +105,11 @@ function SignUpForm() {
             <Logo />
             <CloseIcon onClick={handleClose} className="custom-close-icon" />
             <div className="si-container">
+            {errorMessage && (
+                <div className="error-message">
+                    {errorMessage}
+                </div>
+            )}
                 <form className="form1" onSubmit={handleSubmit}>
                     <div className="signup-login-box">
                         <h2>Create An Account</h2>
