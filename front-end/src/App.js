@@ -10,11 +10,19 @@ import TermsCondition from './pages/Auth/termsform/termsCondition';
 import PrivacyPolicyContent from './pages/Privacy&Policy/privacy'; 
 import AuctionListPage from './pages/Auction_List/AuctionListPage';
 import VerifyAccount from './pages/Auth/verifingAcc/VerifyAccount';
+
 import HomePage from './pages/home/home';
 // import YourInfo from './pages/UserProfile/YourInfo/Infoform/Info'; 
 // import Delete from './pages/UserProfile/YourInfo/DeleteAcc/Modal'; 
 
 // import Layout from './pages/Components/Layout';
+
+import YourInfo from './pages/UserProfile/YourInfo/Infoform/Info'; 
+import Delete from './pages/UserProfile/YourInfo/DeleteAcc/Modal'; 
+import Bids from './pages/UserProfile/yourBids/bidsmain/main';
+import Openauc from './pages/UserProfile/yourBids/OpenAuc/open'; 
+import Layout from './pages/Components/Layout';
+
 
 function App() {
   return (
@@ -44,6 +52,7 @@ function App() {
         
         {/* Catch-all route */}
         <Route path="*" element={<Navigate to="/signin" />} />
+
       </Routes>
     </Router>
   );
