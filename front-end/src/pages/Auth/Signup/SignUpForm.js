@@ -1,11 +1,10 @@
-// src/pages/Auth/Signup/SignUpForm.jsx
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Imported useNavigate
+import { Link, useNavigate } from 'react-router-dom';
 import './SignUpForm.css';
 import Logo from '../logo/Logo';
 import CloseIcon from '../closeIcon/CloseIcon';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
-import { faCaretDown, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 function CustomDropdown({ options, selected, onSelect }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +14,6 @@ function CustomDropdown({ options, selected, onSelect }) {
         setIsOpen(false);
     };
 
-    
     return (
         <div className="custom-dropdown">
             <div className="dropdown-header" onClick={() => setIsOpen(!isOpen)}>
@@ -46,91 +44,113 @@ function SignUpForm() {
     const [password, setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    const navigate = useNavigate(); // Initialize useNavigate
+    const [userType] = useState('seller'); // Assume a default userType
+    const navigate = useNavigate();
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Here you can add your sign-up logic, such as sending data to the server
-        console.log({
-            title: selectedTitle,
+        const registrationDate = new Date().toISOString();
+
+        const userRegisterDto = {
             email,
             password,
             firstName,
-            lastName
-        });
+            lastName,
+            userType,
+            registrationDate,
+        };
 
-        // After successful sign-up, navigate to the verification page
-        navigate('/SignupVerify');
     };
 
     const handleClose = () => {
         console.log('Close button clicked');
-        // You can add custom logic for the CloseIcon here
-        navigate('/signin'); 
+        navigate('/signin');
     };
-
 
     return (
         <div className="signup-container">
-        <Logo />
-        <CloseIcon onClick={handleClose} className="custom-close-icon" />
-        <div className="si-container">
-            <form className="form1">
-                <div className="signup-login-box">
-                    <h2>Create An Account</h2>
-                    
-                    <div className="input-group">
-                    <input type="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                       
-                     </div>
+            <Logo />
+            <CloseIcon onClick={handleClose} className="custom-close-icon" />
+            <div className="si-container">
+                <form className="form1" onSubmit={handleSubmit}>
+                    <div className="signup-login-box">
+                        <h2>Create An Account</h2>
 
-             <div className="input-group">
-                <div className="password-box">
-                    <input type={passwordVisible ? 'text' : 'password'} id="password" placeholder="Password"
-                    value={password} onChange={(e) => setPassword(e.target.value)} required />
-                    <FontAwesomeIcon
-                        icon={passwordVisible ? faEye : faEyeSlash}
-                        className="show-password-icon"
-                        onClick={togglePasswordVisibility}
-                    />
-                </div>
-            </div>
+                        <div className="input-group">
+                            <input
+                                type="email"
+                                placeholder="Email Address"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                        </div>
 
-             <div className="discription">
-                    Enter your legal name as on your ID.
-             </div>
+                        <div className="input-group">
+                            <div className="password-box">
+                                <input
+                                    type={passwordVisible ? 'text' : 'password'}
+                                    id="password"
+                                    placeholder="Password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                />
+                                <FontAwesomeIcon
+                                    icon={passwordVisible ? faEye : faEyeSlash}
+                                    className="show-password-icon"
+                                    onClick={togglePasswordVisibility}
+                                />
+                            </div>
+                        </div>
 
-             <div className="name-fields">
-                <CustomDropdown
-                    options={['Ms', 'Mr', 'Mrs', 'Miss']}
-                    selected={selectedTitle}
-                    onSelect={setSelectedTitle}
-                />
-                <div className="group">
-                    <input type="text" placeholder="First Name" id="firstName" value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)} required />
-                </div>
-            </div>
+                        <div className="discription">
+                            Enter your legal name as on your ID.
+                        </div>
 
+                        <div className="name-fields">
+                            <CustomDropdown
+                                options={['Ms', 'Mr', 'Mrs', 'Miss']}
+                                selected={selectedTitle}
+                                onSelect={setSelectedTitle}
+                            />
+                            <div className="group">
+                                <input
+                                    type="text"
+                                    placeholder="First Name"
+                                    id="firstName"
+                                    value={firstName}
+                                    onChange={(e) => setFirstName(e.target.value)}
+                                    required
+                                />
+                            </div>
+                        </div>
 
-            <div className="input-group">
-                <input type="text" placeholder="Last Name" id="lastName" value={lastName}
-                 onChange={(e) => setLastName(e.target.value)} required />
-            </div>
+                        <div className="input-group">
+                            <input
+                                type="text"
+                                placeholder="Last Name"
+                                id="lastName"
+                                value={lastName}
+                                onChange={(e) => setLastName(e.target.value)}
+                                required
+                            />
+                        </div>
 
-          <button className="sign-up-btn" type="submit" onClick={handleSubmit}>
-                        Sign Up
-                    </button>
+                        <button className="sign-up-btn" type="submit">
+                            Sign Up
+                        </button>
 
-                    <div className="sign-in">
-                        Already have an account? <Link to="/signin">Sign In</Link>
+                        <div className="sign-in">
+                            Already have an account? <Link to="/signin">Sign In</Link>
+                        </div>
                     </div>
-                </div>
-            </form><br /><br /><br /><br /><br /><br /></div>
+                </form>
+            </div>
         </div>
     );
 }

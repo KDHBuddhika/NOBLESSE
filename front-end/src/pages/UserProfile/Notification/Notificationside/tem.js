@@ -29,7 +29,7 @@ const Emp = () => {
         <ul>
           <li><Link to="/Infoform">Your Info</Link></li>
           <li><Link to="/OpenAuc">Your Bids</Link></li>
-          <li className="No">Notifications</li>
+          <li><b className="No">Notifications</b></li>
           <li>Payment</li>
           <li>Watch List</li>
           <li>Dashboard</li>

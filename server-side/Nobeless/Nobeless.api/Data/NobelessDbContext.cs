@@ -21,6 +21,10 @@ namespace Nobeless.api.Data
 
         public DbSet<Categories> categories { get; set; }
 
+        public DbSet<Auction> auctions { get; set; }
+
+        public DbSet<Bid> Bids { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -32,11 +36,27 @@ namespace Nobeless.api.Data
                  .WithOne(p => p.Category)
                  .HasForeignKey(p => p.CategoryId);
 
-            // Example: Configure one-to-many relationship between User and Product
+           
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Products)
                 .WithOne(p => p.User)
                 .HasForeignKey(p => p.UserId);
+
+            modelBuilder.Entity<Products>()
+                .HasOne(e => e.Auctions)
+                .WithOne(e => e.Product)
+                .HasForeignKey<Auction>(e => e.ProductId)
+                .IsRequired();
+
+
+            modelBuilder.Entity<Auction>()
+                .HasMany(e => e.Users)
+                .WithMany(e => e.Auctions)
+                .UsingEntity<Bid>(
+                   l => l.HasOne<User>(e => e.User).WithMany(e=> e.Bids).HasForeignKey(e => e.UserId).OnDelete(DeleteBehavior.Restrict),
+                   l => l.HasOne<Auction>(e =>e.Auction).WithMany(e => e.Bids).HasForeignKey(e => e.AuctionId).OnDelete(DeleteBehavior.Restrict)
+                );
+
         }
 
 

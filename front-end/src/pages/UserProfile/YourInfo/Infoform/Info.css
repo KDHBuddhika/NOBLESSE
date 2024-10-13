@@ -54,8 +54,22 @@ body {
   font-weight: normal;
 }
 
+.yi{
+  font-weight: 900;
+}
+
 .menu {
   padding-left: 0;
+}
+
+.menu a {
+  text-decoration: none; 
+}
+
+
+.menu a:hover {
+  color: #0C0F50; 
+  text-decoration: none; 
 }
 
 .menu ul {
@@ -69,13 +83,10 @@ body {
   cursor: pointer;
   color: #0C0F50;
   font-size: 12px;
-  font-weight: 600px;
   margin-top: 25px;
+  font-weight: 400;
 }
 
-.yi{
-  font-weight: 900;
-}
 
 .menu li:hover {
   color: #000;

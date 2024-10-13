@@ -54,6 +54,16 @@
     font-weight: normal;
   }
   
+  .Bmenu a {
+    text-decoration: none; 
+  }
+  
+  
+  .Bmenu a:hover {
+    color: #0C0F50; 
+    text-decoration: none; 
+  }
+
 .Bmenu {
     padding-left: 0;
   }
@@ -69,7 +79,7 @@
     cursor: pointer;
     color: #0C0F50;
     font-size: 12px;
-    font-weight: 600px;
+    font-weight: 400px;
     margin-top: 25px;
   }
   
@@ -105,7 +115,7 @@
 .clear{
   position: relative;
   margin-top: -355px;
-  top: -40px;
+  top: -10px;
 }
 
 

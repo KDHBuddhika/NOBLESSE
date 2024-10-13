@@ -14,5 +14,6 @@ namespace Nobeless.api.Service
         Task<Products> GetProductByIdAsync(int productId);
 
         Task DeleteProductByIdAsync(int productId);
+        Task ApproveProductAsync(int productId);
     }
 }

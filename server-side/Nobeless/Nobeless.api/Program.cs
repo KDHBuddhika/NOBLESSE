@@ -25,6 +25,8 @@ namespace Nobeless.api
 
             builder.Services.AddScoped<IEmailService, EmailService>();
             builder.Services.AddScoped<ProductService,ProductServiceIMPL>();
+            builder.Services.AddScoped<AuctionService, AuctionServiceIMPL>();
+            builder.Services.AddScoped<BidService, BidServiceIMPL>();
 
             builder.Services.AddControllers().AddJsonOptions(options =>
             {
@@ -35,6 +37,12 @@ namespace Nobeless.api
 
             builder.Services.AddScoped<EmailService>();
             builder.Services.AddTransient<EmailService>();
+            builder.Services.AddHostedService<AuctionStatusCheckerService>();
+
+          
+
+            // Register the hosted service
+            builder.Services.AddHostedService<AuctionCompletionHostedService>();
 
 
             //--------------------react enable-----------------

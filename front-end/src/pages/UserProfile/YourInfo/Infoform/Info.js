@@ -28,7 +28,7 @@ const Info = () => {
 
       <div className="menu">
         <ul>
-          <li className="yi">Your Info</li>
+          <li ><b className="yi">Your Info</b></li>
           <li><Link to="/OpenAuc">Your Bids</Link></li>
           <li><Link to="/Notificationside">Notifications</Link></li>
           <li>Payment</li>
