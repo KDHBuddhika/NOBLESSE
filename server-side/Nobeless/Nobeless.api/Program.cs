@@ -58,6 +58,17 @@ namespace Nobeless.api
                 }
 
                 );
+
+                options.AddPolicy("AllowReactApp", policyBuilder =>
+                {
+                    policyBuilder.WithOrigins("http://localhost:3000");
+                    policyBuilder.AllowAnyHeader();
+                    policyBuilder.AllowAnyMethod();
+                    policyBuilder.AllowCredentials();
+
+                }
+
+               );
             });
 
             

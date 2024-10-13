@@ -32,7 +32,7 @@ function App() {
        <Route exact path="/auctionList" element={<AuctionListPage />} />
        <Route exact path="/Privacy&Policy" element={<PrivacyPolicyContent />} />
 
-       <Route path="/verifyAccount?token={token}" element={<VerifyAccount />} />
+       <Route path="/verifyAccount" element={<VerifyAccount />} />
 
        {/* <Route path="/infoform" element={<YourInfo />} />
        <Route path="/deleteAcc" element={<Delete />} /> */}
