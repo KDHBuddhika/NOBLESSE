@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Info.css';
 import Modal from '../DeleteAcc/Modal';
 
@@ -28,8 +29,8 @@ const Info = () => {
       <div className="menu">
         <ul>
           <li className="yi">Your Info</li>
-          <li>Your Bids</li>
-          <li>Notifications</li>
+          <li><Link to="/OpenAuc">Your Bids</Link></li>
+          <li><Link to="/Notificationside">Notifications</Link></li>
           <li>Payment</li>
           <li>Watch List</li>
           <li>Dashboard</li>

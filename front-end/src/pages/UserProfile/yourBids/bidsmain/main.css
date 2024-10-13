@@ -117,12 +117,12 @@
   
 .no-bids-subtext {
     font-size: 16px;
-    color: #0C0F50; /* Grey subtext */
+    color: #0C0F50; 
     margin-bottom: 30px;
   }
   
 .auction-button {
-    background-color: #0C0F50; /* Dark blue background */
+    background-color: #0C0F50; 
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -133,7 +133,7 @@
   }
   
 .auction-button:hover {
-    background-color: #0C0F50; /* Darker blue on hover */
+    background-color: #0C0F50; 
   }
   
 

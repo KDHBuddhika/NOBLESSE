@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './open.css';
 import Card from '../cardDesign/card';
 import Close from '../CloseAuc/close';
 
 const Openauc = () => {
-
-const [showClosedAuctions, setShowClosedAuctions] = useState(false);
+  const [showClosedAuctions, setShowClosedAuctions] = useState(false);
 
   const handleOpenAuctionsClick = () => {
     setShowClosedAuctions(false); 
@@ -27,9 +27,9 @@ const [showClosedAuctions, setShowClosedAuctions] = useState(false);
 
       <div className="Bmenu">
         <ul>
-          <li >Your Info</li>
+          <li><Link to="/Infoform">Your Info</Link></li>
           <li className="yb">Your Bids</li>
-          <li>Notifications</li>
+          <li><Link to="/Notificationside">Notifications</Link></li>
           <li>Payment</li>
           <li>Watch List</li>
           <li>Dashboard</li>
@@ -38,31 +38,24 @@ const [showClosedAuctions, setShowClosedAuctions] = useState(false);
         </ul>
       </div>
 
- 
-{/*-----------------------------------------------------------updating user information---------------------------------------------------------*/}
+      <div className="bids-container">
+        <div className="clear"><br /><br /><br /><br /><br /><br /><br />
+          <section className="sectionone">
+            <div className="bids-details">
+            <p className={`headName ${!showClosedAuctions ? "active-tab bold" : ""}`} onClick={handleOpenAuctionsClick}>Open Auctions</p>
+            <p className={`headName2 ${showClosedAuctions ? "active-tab" : ""}`} onClick={handleClosedAuctionsClick}>Closed Auctions</p>
 
-
-<div className="bids-container">
-  <div className="clear"><br /><br /><br /><br /><br /><br /><br />
-    <section className="sectionone">
-      <div className="bids-details">
-      <p className="headName" onClick={handleOpenAuctionsClick}>Open Auctions</p>
-      <p  onClick={handleClosedAuctionsClick}>Closed Auctions</p>
-      </div>
-      </section><br />
-      <div className="cardposition">
-      {showClosedAuctions ? (
+            </div>
+          </section><br />
+          <div className="cardposition">
+            {showClosedAuctions ? (
               <Close onOpenAuctionsClick={handleOpenAuctionsClick} />
             ) : (
               <Card />
             )}
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
-
-
-
-
     </div>
   );
 };

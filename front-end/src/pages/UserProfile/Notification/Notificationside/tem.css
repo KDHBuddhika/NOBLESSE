@@ -1,0 +1,62 @@
+
+.newnotify{
+  font-weight: 900;
+}
+
+.No{
+  font-weight: 1000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-----------mobile responsive----------*/
+
+@media (max-width: 768px) {
+  .bids-container {
+    background-color: #fff;
+    margin: 0 auto;
+    margin-left: 0; 
+    height: auto;
+    box-shadow: none; 
+    padding: 20px; 
+  }
+
+  .clear {
+    margin-top: -10px; 
+  }
+
+  .sectionone {
+    text-align: center;
+    margin-left: 10px; 
+    margin-right: 10px;
+    border-bottom: 1px solid #0C0F50;
+    margin-bottom: 20px; 
+  }
+
+  .bids-details {
+    display: block; 
+    margin-top: -150px; 
+  }
+
+  .headName3 {
+    font-weight: 900;
+  }
+
+  .cardposition {
+    margin-left: 0; 
+    padding: 10px; 
+  }
+}

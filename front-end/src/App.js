@@ -12,6 +12,9 @@ import YourInfo from './pages/UserProfile/YourInfo/Infoform/Info';
 import Delete from './pages/UserProfile/YourInfo/DeleteAcc/Modal'; 
 import Bids from './pages/UserProfile/yourBids/bidsmain/main';
 import Openauc from './pages/UserProfile/yourBids/OpenAuc/open'; 
+import  Emp from './pages/UserProfile/Notification/Notificationside/tem'; 
+import  Message from './pages/UserProfile/Notification/Message/message'; 
+import  Previous from './pages/UserProfile/Notification/PreviousNotify/previous'; 
 
 
 
@@ -32,8 +35,11 @@ function App() {
         <Route path="/DeleteAcc" element={<Delete />} />
         <Route path="/bidsmain" element={<Bids />} />
         <Route path="/OpenAuc" element={<Openauc />} />
+        <Route path="/Notificationside" element={<Emp />} />
+        <Route path="/Message" element={< Message/>} />
+        <Route path="/PreviousNotify" element={< Previous/>} />
         
-        <Route path="*" element={<Navigate to="/OpenAuc" />} />
+        <Route path="*" element={<Navigate to="/Notificationside" />} />
       </Routes>
     </Router>
   );

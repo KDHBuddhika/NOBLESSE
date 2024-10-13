@@ -10,9 +10,9 @@ const Close = ({ onOpenAuctionsClick }) => {
   <div className="bids-container">
   <div className="clear"><br /><br /><br /><br /><br /><br /><br />
     <section className="sectionone">
-      <div className="bids-details">
-      <p onClick={onOpenAuctionsClick}>Open Auctions</p>
-      <p className="headName2">Closed Auctions</p>
+      <div  className="bids-details">
+      <p  onClick={onOpenAuctionsClick}>Open Auctions</p>
+      <p className="headName3">Closed Auctions</p>
       </div>
       </section><br />
       <div className="cardposition">

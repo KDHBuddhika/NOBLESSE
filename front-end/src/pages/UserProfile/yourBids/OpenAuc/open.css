@@ -97,12 +97,15 @@
     margin-left: 220px;
     height: 550px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
   }
   
   
 
 .clear{
+  position: relative;
   margin-top: -355px;
+  top: -40px;
 }
 
 
@@ -120,9 +123,6 @@
     margin-top: -120px;
 }
 
-.headName{
-    font-weight: 900;
-}
 
 
 .cardposition{
@@ -131,7 +131,26 @@
 
 
 
+.headName, .headName2 {
+  font-weight: 400; 
+  color: #0C0F50;
+  cursor: pointer;
+  text-decoration: none; 
+}
 
+
+.bold {
+  font-weight: 750; 
+}
+
+
+.active-tab {
+  color: #0C0F50;
+}
+
+.headName2.active-tab {
+  font-weight: 400;
+}
 
 
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './main.css';
 
 const Bids = () => {
@@ -17,7 +18,7 @@ const Bids = () => {
 
       <div className="Bmenu">
         <ul>
-          <li >Your Info</li>
+          <li ><Link to="/Infoform">Your Info</Link></li>
           <li className="yb">Your Bids</li>
           <li>Notifications</li>
           <li>Payment</li>

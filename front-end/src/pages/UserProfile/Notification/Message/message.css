@@ -1,0 +1,39 @@
+.message-container {
+    border: 1px solid #0C0F50;
+    border-radius: 4px;
+    max-width: 950px;
+    margin: 20px auto;
+    background-color: #F3F4F6;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 8px;
+  }
+  
+  .message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #DFDFE8;
+  }
+  
+  .message-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #0C0F50;
+    margin: 0;
+  }
+  
+  .collapse-icon {
+    font-size: 15px;
+    color: #0C0F50;
+  }
+  
+  .message-body {
+    padding: 15px;
+    font-size: 14px;
+    color: #0C0F50;
+    background-color: #fff;
+  }
+  
