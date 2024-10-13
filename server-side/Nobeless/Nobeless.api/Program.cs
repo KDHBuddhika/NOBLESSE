@@ -48,11 +48,27 @@ namespace Nobeless.api
             //--------------------react enable-----------------
             builder.Services.AddCors(options =>
             {
-                options.AddPolicy("AllowReactApp",
-                    builder => builder
-                        .WithOrigins("http://localhost:3000")
-                        .AllowAnyMethod()
-                        .AllowAnyHeader());
+                options.AddPolicy("AllowReactApp", policyBuilder =>
+                {
+                    policyBuilder.WithOrigins("http://localhost:3001");
+                    policyBuilder.AllowAnyHeader();
+                    policyBuilder.AllowAnyMethod();
+                    policyBuilder.AllowCredentials();
+
+                }
+
+                );
+
+                options.AddPolicy("AllowReactApp", policyBuilder =>
+                {
+                    policyBuilder.WithOrigins("http://localhost:3000");
+                    policyBuilder.AllowAnyHeader();
+                    policyBuilder.AllowAnyMethod();
+                    policyBuilder.AllowCredentials();
+
+                }
+
+               );
             });
 
             
