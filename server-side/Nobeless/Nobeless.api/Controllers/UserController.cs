@@ -115,7 +115,7 @@ namespace Nobeless.api.Controllers
 
             }
 
-            return Ok(new { Message = "Login successful", UserId = user.Id });
+            return Ok(new { UserId = user.Id });
 
 
 
