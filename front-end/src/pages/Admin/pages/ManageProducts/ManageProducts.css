@@ -1,0 +1,94 @@
+.manage-products-layout {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+  }
+  
+  .manage-products-main-content {
+    display: flex;
+  }
+  
+  .manage-products-content {
+    margin-left: 250px; /* Sidebar width */
+    padding: 20px;
+    background-color: #f9f9f9;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  .filters {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .filter-dropdown {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f1f1ff;
+  }
+  
+  .product-table th,
+  .product-table td {
+    padding: 20px 40px;
+    
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  .product-table th {
+    background-color: #1A1A54;
+    color: white;
+  }
+  
+  .product-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+  
+  .view-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .view-btn:hover,
+  .delete-btn:hover {
+    opacity: 0.8;
+  }
+  
+  @media (max-width: 768px) {
+    .manage-products-content {
+      margin-left: 0;  /* Adjust for small screens */
+    }
+  
+    .filters {
+      flex-direction: column;
+    }
+  
+    .filter-dropdown {
+      width: 100%;
+    }
+  }
+  

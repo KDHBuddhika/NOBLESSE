@@ -1,0 +1,208 @@
+.dashboard-layout {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+  }
+  
+  .dashboard-main-content {
+    display: flex;
+  }
+  
+  .dashboard-content {
+    margin-left: 250px; /* Sidebar width */
+    padding: 20px;
+    background-color: #f9f9f9;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  .dashboard-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .stat-item {
+    background-color: #f1f1ff;
+    border-radius: 15px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .stat-item h2 {
+    font-size: 2.5rem;
+    color: #1A1A54; /* Dark blue color */
+  }
+  
+  .stat-item p {
+    font-size: 1.1rem;
+    color: #666;
+  }
+
+  .calendar-section {
+    margin-top: 30px;
+  }
+  
+  .chart-section {
+    margin-top: 40px;
+  }
+  
+  .chart-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+  }
+
+  .calendar-container {
+    display: flex;
+    justify-content: center; /* Centers the calendar horizontally */
+    align-items: center; /* Centers the calendar vertically */
+    margin-top: 20px;
+   
+  }
+  
+  /* Styling the Calendar */
+  .react-calendar {
+    max-width: 500px; /* Set the maximum width */
+    width: 100%; 
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #966464;
+  
+  }
+  
+  .react-calendar .react-calendar__tile {
+    font-size: 1.2rem;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .react-calendar.react-calendar__tile:enabled:hover,
+  .react-calendar.react-calendar__tile:enabled:focus {
+    background-color: #1A1A54; /* Change background on hover */
+    color: white;
+    border-radius: 50%; /* Makes the dates circular */
+  }
+  
+  /* Active day (selected) */
+  .react-calendar.react-calendar__tile--active {
+    background-color: #4CAF50; /* Customize active day background */
+    color: white;
+    border-radius: 50%;
+  }
+  
+  /* Disabled days */
+  .react-calendar .react-calendar__tile--now {
+    background-color: #ffeb3b; /* Highlight current day */
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+  }
+  
+  /* Change weekend day color */
+  .react-calendar .react-calendar__month-view__days__day--weekend {
+    color: red; /* Color for weekends */
+  }
+  
+  /* Number color */
+  .react-calendar .react-calendar__tile abbr {
+    color: #1a1a54; /* Ensure all numbers are visible */
+  }
+  
+  /* Additional decoration (e.g., shadow on calendar) */
+  .react-calendar.react-calendar {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #1A1A54;
+  }
+
+
+
+  /* Customize the navigation section */
+.react-calendar__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px ;
+    background-color: #1A1A54; /* Change the background of the navigation */
+    color: white; /* Text color inside navigation */
+  }
+  
+  /* Customize the month name */
+  .react-calendar__navigation__label {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff; /* Change the month name color */
+  }
+  
+  /* Customize the arrow buttons */
+  .react-calendar__navigation__arrow {
+    font-size: 1.5rem;
+    color: white; /* Change the color of the arrow */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Arrow hover effect */
+  .react-calendar__navigation__arrow:hover {
+    color: #ff5722; /* Change color on hover */
+  }
+
+
+
+
+
+  /*for chart */
+  /* Centering the calendar with a max-width */
+
+  
+  /* Flex container to place both charts on one line */
+  .chart-row {
+    display: flex;
+    justify-content: space-between; /* Ensure charts are spaced equally */
+    gap: 20px; /* Adds space between the two charts */
+    margin-top: 50px;
+  }
+  
+  /* Each chart container */
+  .chart-container {
+    flex: 1; /* Make both charts take up equal space */
+    max-width: 45%; /* Limit width of each chart */
+  }
+  
+  /* Ensuring charts are responsive */
+  .chart-container canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Custom chart section header */
+  h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #1A1A54;
+    margin-bottom: 15px;
+  }
+  
+  
+
+  
+  @media (max-width: 768px) {
+    .dashboard-content {
+      margin-left: 0;  /* Adjust for small screens */
+    }
+  
+    .stat-item {
+      width: 100%;
+    }
+  }
+  
