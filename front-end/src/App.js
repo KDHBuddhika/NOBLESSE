@@ -39,7 +39,7 @@ function App() {
         <Route path="/PreviousNotify" element={< Previous/>} />
         <Route path="/WatchList" element={< WatchList/>} />
         
-        <Route path="*" element={<Navigate to="/Notificationside" />} />
+        <Route path="*" element={<Navigate to="/WatchList" />} />
     </Routes>
     </Router>
   );
