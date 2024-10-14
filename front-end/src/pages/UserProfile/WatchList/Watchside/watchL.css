@@ -1,0 +1,34 @@
+
+.bids-container2 {
+    background-color: #ffff;
+    margin: 0 auto;
+    margin-left: 220px;
+    height: 550px;
+    display: flex;             /* Add flexbox */
+    justify-content: center;    /* Horizontally center */
+    align-items: center;  
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+  }
+  
+.clear1{
+  position: relative;
+  margin-top: -355px;
+  top: -10px;
+}
+
+.cardposition11{
+    margin-left: 50px;
+}
+
+.wl{
+    font-weight: 900;
+}
+
+.emptyitem{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 200px;
+}

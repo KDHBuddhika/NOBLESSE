@@ -15,6 +15,7 @@ import Openauc from './pages/UserProfile/yourBids/OpenAuc/open';
 import Emp from './pages/UserProfile/Notification/Notificationside/tem'; 
 import Message from './pages/UserProfile/Notification/Message/message'; 
 import Previous from './pages/UserProfile/Notification/PreviousNotify/previous';
+import WatchList from './pages/UserProfile/WatchList/Watchside/watchL';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path="/Notificationside" element={<Emp />} />
         <Route path="/Message" element={< Message/>} />
         <Route path="/PreviousNotify" element={< Previous/>} />
+        <Route path="/WatchList" element={< WatchList/>} />
         
         <Route path="*" element={<Navigate to="/Notificationside" />} />
     </Routes>
