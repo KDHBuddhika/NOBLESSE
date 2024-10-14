@@ -1,0 +1,91 @@
+.manage-categories-layout {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+  }
+  
+  .manage-categories-main-content {
+    display: flex;
+  }
+  
+  .manage-categories-content {
+    margin-left: 250px; /* Sidebar width */
+    padding: 20px;
+    background-color: #f9f9f9;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  .add-category-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .category-input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    flex-grow: 1;
+  }
+  
+  .add-category-btn {
+    padding: 10px 15px;
+    background-color: #1A1A54;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-category-btn:hover {
+    background-color: #444;
+  }
+  
+  .category-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f1f1ff;
+  }
+  
+  .category-table th,
+  .category-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  .category-table th {
+    background-color: #1A1A54;
+    color: white;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .delete-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  @media (max-width: 768px) {
+    .manage-categories-content {
+      margin-left: 0;  /* Adjust for small screens */
+    }
+  
+    .add-category-form {
+      flex-direction: column;
+    }
+  
+    .category-input {
+      width: 100%;
+    }
+  }
+  

@@ -1,0 +1,86 @@
+.manage-auctions-layout {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+  }
+  
+  .manage-auctions-main-content {
+    display: flex;
+  }
+  
+  .manage-auctions-content {
+    margin-left: 250px; /* Sidebar width */
+    padding: 20px;
+    background-color: #f9f9f9;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  .filters {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .filter-dropdown {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .auction-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f1f1ff;
+  }
+  
+  .auction-table th,
+  .auction-table td {
+    padding: 20px 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  .auction-table th {
+    background-color: #1A1A54;
+    color: white;
+  }
+  
+  .view-btn, .delete-btn {
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .view-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+  }
+  
+  .view-btn:hover, .delete-btn:hover {
+    opacity: 0.8;
+  }
+  
+  @media (max-width: 768px) {
+    .manage-auctions-content {
+      margin-left: 0;  /* Adjust for small screens */
+    }
+  
+    .filters {
+      flex-direction: column;
+    }
+  
+    .filter-dropdown {
+      width: 100%;
+    }
+  }
+  

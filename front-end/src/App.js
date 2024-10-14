@@ -16,6 +16,21 @@ import HomePage from './pages/home/home';
 
 // import Layout from './pages/Components/Layout';
 
+
+import AdminNavbar from './pages/Admin/components/AdminNavbar';
+import AdminSlidebar from './pages/Admin/components/AdminSidebar'
+import Dashboard from './pages/Admin/pages/Dashboard/Dashboard';
+
+import ManageProducts from './pages/Admin/pages/ManageProducts/ManageProducts';
+
+import ManageAuctions from './pages/Admin/pages/ManageAuctions/ManageAuctions';
+
+import ManageCategories from './pages/Admin/pages/ManageCategories/ManageCategories';
+
+import ManageUsers from './pages/Admin/pages/ManageUser/ManageUser';
+
+
+
 function App() {
   return (
     <Router>
@@ -40,6 +55,22 @@ function App() {
        {/* <Route path="/navbar" element={<Layout />} /> */}
       
        <Route path="/home" element={< HomePage/>} />
+
+
+
+
+
+       {/*-------------  Admin Panal  */}
+       <Route path="/dashboard" element={<Dashboard />} />
+
+       <Route path="/manageProducts" element={<ManageProducts/>} />
+
+       <Route path="/manageAuctions" element={<ManageAuctions/>} />
+
+       <Route path="/manageCategories" element={<ManageCategories/>} />
+
+       <Route path="/manageUsers" element={<ManageUsers/>} />
+
 
         
         {/* Catch-all route */}
