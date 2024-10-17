@@ -1,0 +1,137 @@
+/* YourBids.css */
+
+.your-bids-page {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .bids-container {
+    margin-top: 100px;
+    display: flex;
+   
+  }
+  
+  .content {
+    flex: 1;
+    padding: 10px 400px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .bid-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+  }
+  
+  .bid-details {
+    display: flex;
+    align-items: center;
+  }
+
+  .bid-details2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0px 7px;
+  }
+
+  .bid-details2 p{
+    margin: 0px 10px;
+  }
+  
+  .bid-details img {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+    border-radius: 5px;
+  }
+
+  .bid-actions{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .bid-actions button {
+    margin-left: 10px;
+    padding: 10px 15px;
+    background-color: #2b3a5b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .bid-actions button:hover {
+    background-color: #1f2c44;
+  }
+  
+  .delete-button {
+    background-color: #d9534f;
+  }
+  
+  .delete-button:hover {
+    background-color: #c9302c;
+  }
+  
+  .pay-button {
+    background-color: #5cb85c;
+  }
+  
+  .pay-button:hover {
+    background-color: #4cae4c;
+  }
+  
+  /* Delete Confirmation Modal */
+  .delete-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .confirm-delete-button, .cancel-button {
+    padding: 10px 15px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .confirm-delete-button {
+    background-color: #d9534f;
+    color: white;
+  }
+  
+  .confirm-delete-button:hover {
+    background-color: #c9302c;
+  }
+  
+  .cancel-button {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .cancel-button:hover {
+    background-color: #5a6268;
+  }
+  
