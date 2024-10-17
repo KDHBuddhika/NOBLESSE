@@ -10,13 +10,11 @@ import TermsCondition from './pages/Auth/termsform/termsCondition';
 import PrivacyPolicyContent from './pages/Privacy&Policy/privacy'; 
 import AuctionListPage from './pages/Auction_List/AuctionListPage';
 import VerifyAccount from './pages/Auth/verifingAcc/VerifyAccount';
-
 import HomePage from './pages/home/home';
 // import YourInfo from './pages/UserProfile/YourInfo/Infoform/Info'; 
 // import Delete from './pages/UserProfile/YourInfo/DeleteAcc/Modal'; 
 
 // import Layout from './pages/Components/Layout';
-
 
 
 import AdminNavbar from './pages/Admin/components/AdminNavbar';
@@ -31,12 +29,11 @@ import ManageCategories from './pages/Admin/pages/ManageCategories/ManageCategor
 
 import ManageUsers from './pages/Admin/pages/ManageUser/ManageUser';
 
+import YourInfo from './pages/profile/pages/YourInfo/YourInfo';
 
-import YourInfo from './pages/UserProfile/YourInfo/Infoform/Info'; 
-import Delete from './pages/UserProfile/YourInfo/DeleteAcc/Modal'; 
-import Bids from './pages/UserProfile/yourBids/bidsmain/main';
-import Openauc from './pages/UserProfile/yourBids/OpenAuc/open'; 
-import Layout from './pages/Components/Layout';
+import YourBids from './pages/profile/pages/YourBids/YourBids';
+
+import YourProduct from './pages/profile/pages/YourProduct/YourProduct';
 
 
 
@@ -81,10 +78,18 @@ function App() {
        <Route path="/manageUsers" element={<ManageUsers/>} />
 
 
+       {/* profile */}
+
+       <Route path="/yourInfo" element={<YourInfo/>} />
+
+       <Route path="/yourBids" element={<YourBids/>} />
+
+       <Route path="/products" element={<YourProduct/>} />
+
+
         
         {/* Catch-all route */}
         <Route path="*" element={<Navigate to="/signin" />} />
-
       </Routes>
     </Router>
   );
