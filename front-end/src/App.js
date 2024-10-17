@@ -16,6 +16,8 @@ import Emp from './pages/UserProfile/Notification/Notificationside/tem';
 import Message from './pages/UserProfile/Notification/Message/message'; 
 import Previous from './pages/UserProfile/Notification/PreviousNotify/previous';
 import WatchList from './pages/UserProfile/WatchList/Watchside/watchL';
+import Pendingpage from './pages/UserProfile/Payment/Pending/pending';
+import HistoryPayment from './pages/UserProfile/Payment/History/history';
 
 
 function App() {
@@ -38,8 +40,10 @@ function App() {
         <Route path="/Message" element={< Message/>} />
         <Route path="/PreviousNotify" element={< Previous/>} />
         <Route path="/WatchList" element={< WatchList/>} />
+        <Route path="/Pending" element={< Pendingpage/>} />
+        <Route path="/History" element={< HistoryPayment/>} />
         
-        <Route path="*" element={<Navigate to="/WatchList" />} />
+        <Route path="*" element={<Navigate to="/OpenAuc" />} />
     </Routes>
     </Router>
   );

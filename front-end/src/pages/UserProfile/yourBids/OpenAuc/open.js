@@ -30,8 +30,8 @@ const Openauc = () => {
           <li><Link to="/Infoform">Your Info</Link></li>
           <li className="yb">Your Bids</li>
           <li><Link to="/Notificationside">Notifications</Link></li>
-          <li>Payment</li>
-          <li><Link to="/Watchside">Watch List</Link></li>
+          <li><Link to="/Pending">Payment</Link></li>
+          <li><Link to="/WatchList">Watch List</Link></li>
           <li>Dashboard</li>
           <li>Your Auctions</li>
           <li>Earnings</li>

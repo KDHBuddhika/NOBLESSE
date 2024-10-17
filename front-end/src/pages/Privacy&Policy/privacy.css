@@ -22,11 +22,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('../../assets/images/privacy.png'); /* Correct path to the image */
+  background-image: url('../../assets/images/privacy.png'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: blur(00.2rem); /* Apply the blur effect */
+  filter: blur(00.2rem); 
   z-index: -1; /* Position the blur behind the text */
   opacity: 1.00; /* Optional: Adjust opacity if needed */
 }

@@ -31,8 +31,8 @@ const Info = () => {
           <li ><b className="yi">Your Info</b></li>
           <li><Link to="/OpenAuc">Your Bids</Link></li>
           <li><Link to="/Notificationside">Notifications</Link></li>
-          <li>Payment</li>
-          <li><Link to="/Watchside">Watch List</Link></li>
+          <li><Link to="/Pending">Payment</Link></li>
+          <li><Link to="/WatchList">WatchList</Link></li>
           <li>Dashboard</li>
           <li>Your Auctions</li>
           <li>Earnings</li>

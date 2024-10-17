@@ -1,0 +1,110 @@
+.payment-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1); /* Transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 20px;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+  }
+  
+  .payment-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 100%;
+    border: 1px solid black;
+    background-image: url(../../../../assets/images/card1.png); /* Path to your image */
+    background-size: cover;
+    background-position: center;
+    filter: blur(55px); 
+    z-index: -2; 
+    opacity: 0.8; 
+  }
+  
+  .payment-header,
+  .payment-footer,
+  .payment-deadline {
+    position: relative; 
+    z-index: 1;
+
+  }
+
+  .payment-header{
+    display: flex;
+  }
+  
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 1;
+    color: #ffffff;
+  }
+  
+  .payment-amount {
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 1;
+    color: #ffffff;
+    margin-left: 360px;
+    margin-top: -1px;
+  }
+  
+  .payment-deadline {
+    font-size: 14px;
+    margin: 10px 0;
+    z-index: 1;
+    color: #ffffff;
+    margin-top: -5px;
+    margin-left: 25px;
+  }
+  
+  .payment-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  .expire-time{
+  display: flex;
+  margin-left: 23px;
+  }
+
+
+  .expire-time p {
+    margin: 0;
+    z-index: 1;
+    color: #ffffff;
+
+  }
+  
+  .timer {
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1;
+    
+  }
+  
+  .confirm-button {
+    background-color: #03041A;
+    color: #ffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 1;
+    width: 150px;
+    height: 40px;
+    margin-right: 24px;
+    border: 1px solid #ffffff;
+
+  }
+  
+  

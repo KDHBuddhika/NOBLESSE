@@ -37,8 +37,8 @@ const Emp = () => {
           <li><Link to="/Infoform">Your Info</Link></li>
           <li><Link to="/OpenAuc">Your Bids</Link></li>
           <li><b className="No">Notifications</b></li>
-          <li>Payment</li>
-          <li><Link to="/Watchside">Watch List</Link></li>
+          <li><Link to="/Pending">Payment</Link></li>
+          <li><Link to="/WatchList">Watch List</Link></li>
           <li>Dashboard</li>
           <li>Your Auctions</li>
           <li>Earnings</li>

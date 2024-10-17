@@ -1,5 +1,5 @@
 import React from 'react';
-import './privacy.css'; // Import the corresponding CSS
+import './privacy.css'; 
 
 const PrivacyPolicyContent = () => {
   return (

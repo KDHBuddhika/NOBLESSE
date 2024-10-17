@@ -30,7 +30,7 @@ const WatchList = () => {
           <li><Link to="/Infoform">Your Info</Link></li>
           <li><Link to="/OpenAuc">Your Bids</Link></li>
           <li><Link to="/Notificationside">Notifications</Link></li>
-          <li>Payment</li>
+          <li><Link to="/Pending">Payment</Link></li>
           <li className="wl"><b>Watch List</b></li>
           <li>Dashboard</li>
           <li>Your Auctions</li>
@@ -45,7 +45,7 @@ const WatchList = () => {
               <WatchCard 
                 key={card.id} 
                 id={card.id} 
-                onDelete={deleteCard} // Pass the delete function
+                onDelete={deleteCard} 
               />
             ))
           ) : (
