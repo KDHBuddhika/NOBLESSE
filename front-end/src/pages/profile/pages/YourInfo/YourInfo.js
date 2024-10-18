@@ -1,21 +1,11 @@
-// pages/YourInfo.js
-
-import Navbar from "../../components/profilenavbar";
-import Sidebar from "../../components/profileslidebar";
-import './YourInfo.css'; // You can add custom styling for this page
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import ProfileNavbar from '../../components/ProfileNavbark';
+import ProfileSidebar from '../../components/ProfileSidebar';
+import styles from './YourInfo.module.css';
 import axios from 'axios';
-import './YourInfo.css';
-
 
 const YourInfo = () => {
-  const navigate = useNavigate(); 
-
-  // Retrieve the user ID from localStorage
-  const userId = localStorage.getItem('userId');
-
-  const [userInfo, setUserInfo] = useState({
+  const [userData, setUserData] = useState({
     userName: '',
     email: '',
     password: '',
@@ -24,157 +14,150 @@ const YourInfo = () => {
     street: '',
     lane: '',
     city: '',
-    userType: 'Bidder',
   });
 
-  const [contactFilled, setContactFilled] = useState(false);
-
-  // Fetch user info from backend on component mount
+  // Fetch user data from .NET backend on component mount
   useEffect(() => {
-    if (userId) {
-      axios.get(`/api/user/profile/${userId}`)
-        .then(response => {
-          setUserInfo(response.data);
-        })
-        .catch(error => console.error('Error fetching user data:', error));
-    }
-  }, [userId]);
+    const fetchUserData = async () => {
+      const userId = 1; // Example: Change this dynamically for logged-in user
+      try {
+        const response = await axios.get(`/api/users/${userId}`);
+        setUserData(response.data);
+      } catch (error) {
+        console.error("Error fetching user data", error);
+      }
+    };
+    fetchUserData();
+  }, []);
 
-  useEffect(() => {
-    setContactFilled(
-      userInfo.phoneNumber &&
-      userInfo.address &&
-      userInfo.street &&
-      userInfo.lane &&
-      userInfo.city
-    );
-  }, [userInfo]);
-
+  // Handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setUserInfo(prevState => ({
-      ...prevState,
-      [name]: value
+    setUserData((prevData) => ({
+      ...prevData,
+      [name]: value,
     }));
   };
 
-  const handleDeleteAccount = () => {
-    axios.delete(`/api/user/delete-account/${userId}`)
-      .then(() => {
-        localStorage.removeItem('userId');
-        navigate('/');
-      })
-      .catch(error => console.error('Error deleting account:', error));
-  };
-
-  const handleConvertToSeller = () => {
-    if (contactFilled) {
-      axios.put(`/api/user/update-user-type/${userId}`, { userType: 'Seller' })
-        .then(() => {
-          setUserInfo(prevState => ({
-            ...prevState,
-            userType: 'Seller'
-          }));
-        })
-        .catch(error => console.error('Error updating user type:', error));
-    } else {
-      alert("Please fill out contact information before converting to a seller.");
+  // Handle Save button click to update user info
+  const handleSave = async () => {
+    const userId = 1; // Example: Use logged-in user's ID
+    try {
+      await axios.put(`/api/users/${userId}`, userData);
+      alert("User info updated successfully!");
+    } catch (error) {
+      console.error("Error updating user info", error);
     }
   };
 
-  const handleSave = () => {
-    axios.put(`/api/user/update-profile/${userId}`, userInfo)
-      .then(response => {
-        alert('Profile updated successfully!');
-      })
-      .catch(error => console.error('Error saving profile:', error));
+  // Handle Convert to Seller
+  const handleConvertToSeller = async () => {
+    const userId = 1; // Example: Use logged-in user's ID
+    try {
+      await axios.post(`/api/users/${userId}/convertToSeller`);
+      alert("Successfully converted to seller!");
+    } catch (error) {
+      console.error("Error converting to seller", error);
+    }
   };
 
   return (
-    <div className="profile-page">
-      <Navbar />
-      <div className="profile-container">
-        <Sidebar />
-        <div className="content">
-          <h2>Personal Information</h2>
-          <input
-            type="text"
-            name="userName"
-            value={userInfo.userName}
-            onChange={handleInputChange}
-            placeholder="User Name"
-          />
-          <button onClick={handleSave}>Save</button>
+    <div className={styles.profilePage}>
+      <ProfileNavbar />
+      <div className={styles.container}>
+        <ProfileSidebar />
+        <main className={styles.mainContent}>
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Personal Information</h2>
+            <div className={styles.inputGroup}>
+              <input
+                type="text"
+                name="userName"
+                value={userData.userName}
+                onChange={handleInputChange}
+                placeholder="User Name"
+              />
+              <button className={styles.saveButton} onClick={handleSave}>Save</button>
+            </div>
+          </section>
 
-          <h2>Login Information</h2>
-            <div className="input-edit-container">
-            <label>Email</label>
-            <div className="input-group">
-                <input type="text" name="email" value={userInfo.email} disabled />
-                <button className="edit-button">Edit</button>
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Login Information</h2>
+            <div className={styles.inputGroup}>
+              <input
+                type="text"
+                name="email"
+                value={userData.email}
+                onChange={handleInputChange}
+                placeholder="Email"
+              />
+              <input
+                type="password"
+                name="password"
+                value={userData.password}
+                onChange={handleInputChange}
+                placeholder="Password"
+              />
+              <button className={styles.saveButton} onClick={handleSave}>Save</button>
             </div>
-            </div>
-            <div className="input-edit-container">
-            <label>Password</label>
-            <div className="input-group">
-                <input type="password" name="password" value={userInfo.password} disabled />
-                <button className="edit-button">Edit</button>
-            </div>
-            </div>
-            <button onClick={handleSave}>Save</button>
+          </section>
 
-
-          <h2>Contact Information</h2>
-          <div className="contact-info">
-            <div className="contact-left">
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>
+              Contact Information
+              <span className={styles.infoIcon}>ⓘ</span>
+            </h2>
+            <div className={styles.inputGroup}>
               <input
                 type="text"
                 name="phoneNumber"
-                value={userInfo.phoneNumber}
+                value={userData.phoneNumber}
                 onChange={handleInputChange}
                 placeholder="Phone Number"
               />
-              <input
-                type="text"
-                name="address"
-                value={userInfo.address}
-                onChange={handleInputChange}
-                placeholder="Address"
-              />
+              <div className={styles.addressGroup}>
+                <input
+                  type="text"
+                  name="address"
+                  value={userData.address}
+                  onChange={handleInputChange}
+                  placeholder="Address"
+                />
+                <input
+                  type="text"
+                  name="street"
+                  value={userData.street}
+                  onChange={handleInputChange}
+                  placeholder="Street"
+                />
+                <input
+                  type="text"
+                  name="lane"
+                  value={userData.lane}
+                  onChange={handleInputChange}
+                  placeholder="Lane"
+                />
+                <input
+                  type="text"
+                  name="city"
+                  value={userData.city}
+                  onChange={handleInputChange}
+                  placeholder="City"
+                />
+              </div>
+              <div className={styles.buttonGroup}>
+                <button className={styles.saveButton} onClick={handleSave}>Save</button>
+                <button className={styles.convertButton} onClick={handleConvertToSeller}>
+                  Convert to Seller
+                </button>
+              </div>
             </div>
-            <div className="contact-right">
-              <input
-                type="text"
-                name="street"
-                value={userInfo.street}
-                onChange={handleInputChange}
-                placeholder="Street"
-              />
-              <input
-                type="text"
-                name="lane"
-                value={userInfo.lane}
-                onChange={handleInputChange}
-                placeholder="Lane"
-              />
-              <input
-                type="text"
-                name="city"
-                value={userInfo.city}
-                onChange={handleInputChange}
-                placeholder="City"
-              />
-            </div>
-          </div>
-          <div className="button-group">
-            <button onClick={handleSave}>Save</button>
-            <button onClick={handleConvertToSeller}>Convert to Seller</button>
-          </div>
+          </section>
 
-          <div className="delete-account">
-            <p onClick={handleDeleteAccount}>Delete Your Account</p>
+          <div className={styles.deleteAccount}>
+            <a href="#">Delete Your Account</a>
           </div>
-        </div>
+        </main>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-.sidebar {
+.sidebar{
     background-color: #eeeeff;
     padding: 20px;
     width: 270px;
@@ -18,10 +18,12 @@
   
   .sidebar-menu li {
     margin: 20px 0;
+    width: max-content;
   }
   
   .sidebar-menu li a {
     text-decoration: none;
+    
     font-size: 1rem;
     color: #1A1A54; /* Dark blue color */
     display: block;
@@ -41,4 +43,5 @@
   .icon {
     margin-right: 10px;
     font-size: 1rem; /* Adjust icon size */
+    display: inline;
   }

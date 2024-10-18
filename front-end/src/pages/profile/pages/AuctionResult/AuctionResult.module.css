@@ -1,0 +1,90 @@
+.pageWrapper {
+    display: flex;
+  }
+  
+  .contentWrapper {
+    margin-left: 220px; /* Same width as sidebar */
+    padding: 20px;
+    margin-top: 70px; /* Adjust according to navbar height */
+    width: calc(100% - 220px);
+  }
+  
+  .auctionContainer {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .auctionContainer h1 {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1a1a54;
+  }
+  
+  .auctionContainer h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #1a1a54;
+  }
+  
+  .auctionImage {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: block; /* Make it a block element to center it properly */
+    margin-left: auto;
+    margin-right: auto; /* This will horizontally center the image */
+  }
+  
+  p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #1a1a54;
+  }
+  
+  .winnerDetails {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .winnerDetails h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+  }
+  
+  .winnerDetails p {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+  }
+
+  .backButton {
+    background-color: #1a1a54; /* Bootstrap Blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .backButton:hover {
+    background-color: #20205b; /* Darker blue on hover */
+  }
+  

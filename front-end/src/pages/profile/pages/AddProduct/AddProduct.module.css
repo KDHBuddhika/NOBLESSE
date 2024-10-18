@@ -1,0 +1,92 @@
+.pageWrapper {
+  display: flex;
+}
+
+.contentWrapper {
+  margin-left: 220px; /* Same width as sidebar */
+  padding: 20px;
+  margin-top: 100px; /* Adjust according to navbar height */
+  width: calc(100% - 220px);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.contentWrapper h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #1a1a54;
+}
+
+.productForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 600px;
+}
+
+.productForm label {
+  font-weight: bold;
+  margin-bottom: -10px;
+  
+}
+
+.productForm input,
+.productForm textarea,
+.productForm select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.productForm textarea {
+  height: 100px;
+  resize: none;
+}
+
+.productForm select {
+  background-color: #f8f8f8;
+}
+
+.productForm input[type="file"] {
+  padding: 5px;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.clearBtn, .addBtn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.clearBtn {
+  background-color: #1a1a54; /* Bootstrap Red */
+  color: white;
+}
+
+.clearBtn:hover {
+  background-color: #373771; /* Darker red on hover */
+}
+
+.addBtn {
+  background-color:#1a1a54; /* Bootstrap Blue */
+  color: white;
+}
+
+.addBtn:hover {
+  background-color: #373771; /* Darker blue on hover */
+}

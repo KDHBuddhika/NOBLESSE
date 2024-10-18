@@ -15,7 +15,19 @@
     width: 100%;
     min-height: 100vh;
   }
+
+  .manage-users-content h1{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+  }
   
+
+  h1{
+   font-size: 2rem;
+
+  }
   .filters {
     display: flex;
     gap: 20px;

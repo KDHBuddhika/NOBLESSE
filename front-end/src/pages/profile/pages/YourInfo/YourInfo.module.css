@@ -1,0 +1,164 @@
+/* YourInfo.module.css */
+
+.profilePage {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Container with sidebar and main content */
+.container {
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  margin-top: 70px;
+}
+
+/* Main content style */
+.mainContent {
+  margin-left: 70px;
+  flex: 1;
+  padding: 40px 400px;
+  background-color: #fff;
+  margin-left: 20px; /* Spacing from the sidebar */
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.sectionTitle {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+/* Targeting text input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+input[type="search"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px; /* Rounded corners */
+  font-size: 1.1em;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+.addressGroup {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+.saveButton, .convertButton {
+  padding: 12px 20px;
+  margin: 10px 5px 10px 0;
+  border: 1px solid #000;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 5px;
+  color: #000;
+  transition: background-color 0.3s ease;
+}
+
+.saveButton:hover {
+  background-color: #f8f8f8;
+}
+
+.convertButton {
+  background-color: #1a1a54;
+  color: white;
+  border: none;
+}
+
+.convertButton:hover {
+  background-color: white;
+  color: #1a1a54;
+  border-color: #1a1a54;
+}
+
+.infoIcon {
+  font-size: 0.9em;
+  color: #666;
+  margin-left: 5px;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.deleteAccount {
+  text-align: right;
+  margin-top: 30px;
+}
+
+.deleteAccount a {
+  color: #1a1a54;
+  text-decoration: none;
+}
+
+.deleteAccount a:hover {
+  text-decoration: underline;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 250px;
+  height: 100%;
+  background-color: #f7f7f7;
+  border-right: 1px solid #ddd;
+  padding-top: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 20px;
+  font-size: 1.1em;
+  cursor: pointer;
+  color: #333;
+}
+
+.sidebar ul li:hover {
+  background-color: #ddd;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: inherit;
+}

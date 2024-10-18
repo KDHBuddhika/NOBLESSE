@@ -1,137 +1,128 @@
-// YourBids.js
-import React, { useEffect, useState } from "react";
-import Navbar from "../../components/profilenavbar";
-import Sidebar from "../../components/profileslidebar";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import './YourBids.css'; // Add necessary CSS for layout
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ProfileNavbar from '../../components/ProfileNavbark';  // Assuming Navbar component
+import ProfileSidebar from '../../components/ProfileSidebar'; // Assuming Sidebar component
+import styles from './YourBids.module.css';    // Importing CSS for styling
 
 const YourBids = () => {
   const [bids, setBids] = useState([]);
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  const [selectedBidId, setSelectedBidId] = useState(null);
   const navigate = useNavigate();
-  
-  // Assuming userId is stored in localStorage
-  const userId = localStorage.getItem("userId");
 
-  // Fetch the bids from backend
   useEffect(() => {
-    axios.get(`/api/user/bids/${userId}`)
-      .then(response => setBids(response.data))
-      .catch(error => console.error("Error fetching bids:", error));
-  }, [userId]);
+    // Fetch bid data from the .NET backend API
+    fetch('https://api.example.com/bids')  // Replace with your actual API endpoint
+      .then(response => response.json())
+      .then(data => setBids(data))
+      .catch(error => console.error('Error fetching bids:', error));
+  }, []);
 
-  // Handle bid deletion
   const handleDelete = (bidId) => {
-    setShowDeleteConfirm(true);
-    setSelectedBidId(bidId);
-  };
-
-  const confirmDelete = () => {
-    axios.delete(`/api/user/delete-bid/${selectedBidId}`)
-      .then(() => {
-        alert("Bid deleted successfully!");
-        setBids(bids.filter(bid => bid.id !== selectedBidId));
-        setShowDeleteConfirm(false);
-      })
-      .catch(error => console.error("Error deleting bid:", error));
+    if (window.confirm('Are you sure you want to delete this bid?')) {
+      // Call API to delete the bid
+      fetch(`https://api.example.com/bids/${bidId}`, { method: 'DELETE' }) // Replace with your API endpoint
+        .then(() => {
+          alert('Bid deleted successfully');
+          // Remove the bid from the state
+          setBids(bids.filter(bid => bid.id !== bidId));
+        })
+        .catch(error => console.error('Error deleting bid:', error));
+    }
   };
 
   const handleView = (auctionId) => {
+    // Navigate to auction page
     navigate(`/auction/${auctionId}`);
   };
 
-  const handlePay = (auctionId) => {
-    navigate(`/payment/${auctionId}/${userId}`);
+  const handlePay = (auctionId, userId) => {
+    // Navigate to payment page
+    navigate(`/payment/${auctionId}?userId=${userId}`);
   };
 
   return (
-    <div className="your-bids-page">
-      <Navbar />
-      <div className="bids-container">
-        <Sidebar />
-        <div className="content">
-          <h1>Your Bids</h1>
+    <div className={styles.pageWrapper}>
+      <ProfileNavbar />
+      <ProfileSidebar />
+      <div className={styles.contentWrapper}>
+        <h1>Your Bids</h1>
+        <div className={styles.bidsList}>
 
-          <div className="bid-card" >
-              <div className="bid-details">
-                <img src={require('../../../../assets/images/noblesselogo.png')} alt="Auction Item" />
-                <div className="bid-details2">
-                  <p>Auction Name: dccd</p>
-                  <p>Amount: cd</p>
-                  <p>State: pending</p>
-                </div>
-              </div>
-              <div className="bid-actions">
+        <div className={styles.bidCard} >
+              <img src={require("../../../../assets/images/C9AA9089-398E-4702-9C96-54CD007B27CF.jpg")} alt="" className={styles.bidImage} />
+              <div className={styles.bidDetails}>
+                <p>Auction:eferf </p>
+                <span className={styles.dash}>|</span> 
+                <p>Amount: $23</p>
+                <span className={styles.dash}>|</span> 
+                <p>State: pending</p>
+                <span className={styles.dash}>|</span> 
+                <div className={styles.buttons}>
+                 
+                 
+                      <button className={styles.deleteBtn} >Delete</button>
+                      <button className={styles.viewBtn} >View</button>
+                    
                 
-                    <button className="delete-button">Delete</button>
-                    <button className="view-button" >View</button>
-    
+                </div>
               </div>
             </div>
 
-            <div className="bid-card" >
-              <div className="bid-details">
-                <img src={require('../../../../assets/images/noblesselogo.png')} alt="Auction Item" />
-                <div className="bid-details2">
-                  <p>Auction Name: dccd</p>
-                  <p>Amount: cd</p>
-                  <p>State: pending</p>
+            <div className={styles.bidCard} >
+              <img src={require("../../../../assets/images/C9AA9089-398E-4702-9C96-54CD007B27CF.jpg")} alt="" className={styles.bidImage} />
+              <div className={styles.bidDetails}>
+                <p>Auction:eferf </p>
+                <span className={styles.dash}>|</span> 
+                <p>Amount: $23</p>
+                <span className={styles.dash}>|</span> 
+                <p>State: pending</p>
+                <span className={styles.dash}>|</span> 
+                <div className={styles.buttons}>
+                 
+                 
+                      <button className={styles.deleteBtn} >Delete</button>
+                      <button className={styles.viewBtn} >View</button>
+                    
+                
                 </div>
               </div>
-              <div className="bid-actions">
-                
-                    <button className="delete-button">Delete</button>
-                    <button className="view-button" >View</button>
-    
-              </div>
             </div>
+            
+
+
 
 
 
           {bids.map(bid => (
-            <div className="bid-card" key={bid.id}>
-              <div className="bid-details">
-                <img src={bid.image} alt="Auction Item" />
-                <div className="bid-details2">
-                  <p>Auction Name: {bid.auctionName}</p>
-                  <p>Amount: ${bid.amount}</p>
-                  <p>State: {bid.state}</p>
+            <div className={styles.bidCard} key={bid.id}>
+              <img src={bid.imageUrl} alt={bid.auctionName} className={styles.bidImage} />
+              <div className={styles.bidDetails}>
+                <p>Auction: {bid.auctionName}</p>
+                <span className={styles.dash}>|</span> 
+                <p>Amount: ${bid.amount}</p>
+                <span className={styles.dash}>|</span> 
+                <p>State: {bid.state}</p>
+                <div className={styles.buttons}>
+                  {bid.state === 'pending' && (
+                    <>
+                      <button className={styles.deleteBtn} onClick={() => handleDelete(bid.id)}>Delete</button>
+                      <button className={styles.viewBtn} onClick={() => handleView(bid.auctionId)}>View</button>
+                    </>
+                  )}
+                  {bid.state === 'lose' && (
+                    <button className={styles.deleteBtn} onClick={() => handleDelete(bid.id)}>Delete</button>
+                  )}
+                  {bid.state === 'win' && (
+                    <>
+                      <button className={styles.payBtn} onClick={() => handlePay(bid.auctionId, bid.userId)}>Pay</button>
+                      <button className={styles.viewBtn} onClick={() => handleView(bid.auctionId)}>View</button>
+                    </>
+                  )}
                 </div>
-              </div>
-              <div className="bid-actions">
-                {bid.state === "Pending" && (
-                  <>
-                    <button className="delete-button" onClick={() => handleDelete(bid.id)}>Delete</button>
-                    <button className="view-button" onClick={() => handleView(bid.auctionId)}>View</button>
-                  </>
-                )}
-                {bid.state === "Lose" && (
-                  <button className="delete-button" onClick={() => handleDelete(bid.id)}>Delete</button>
-                )}
-                {bid.state === "Win" && (
-                  <>
-                    <button className="pay-button" onClick={() => handlePay(bid.auctionId)}>Pay</button>
-                    <button className="view-button" onClick={() => handleView(bid.auctionId)}>View</button>
-                  </>
-                )}
               </div>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Delete Confirmation Modal */}
-      {showDeleteConfirm && (
-        <div className="delete-modal">
-          <div className="modal-content">
-            <p>Are you sure you want to delete this bid?</p>
-            <button className="confirm-delete-button" onClick={confirmDelete}>Delete</button>
-            <button className="cancel-button" onClick={() => setShowDeleteConfirm(false)}>Cancel</button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

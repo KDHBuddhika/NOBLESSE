@@ -9,11 +9,19 @@
   }
   
   .dashboard-content {
-    margin-left: 250px; /* Sidebar width */
+    margin-left: 260px; /* Sidebar width */
     padding: 20px;
     background-color: #f9f9f9;
     width: 100%;
     min-height: 100vh;
+  }
+
+  .dashboard-content h1{
+    font-size: 2rem;
+    color: #1A1A54;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
   }
   
   .dashboard-stats {
@@ -72,7 +80,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 10px;
-    background-color: #966464;
+    background-color: #f1f1ff;
   
   }
   
