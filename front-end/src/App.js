@@ -32,6 +32,7 @@ import AddProduct from './pages/profile/pages/AddProduct/AddProduct';
 import ProductView from './pages/profile/pages/ProductView/ProductView.js';
 import MyAuction from './pages/profile/pages/YourAuction/MyAuction.js';
 import AuctionResult from './pages/profile/pages/AuctionResult/AuctionResult.js';
+import NotificationPage from './pages/profile/pages/NotificationPage/NotificationPage.js';
 
 
 
@@ -96,6 +97,8 @@ function App() {
        <Route path="/yourAuction" element={<MyAuction/>} />
 
        <Route path="/yourAuction/result" element={<AuctionResult/>} />
+
+       <Route path="/profile/notification" element={<NotificationPage/>} />
 
 
    

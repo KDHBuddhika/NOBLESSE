@@ -10,7 +10,7 @@ const ProfileSidebar = () => {
         <li><Link to="/yourBids">Your Bids</Link></li>
         <li><Link to="/products">Products</Link></li>
         <li><Link to="/profile/watchlist">Watch List</Link></li>
-        <li><Link to="/profile/notifications">Notifications</Link></li>
+        <li><Link to="/profile/notification">Notifications</Link></li>
         <li><Link to="/profile/payment">Payment</Link></li>
         <li><hr className={styles.line}/></li>
         <li><Link to="/profile/dashboard">Dashboard</Link></li>
