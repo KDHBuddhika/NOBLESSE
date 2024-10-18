@@ -1,0 +1,44 @@
+/* ProfileSidebar.module.css */
+
+.sidebar {
+  position: fixed;
+  top: 70px; /* Adjust according to navbar height */
+  left: 0;
+  width: 220px;
+  height: 100%;
+  background-color: #f0f0f0;
+  border-right: 1px solid #ddd;
+  padding-top: 20px;
+  z-index: 999; /* Ensure it's under the navbar */
+}
+
+.sidebarList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.line{
+  border: 1px solid #6b6b90;
+}
+
+.sidebarList li {
+  text-align: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+.sidebarList li:hover {
+  background-color: #1a1a54;
+  color:#f1f1ff ;
+  text-align: center;
+}
+
+
+
+.sidebarList li a {
+  text-decoration: none;
+  color: inherit;
+}

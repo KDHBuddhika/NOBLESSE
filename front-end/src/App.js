@@ -10,7 +10,6 @@ import TermsCondition from './pages/Auth/termsform/termsCondition';
 import PrivacyPolicyContent from './pages/Privacy&Policy/privacy'; 
 import AuctionListPage from './pages/Auction_List/AuctionListPage';
 import VerifyAccount from './pages/Auth/verifingAcc/VerifyAccount';
-import HomePage from './pages/home/home';
 // import YourInfo from './pages/UserProfile/YourInfo/Infoform/Info'; 
 // import Delete from './pages/UserProfile/YourInfo/DeleteAcc/Modal'; 
 
@@ -18,23 +17,28 @@ import HomePage from './pages/home/home';
 
 
 import AdminNavbar from './pages/Admin/components/AdminNavbar';
-import AdminSlidebar from './pages/Admin/components/AdminSidebar'
+import AdminSlidebar from './pages/Admin/components/AdminSidebar';
+
 import Dashboard from './pages/Admin/pages/Dashboard/Dashboard';
-
 import ManageProducts from './pages/Admin/pages/ManageProducts/ManageProducts';
-
 import ManageAuctions from './pages/Admin/pages/ManageAuctions/ManageAuctions';
-
 import ManageCategories from './pages/Admin/pages/ManageCategories/ManageCategories';
-
 import ManageUsers from './pages/Admin/pages/ManageUser/ManageUser';
 
 import YourInfo from './pages/profile/pages/YourInfo/YourInfo';
-
 import YourBids from './pages/profile/pages/YourBids/YourBids';
-
 import YourProduct from './pages/profile/pages/YourProduct/YourProduct';
+import AddProduct from './pages/profile/pages/AddProduct/AddProduct';
+import ProductView from './pages/profile/pages/ProductView/ProductView.js';
+import MyAuction from './pages/profile/pages/YourAuction/MyAuction.js';
+import AuctionResult from './pages/profile/pages/AuctionResult/AuctionResult.js';
 
+
+
+import Home from './pages/home/home';
+
+import Layout from "./pages/Components/Layout";
+import { ImRoad } from 'react-icons/im';
 
 
 function App() {
@@ -50,17 +54,13 @@ function App() {
         <Route path="/signup" element={<SignUpForm />} />
         {/* <Route path='/auctionList' element={<AuctionListPage/>} />
         <Route path="/Privacy&Policy" element={<PrivacyPolicyContent />} /> */}
-       <Route exact path="/auctionList" element={<AuctionListPage />} />
+      
        <Route exact path="/Privacy&Policy" element={<PrivacyPolicyContent />} />
 
        <Route path="/verifyAccount" element={<VerifyAccount />} />
 
-       {/* <Route path="/infoform" element={<YourInfo />} />
-       <Route path="/deleteAcc" element={<Delete />} /> */}
-
-       {/* <Route path="/navbar" element={<Layout />} /> */}
       
-       <Route path="/home" element={< HomePage/>} />
+    
 
 
 
@@ -78,6 +78,9 @@ function App() {
        <Route path="/manageUsers" element={<ManageUsers/>} />
 
 
+
+
+
        {/* profile */}
 
        <Route path="/yourInfo" element={<YourInfo/>} />
@@ -86,10 +89,34 @@ function App() {
 
        <Route path="/products" element={<YourProduct/>} />
 
+       <Route path="/addProduct" element={<AddProduct/>} />
+
+       <Route path="/productView" element={<ProductView/>} />
+
+       <Route path="/yourAuction" element={<MyAuction/>} />
+
+       <Route path="/yourAuction/result" element={<AuctionResult/>} />
+
+
+   
+
+        
+
+         {/* main */}
+
+        <Route element={<Layout />}>
+					<Route path="/home" element={<Home />} />
+          <Route exact path="/auctionList" element={<AuctionListPage />} />
+				</Route>
+
+
+
+        
+
 
         
         {/* Catch-all route */}
-        <Route path="*" element={<Navigate to="/signin" />} />
+        <Route path="/" element={<Navigate to="/home" />} />
       </Routes>
     </Router>
   );

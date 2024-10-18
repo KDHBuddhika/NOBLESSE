@@ -1,125 +1,124 @@
-// YourProduct.js
-import React, { useState, useEffect } from "react";
-import Navbar from "../../components/profilenavbar";
-import Sidebar from "../../components/profileslidebar";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import './YourProduct.css'; // Add necessary CSS for layout and interaction
-
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ProfileNavbar from '../../components/ProfileNavbark';  // Navbar component
+import ProfileSidebar from '../../components/ProfileSidebar'; // Sidebar component
+import styles from './YourProduct.module.css'; // CSS for styling
 
 const YourProduct = () => {
-    const [products, setProducts] = useState([]);
-    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-    const [selectedProductId, setSelectedProductId] = useState(null);
-    const navigate = useNavigate();
-  
-    const userId = localStorage.getItem("userId");
-  
-    useEffect(() => {
-      axios.get(`/api/user/products/${userId}`)
-        .then(response => setProducts(response.data))
-        .catch(error => console.error("Error fetching products:", error));
-    }, [userId]);
-  
-    const handleDelete = (productId) => {
-      setShowDeleteConfirm(true);
-      setSelectedProductId(productId);
-    };
-  
-    const confirmDelete = () => {
-      axios.delete(`/api/user/delete-product/${selectedProductId}`)
+  const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
+  const userId = 1; // Replace with actual user ID logic
+
+  useEffect(() => {
+    // Fetch products by user ID from the .NET backend API
+    fetch(`https://api.example.com/products?userId=${userId}`)  // Replace with your API endpoint
+      .then(response => response.json())
+      .then(data => setProducts(data))
+      .catch(error => console.error('Error fetching products:', error));
+  }, [userId]);
+
+  const handleDelete = (productId) => {
+    if (window.confirm('Are you sure you want to delete this product?')) {
+      // Call API to delete the product
+      fetch(`https://api.example.com/products/${productId}`, { method: 'DELETE' })  // Replace with your API endpoint
         .then(() => {
-          alert("Product deleted successfully!");
-          setProducts(products.filter(product => product.id !== selectedProductId));
-          setShowDeleteConfirm(false);
+          alert('Product deleted successfully');
+          // Remove the product from the state
+          setProducts(products.filter(product => product.id !== productId));
         })
-        .catch(error => console.error("Error deleting product:", error));
-    };
-  
-    const handleView = (productId) => {
-      navigate(`/productview/${productId}`);
-    };
-  
-    const handleAddProduct = () => {
-      navigate("/addproduct");
-    };
-  
-    return (
-      <div className="your-product-page">
-        <Navbar />
-        <div className="product-container">
-          <Sidebar />
-          <div className="content">
-            <div className="header">
-              <h1>Your Product</h1>
-             
-            </div>
-            <button className="add-product-button" onClick={handleAddProduct}>Add Product</button>
-
-            <div className="product-card" >
-                <div className="product-details">
-                  <img src={require("../../../../assets/images/C9AA9089-398E-4702-9C96-54CD007B27CF.jpg")} alt="Product" />
-                  <div className="product-info">
-                    <p>Antique Silver Pocket Watch <span className="dash">|</span></p>
-                    <p>Category : Luxury Goods  <span className="dash">|</span> </p>
-                    <p>Price: $33 <span className="dash">|</span></p>
-                    <p>Approved </p>
-                  </div>
-                </div>
-                <div className="product-actions">
-                  <button className="delete-button" >Delete</button>
-                  <button className="view-button" >View</button>
-                </div>
-              </div>
-
-              <div className="product-card" >
-                <div className="product-details">
-                  <img src={require("../../../../assets/images/C9AA9089-398E-4702-9C96-54CD007B27CF.jpg")} alt="Product" />
-                  <div className="product-info">
-                    <p>Antique Silver Pocket Watch <span className="dash">|</span></p>
-                    <p>Category : Luxury Goods  <span className="dash">|</span> </p>
-                    <p>Price: $33 <span className="dash">|</span></p>
-                    <p>Approved </p>
-                  </div>
-                </div>
-                <div className="product-actions">
-                  <button className="delete-button" >Delete</button>
-                  <button className="view-button" >View</button>
-                </div>
-              </div>
-
-
-            {products.map(product => (
-              <div className="product-card" key={product.id}>
-                <div className="product-details">
-                  <img src={product.image} alt="Product" />
-                  <div className="product-info">
-                    <p>Product Name: {product.productName} <span className="dash">|</span></p>
-                    <p>Category: {product.category} <span className="dash">|</span></p>
-                    <p>Starting Price: ${product.startingPrice} <span className="dash">|</span></p>
-                    <p>Approval State: {product.approvalState} </p>
-                  </div>
-                </div>
-                <div className="product-actions">
-                  <button className="delete-button" onClick={() => handleDelete(product.id)}>Delete</button>
-                  <button className="view-button" onClick={() => handleView(product.id)}>View</button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-  
-        {showDeleteConfirm && (
-          <div className="delete-modal">
-            <div className="modal-content">
-              <p>Are you sure you want to delete this product?</p>
-              <button className="confirm-delete-button" onClick={confirmDelete}>Delete</button>
-              <button className="cancel-button" onClick={() => setShowDeleteConfirm(false)}>Cancel</button>
-            </div>
-          </div>
-        )}
-      </div>
-    );
+        .catch(error => console.error('Error deleting product:', error));
+    }
   };
-  
-  export default YourProduct;
+
+  const handleView = (productId) => {
+    // Navigate to the product view page
+    navigate(`/productview/${productId}`);
+  };
+
+  const handleViewe = (productId) => {
+    // Navigate to the product view page
+    navigate(`/productView`);
+  };
+
+  const handleAddProduct = () => {
+    // Navigate to the add product page
+    navigate('/addProduct');
+  };
+
+  return (
+    <div className={styles.pageWrapper}>
+      <ProfileNavbar />
+      <ProfileSidebar />
+      <div className={styles.contentWrapper}>
+        <h1>Your Product</h1>
+        <button className={styles.addButton} onClick={handleAddProduct}>Add Product</button>
+        <div className={styles.productsList}>
+         
+        <div className={styles.productCard} >
+              <img src={require("../../../../assets/images/C9AA9089-398E-4702-9C96-54CD007B27CF.jpg")} alt=
+              "" className={styles.productImage} />
+              <div className={styles.productDetails}>
+                <p>Product Name: <strong>bds gtyh ffs</strong></p>
+                <span className={styles.dash}>|</span> 
+                <p>Category: <strong>bag</strong></p>
+                <span className={styles.dash}>|</span> 
+                <p>Starting Price: <strong>$34</strong></p>
+                <span className={styles.dash}>|</span> 
+                <p>Approval State: <strong>approved</strong></p>
+                <span className={styles.dash}>|</span> 
+                <div className={styles.buttons}>
+                  <button className={styles.deleteBtn} >Delete</button>
+                  <button className={styles.viewBtn} onClick={() => handleViewe()}>View</button>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.productCard} >
+              <img src={require("../../../../assets/images/C9AA9089-398E-4702-9C96-54CD007B27CF.jpg")} alt=
+              "" className={styles.productImage} />
+              <div className={styles.productDetails}>
+                <p>Product Name: <strong>bds gtyh ffs</strong></p>
+                <span className={styles.dash}>|</span> 
+                <p>Category: <strong>bag</strong></p>
+                <span className={styles.dash}>|</span> 
+                <p>Starting Price: <strong>$34</strong></p>
+                <span className={styles.dash}>|</span> 
+                <p>Approval State: <strong>approved</strong></p>
+                <span className={styles.dash}>|</span> 
+                <div className={styles.buttons}>
+                  <button className={styles.deleteBtn} >Delete</button>
+                  <button className={styles.viewBtn} >View</button>
+                </div>
+              </div>
+            </div>
+         
+         
+         
+          {products.map(product => (
+            <div className={styles.productCard} key={product.id}>
+              <img src={product.imageUrl} alt={product.name} className={styles.productImage} />
+              <div className={styles.productDetails}>
+                <p>Product Name: <strong>{product.name}</strong></p>
+                <span className={styles.dash}>|</span> 
+                <p>Category: <strong>{product.category}</strong></p>
+                <span className={styles.dash}>|</span> 
+                <p>Starting Price: <strong>${product.startingPrice}</strong></p>
+                <span className={styles.dash}>|</span> 
+                <p>Approval State: <strong>{product.approvalState}</strong></p>
+                <span className={styles.dash}>|</span> 
+                <div className={styles.buttons}>
+                  <button className={styles.deleteBtn} onClick={() => handleDelete(product.id)}>Delete</button>
+                  <button className={styles.viewBtn} onClick={() => handleView(product.id)}>View</button>
+                </div>
+              </div>
+            </div>
+          ))}
+
+
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default YourProduct;

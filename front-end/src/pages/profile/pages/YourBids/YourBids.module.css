@@ -1,0 +1,100 @@
+.pageWrapper {
+  display: flex;
+}
+
+.contentWrapper {
+  margin-left: 220px; /* Same width as sidebar */
+  padding: 20px;
+  margin-top: 70px; /* Adjust according to navbar height */
+  width: calc(100% - 220px);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.contentWrapper h1{
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.bidsList {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.bidCard {
+  background-color: #f4f4f4;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.bidCard:hover {
+  transform: scale(1.02);
+}
+
+.bidImage {
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+}
+
+.bidDetails {
+  flex-grow: 1;
+  width: max-content;
+  display: flex;
+  gap: 20px;
+}
+
+.dash{
+  font-weight: 900;
+  font-size: 1.1rem;
+ 
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.deleteBtn, .viewBtn, .payBtn {
+  padding: 10px 15px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.deleteBtn {
+  background-color: #dc3545; /* Bootstrap Red */
+}
+
+.viewBtn {
+  background-color: #007bff; /* Bootstrap Blue */
+}
+
+.payBtn {
+  background-color: #28a745; /* Bootstrap Green */
+}
+
+
+.deleteBtn:hover{
+  background-color: #1a1a54; /* Bootstrap Red */
+}
+
+.viewBtn:hover{
+  background-color: #1a1a54; /* Bootstrap Blue */
+}
+
+.payBtn:hover {
+  background-color: #1a1a54; /* Bootstrap Green */
+}
