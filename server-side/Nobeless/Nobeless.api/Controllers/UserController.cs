@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Nobeless.api.Data;
+using Nobeless.api.Exceptions;
 using Nobeless.api.Model.Domain;
 using Nobeless.api.Model.Dtos.RequestDtos;
+using Nobeless.api.Service;
 using Nobeless.api.Util;
 
 namespace Nobeless.api.Controllers
@@ -15,11 +17,13 @@ namespace Nobeless.api.Controllers
 
         private readonly NobelessDbContext _dbContext;
         private readonly IEmailService _emailService;
+        private readonly UserService _userService;
 
-        public UserController(NobelessDbContext dbContext,IEmailService emailService)
+        public UserController(NobelessDbContext dbContext,IEmailService emailService,UserService userService)
         {
             this._dbContext = dbContext;
             this._emailService = emailService;
+            this._userService = userService;
         }
 
         //-----------------------------------------------user register----------------------------------------------
@@ -61,7 +65,7 @@ namespace Nobeless.api.Controllers
 
             //send mail with verification link
             var verificationLink = $"https://localhost:3000/verifyAccount?token={token}";
-            await _emailService.SendVerificationEmail(user.Email, verificationLink); 
+            _emailService.SendVerificationEmail(user.Email, verificationLink); 
 
             return Ok("User registered. Please verify your email.");
         }
@@ -122,6 +126,86 @@ namespace Nobeless.api.Controllers
 
          }
 
+        //-----------------get user details by user id ----------------------------
+        [HttpGet("/api/getUser/{id}")]
+        public async Task<IActionResult> GetUserDetails(Guid id)
+        {
+            try
+            {
+                var getUser = await _userService.GetUserById(id);
 
-     }
+                if (getUser == null)
+                {
+                    // Return NotFound if user is not found
+                    return NotFound(new { message = "User not found" });
+                }
+
+                // Return user data if found
+                return Ok(getUser);
+            }
+            catch (NotFoundException ex)
+            {
+                // Custom NotFound exception handling
+                return NotFound(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                // Handle general exceptions
+                return StatusCode(500, new { message = "An error occurred", error = ex.Message });
+            }
+
+        }
+
+
+        //-------------------------Update Contact Details------------------
+
+        [HttpPut("/updateContactDetails/{id}")]
+        public async Task<IActionResult> UpdateContactDetails(Guid id, [FromBody] UpdateContactDetailsDto contactDetailsDto)
+        {
+            try
+            {
+                var updatedUser = await _userService.UpdateContactDetails(id, contactDetailsDto);
+
+                if (updatedUser == null)
+                {
+                    return NotFound(new { message = "User not found" });
+                }
+
+                return Ok(updatedUser);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred", error = ex.Message });
+            }
+        }
+
+
+        //-----------------------convert to seller ------------------------
+        [HttpPut("/convertToSeller/{id}")]
+        public async Task<IActionResult> ConvertToSeller(Guid id)
+        {
+            try
+            {
+                bool IsConvert = await _userService.CovertToSeller(id);
+                return Ok(IsConvert);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { ex.Message });
+            }
+
+
+        }
+
+
+
+
+
+
+
+    }
 }

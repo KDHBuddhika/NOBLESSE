@@ -41,7 +41,7 @@ namespace Nobeless.api.Controllers
             try
             {
                 String status = await _productService.AddProduct(productDto);
-                return Ok(status);
+                return Ok(new { message = status });
             }
             catch (InvalidOperationException ex) {
                 return BadRequest(new { message = ex.Message });
@@ -67,7 +67,7 @@ namespace Nobeless.api.Controllers
 
             try
             {
-                var products = await _productService.GetProductsByUserIdAsyn(id);
+                var products = await _productService.GetProductsByUserIdAsync(id);
                 return Ok(products);
             }
             catch (NotFoundException ex)
@@ -85,23 +85,21 @@ namespace Nobeless.api.Controllers
 
         //----------------------Get product By Product Id------------------------------------
 
-
-        [HttpGet]
-        [Route("/getProductsByProductId/{id}")]
-        public async Task<IActionResult> GetProductById(int productId)
+        [HttpGet("/productDetails/{productId}")]
+        public async Task<IActionResult> GetProductDetailsById(int productId)
         {
             try
             {
-                var product = await _productService.GetProductByIdAsync(productId);
-                return Ok(product);
+                var productDetails = await _productService.GetProductDetailsByIdAsync(productId);
+                return Ok(productDetails); // Return 200 OK with product details
             }
-            catch (NotFoundException ex)
+            catch (KeyNotFoundException ex)
             {
-                return NotFound(new { message = ex.Message });
+                return NotFound(ex.Message); // Return 404 Not Found if the product does not exist
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "An unexpected error occurred.");
+                return StatusCode(500, "Internal server error: " + ex.Message); // Return 500 for other errors
             }
         }
 
@@ -167,7 +165,7 @@ namespace Nobeless.api.Controllers
         }
 
 
-        // ----------------------
+        // ----------------------Approved -----------------------------------------------------------------
 
 
         [HttpPut("ApproveProduct/{productId}")]

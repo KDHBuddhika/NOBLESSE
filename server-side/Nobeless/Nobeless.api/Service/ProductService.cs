@@ -1,5 +1,6 @@
 ﻿using Nobeless.api.Model.Domain;
 using Nobeless.api.Model.Dtos.RequestDtos;
+using Nobeless.api.Model.Dtos.ResponseDtos;
 
 namespace Nobeless.api.Service
 {
@@ -9,11 +10,15 @@ namespace Nobeless.api.Service
 
         Task<string> AddProduct(ProductDtos productDto);
        
-        Task<List<Products>> GetProductsByUserIdAsyn(Guid id);
+    
 
-        Task<Products> GetProductByIdAsync(int productId);
+      
 
         Task<bool> DeleteProductByIdAsync(int productId);
         Task ApproveProductAsync(int productId);
+
+        Task<List<GetProductsUserDtos>> GetProductsByUserIdAsync(Guid userId);
+
+        Task<ProductDetailsDto> GetProductDetailsByIdAsync(int productId);
     }
 }

@@ -27,6 +27,7 @@ namespace Nobeless.api
             builder.Services.AddScoped<ProductService,ProductServiceIMPL>();
             builder.Services.AddScoped<AuctionService, AuctionServiceIMPL>();
             builder.Services.AddScoped<BidService, BidServiceIMPL>();
+            builder.Services.AddScoped<UserService, UserServiceIMPL>();
 
             builder.Services.AddControllers().AddJsonOptions(options =>
             {
