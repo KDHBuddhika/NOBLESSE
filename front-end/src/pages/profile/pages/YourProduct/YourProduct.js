@@ -7,20 +7,24 @@ import styles from './YourProduct.module.css'; // CSS for styling
 const YourProduct = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
-  const userId = 1; // Replace with actual user ID logic
+  const userId = localStorage.getItem('userId');
 
   useEffect(() => {
     // Fetch products by user ID from the .NET backend API
-    fetch(`https://api.example.com/products?userId=${userId}`)  // Replace with your API endpoint
+    fetch(`https://localhost:7281/getProductsByUserId/${userId}`)  // Replace with your API endpoint
       .then(response => response.json())
-      .then(data => setProducts(data))
+      .then(data => {
+        if (data && data.$values) {
+          setProducts(data.$values);  // Access the $values array
+        }
+      })
       .catch(error => console.error('Error fetching products:', error));
   }, [userId]);
 
   const handleDelete = (productId) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       // Call API to delete the product
-      fetch(`https://api.example.com/products/${productId}`, { method: 'DELETE' })  // Replace with your API endpoint
+      fetch(`https://localhost:7281/deleteProduct/${productId}`, { method: 'DELETE' })  // Replace with your API endpoint
         .then(() => {
           alert('Product deleted successfully');
           // Remove the product from the state
@@ -94,21 +98,22 @@ const YourProduct = () => {
          
          
          
-          {products.map(product => (
-            <div className={styles.productCard} key={product.id}>
-              <img src={product.imageUrl} alt={product.name} className={styles.productImage} />
+            {products.map(product => (
+            <div className={styles.productCard} key={product.productId}>
+              {/* Assuming `thumbnailImage` is a filename and needs to be appended to an image directory */}
+              <img src={require(`C:/Users/asus/Desktop/Nobeless/server-side/Nobeless/Nobeless.api/Uploads/${product.thumbnailImage}`)} alt={product.productName} className={styles.productImage} />
               <div className={styles.productDetails}>
-                <p>Product Name: <strong>{product.name}</strong></p>
+                <p>Product Name: <strong>{product.productName}</strong></p>
                 <span className={styles.dash}>|</span> 
-                <p>Category: <strong>{product.category}</strong></p>
+                <p>Category: <strong>{product.categoryName}</strong></p>
                 <span className={styles.dash}>|</span> 
                 <p>Starting Price: <strong>${product.startingPrice}</strong></p>
                 <span className={styles.dash}>|</span> 
-                <p>Approval State: <strong>{product.approvalState}</strong></p>
+                <p>Approval State: <strong>{product.isApproved ? 'Approved' : 'Pending'}</strong></p>
                 <span className={styles.dash}>|</span> 
                 <div className={styles.buttons}>
-                  <button className={styles.deleteBtn} onClick={() => handleDelete(product.id)}>Delete</button>
-                  <button className={styles.viewBtn} onClick={() => handleView(product.id)}>View</button>
+                  <button className={styles.deleteBtn} onClick={() => handleDelete(product.productId)}>Delete</button>
+                  <button className={styles.viewBtn} onClick={() => handleView(product.productId)}>View</button>
                 </div>
               </div>
             </div>

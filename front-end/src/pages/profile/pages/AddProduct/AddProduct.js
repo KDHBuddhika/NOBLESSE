@@ -8,18 +8,24 @@ const AddProduct = () => {
   const [categories, setCategories] = useState([]);
   const [formData, setFormData] = useState({
     name: '',
-    startingPrice: '',
     description: '',
+    startingPrice: '',
     category: '',
-    thumbnailImage: null
+    thumbnailImage: null,
+    userId: localStorage.getItem('userId') || '', // Assuming UserId is stored in localStorage
   });
+  const [successMessage, setSuccessMessage] = useState(''); // State to store success message
   const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch categories from backend
-    fetch('https://api.example.com/categories')  // Replace with your actual API endpoint
+    fetch('https://localhost:7281/getAllCategory')  // Replace with your actual API endpoint
       .then(response => response.json())
-      .then(data => setCategories(data))
+      .then(data => {
+        if (data && data.$values) {
+          setCategories(data.$values);  // Access the $values array
+        }
+      })
       .catch(error => console.error('Error fetching categories:', error));
   }, []);
 
@@ -34,41 +40,56 @@ const AddProduct = () => {
   const handleImageChange = (e) => {
     setFormData({
       ...formData,
-      thumbnailImage: e.target.files[0]
+      thumbnailImage: e.target.files[0]  // Store the image as a file
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+  
     // Prepare form data for submission
     const formDataToSend = new FormData();
     formDataToSend.append('name', formData.name);
-    formDataToSend.append('startingPrice', formData.startingPrice);
     formDataToSend.append('description', formData.description);
-    formDataToSend.append('category', formData.category);
-    formDataToSend.append('thumbnailImage', formData.thumbnailImage);
-    
+    formDataToSend.append('StartingPrise', parseFloat(formData.startingPrice)); // Ensure number is sent
+    formDataToSend.append('thumbnailImage', formData.thumbnailImage); // Image binary
+    formDataToSend.append('userId', formData.userId); // User ID as UUID
+    formDataToSend.append('categoryId', formData.category); // Category ID as UUID
+  
     // Send the data to the backend
-    fetch('https://api.example.com/products', {
+    fetch('https://localhost:7281/addproduct', {
       method: 'POST',
       body: formDataToSend
     })
-    .then(response => response.json())
+    .then(response => response.json())  // Parse response as JSON
     .then(data => {
-      alert('Product added successfully');
-      navigate('/profile/products'); // Redirect to the products page after success
+      if (data.message) {
+        setSuccessMessage(data.message); // Set success message from backend response
+      } else {
+        setSuccessMessage('Unexpected response format');
+      }
+      
+      // Redirect to the products page after a delay
+      setTimeout(() => {
+        setSuccessMessage(''); // Clear success message after 3 seconds
+        navigate('/products'); 
+      }, 3000); // 3-second delay before redirection
     })
-    .catch(error => console.error('Error adding product:', error));
+    .catch(error => {
+      console.error('Error adding product:', error);
+      setSuccessMessage('Error adding product');
+    });
   };
+  
 
   const handleClear = () => {
     setFormData({
       name: '',
-      startingPrice: '',
       description: '',
+      startingPrice: '',
       category: '',
-      thumbnailImage: null
+      thumbnailImage: null,
+      userId: localStorage.getItem('userId') || ''
     });
   };
 
@@ -78,6 +99,14 @@ const AddProduct = () => {
       <ProfileSidebar />
       <div className={styles.contentWrapper}>
         <h1>Add Product</h1>
+
+        {/* Display success message if product is added */}
+        {successMessage && (
+          <div className={styles.messageBox}>
+            {successMessage}
+          </div>
+        )}
+
         <form className={styles.productForm} onSubmit={handleSubmit}>
           <label>Product Name</label>
           <input
@@ -88,19 +117,19 @@ const AddProduct = () => {
             required
           />
           
+          <label>Description</label>
+          <textarea
+            name="description"
+            value={formData.description}
+            onChange={handleInputChange}
+            required
+          />
+
           <label>Starting Price</label>
           <input
             type="number"
             name="startingPrice"
             value={formData.startingPrice}
-            onChange={handleInputChange}
-            required
-          />
-
-          <label>Description</label>
-          <textarea
-            name="description"
-            value={formData.description}
             onChange={handleInputChange}
             required
           />
@@ -115,7 +144,7 @@ const AddProduct = () => {
             <option value="">Select Category</option>
             {categories.map(category => (
               <option key={category.id} value={category.id}>
-                {category.name}
+                {category.categoriesName}
               </option>
             ))}
           </select>

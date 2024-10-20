@@ -14,6 +14,8 @@ import ringPath from "../../assets/3d/ring.glb";
 import logo from "../../assets/images/noblesselogo.png";
 import "./home.css";
 
+import { Link } from "react-router-dom";
+
 function Home() {
 	const [currentModel, setCurrentModel] = useState(1);
 	function Model() {
@@ -102,8 +104,10 @@ function Home() {
 				<h1 className="w-1/2 text-primaryBlue text-center text-4xl font-Montserrat absolute left-[100px] top-52">
 					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et impedi
 				</h1>
-				<button className="text-primaryBlue text-2xl font-Montserrat font-semibold absolute left-[380px] top-[350px] p-4 w-52 border-primaryBlue border-[3px] bg-primaryWhite hover:bg-primaryBlue hover:text-primaryWhite transition-colors duration-300 ">
-					Auction
+				<button className="text-primaryBlue text-2xl font-Montserrat font-semibold absolute left-[380px] top-[350px] p-4 w-52 border-primaryBlue border-[3px] bg-primaryWhite hover:bg-primaryBlue hover:text-primaryWhite transition-colors duration-300 "> 
+				<Link to="/auctionList">
+							<h2 className="">Auction</h2>
+						</Link>
 				</button>
 			</div>
 			<div

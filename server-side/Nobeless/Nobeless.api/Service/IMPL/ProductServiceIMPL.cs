@@ -3,6 +3,7 @@ using Nobeless.api.Data;
 using Nobeless.api.Exceptions;
 using Nobeless.api.Model.Domain;
 using Nobeless.api.Model.Dtos.RequestDtos;
+using Nobeless.api.Model.Dtos.ResponseDtos;
 using Nobeless.api.Util;
 using InvalidOperationException = Nobeless.api.Exceptions.InvalidOperationException;
 
@@ -78,37 +79,8 @@ namespace Nobeless.api.Service.IMPL
 
 
 
-        //-----------------------------get product by userid-------------------------------------------------
-        public async Task<List<Products>> GetProductsByUserIdAsyn(Guid id)
-        {
-            var products = await _dbContext.products
-            .Where(p => p.UserId == id)
-            .ToListAsync();
+    
 
-            if (products == null || products.Count == 0)
-            {
-                throw new NotFoundException($"No products found for user ID: {id}");
-            }
-
-            return products;
-        }
-
-
-
-
-        //----------------------get product by product id---------------------------------
-        public async Task<Products> GetProductByIdAsync(int productId)
-        {
-            var product = await _dbContext.products
-                .FirstOrDefaultAsync(p => p.ProductId == productId);
-
-            if (product == null)
-            {
-                throw new NotFoundException($"Product with ID {productId} not found.");
-            }
-
-            return product;
-        }
 
 
 
@@ -173,5 +145,54 @@ namespace Nobeless.api.Service.IMPL
             _dbContext.products.Update(product);
             await _dbContext.SaveChangesAsync();
         }
+
+
+
+
+        //--------------------get all product by user id---------------------------
+        public async Task<List<GetProductsUserDtos>> GetProductsByUserIdAsync(Guid userId)
+        {
+            var products = await _dbContext.products
+            .Where(p => p.UserId == userId) // Filter products by user ID
+            .Select(p => new GetProductsUserDtos
+            {
+                productId = p.ProductId,
+                productName = p.Name,
+                CategoryName = p.Category.CategoriesName, // Assuming you have Category navigation property
+                StartingPrice = (float)p.StartingPrise,
+                IsApproved = p.is_approved,
+                ThumbnailImage = p.thumbnailImage // Assuming you store the image URL as string
+            })
+            .ToListAsync();
+
+            return products;
+        }
+
+
+
+        //----------------------- get product detail by product id-----------------------------------
+        public async Task<ProductDetailsDto> GetProductDetailsByIdAsync(int productId)
+        {
+            var product = await _dbContext.products
+                .Where(p => p.ProductId == productId)
+                .Select(p => new ProductDetailsDto
+                {
+                    ProductName = p.Name,
+                    CategoryName = p.Category.CategoriesName, // Assuming Category navigation property
+                    Price = p.StartingPrise,
+                    ImageUrl = p.thumbnailImage,
+                    Description = p.Description,
+                    IsApproved = p.is_approved
+                })
+                .FirstOrDefaultAsync();
+
+            if (product == null)
+            {
+                throw new KeyNotFoundException($"Product with ID {productId} not found.");
+            }
+
+            return product;
+        }
+
     }
 }

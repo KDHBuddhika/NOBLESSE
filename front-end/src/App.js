@@ -92,7 +92,7 @@ function App() {
 
        <Route path="/addProduct" element={<AddProduct/>} />
 
-       <Route path="/productView" element={<ProductView/>} />
+       <Route path="/productView/:productId" element={<ProductView/>} />
 
        <Route path="/yourAuction" element={<MyAuction/>} />
 
