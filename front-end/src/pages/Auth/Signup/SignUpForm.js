@@ -49,7 +49,7 @@ function SignUpForm() {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [userType] = useState('seller');
+  const [userType] = useState('bidder');
   const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {

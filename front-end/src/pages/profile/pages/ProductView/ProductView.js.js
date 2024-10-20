@@ -11,7 +11,7 @@ const ProductView = () => {
 
   useEffect(() => {
     // Fetch product details by product ID from the .NET backend API
-    fetch(`https://api.example.com/products/${productId}`)  // Replace with your actual API endpoint
+    fetch(`https://localhost:7281/productDetails/${productId}`)  // Replace with your actual API endpoint
       .then(response => response.json())
       .then(data => setProduct(data))
       .catch(error => console.error('Error fetching product:', error));
@@ -22,9 +22,10 @@ const ProductView = () => {
     navigate('/products');
   };
 
-  // if (!product) {
-  //   return <p>Loading...</p>; // Loading state while data is fetched
-  // }
+  // Handle the case where the product data is not yet loaded
+  if (!product) {
+    return <p>Loading...</p>; // Display loading text while data is being fetched
+  }
 
   return (
     <div className={styles.pageWrapper}>
@@ -33,27 +34,20 @@ const ProductView = () => {
       
       <div className={styles.contentWrapper}>
         <div className={styles.productContainer}>
-          <h1>Vintage Rolex Submariner Watch</h1>
-          <p className={styles.price}>$23</p>
-          <img src={require("../../../../assets/images/C9AA9089-398E-4702-9C96-54CD007B27CF.jpg")} alt="" className={styles.productImage} />
-          <p className={styles.description}>  A classic Rolex Submariner, featuring a black dial and stainless-steel bracelet. Known for its durability and timeless design, this watch is a must-have for collectors and watch enthusiasts alike. Comes with original packaging and certificate of authenticity.</p>
-          <p className={styles.category}><strong>Women's Handbags</strong></p>
-          <p className={styles.approvalState}>Approved</p>
+          <h1>{product.productName}</h1>
+          <p className={styles.price}>${product.price}</p>
+
+          {/* Assuming the `imageUrl` is a filename, prepend the proper path to load the image */}
+          <img src={require(`C:/Users/asus/Desktop/Nobeless/server-side/Nobeless/Nobeless.api/Uploads/${product.imageUrl}`)} alt={product.productName} className={styles.productImage} />
+
+          <p className={styles.description}>{product.description}</p>
+          <p className={styles.category}><strong>{product.categoryName}</strong></p>
+          <p className={styles.approvalState}>
+            {product.isApproved ? 'Approved' : 'Pending Approval'}
+          </p>
           <button className={styles.backButton} onClick={handleBack}>Back</button>
         </div>
       </div>
-
-      {/* <div className={styles.contentWrapper}>
-        <div className={styles.productContainer}>
-          <h1>{product.name}</h1>
-          <p className={styles.price}>${product.price}</p>
-          <img src={product.imageUrl} alt={product.name} className={styles.productImage} />
-          <p className={styles.description}>{product.description}</p>
-          <p className={styles.category}><strong>{product.category}</strong></p>
-          <p className={styles.approvalState}>{product.approvalState}</p>
-          <button className={styles.backButton} onClick={handleBack}>Back</button>
-        </div>
-      </div> */}
     </div>
   );
 };

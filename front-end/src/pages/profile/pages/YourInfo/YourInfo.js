@@ -3,6 +3,7 @@ import ProfileNavbar from '../../components/ProfileNavbark';
 import ProfileSidebar from '../../components/ProfileSidebar';
 import styles from './YourInfo.module.css';
 import axios from 'axios';
+import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa'; // Importing icons for verified status
 
 const YourInfo = () => {
   const [userData, setUserData] = useState({
@@ -14,17 +15,27 @@ const YourInfo = () => {
     street: '',
     lane: '',
     city: '',
+    usertype: '',
+    register_date: '',
+    isVerified: false, // Track email verification status
   });
+
+  const [message, setMessage] = useState(null); // To store success or error messages
+  const [messageType, setMessageType] = useState(''); // To differentiate between success and error messages
 
   // Fetch user data from .NET backend on component mount
   useEffect(() => {
     const fetchUserData = async () => {
-      const userId = 1; // Example: Change this dynamically for logged-in user
+      const userId = localStorage.getItem('userId'); // Get user ID from local storage
+      if (!userId) {
+        console.error('User ID not found in localStorage');
+        return;
+      }
       try {
-        const response = await axios.get(`/api/users/${userId}`);
-        setUserData(response.data);
+        const response = await axios.get(`https://localhost:7281/api/getUser/${userId}`);
+        setUserData(response.data); // Set the fetched data in the state
       } catch (error) {
-        console.error("Error fetching user data", error);
+        console.error('Error fetching user data', error);
       }
     };
     fetchUserData();
@@ -41,23 +52,58 @@ const YourInfo = () => {
 
   // Handle Save button click to update user info
   const handleSave = async () => {
-    const userId = 1; // Example: Use logged-in user's ID
+    const userId = localStorage.getItem('userId'); // Use logged-in user's ID
     try {
-      await axios.put(`/api/users/${userId}`, userData);
-      alert("User info updated successfully!");
+      await axios.put(`https://localhost:7281/api/users/${userId}`, userData);
+      setMessage('User info updated successfully!');
+      setMessageType('success');
     } catch (error) {
-      console.error("Error updating user info", error);
+      console.error('Error updating user info', error);
+      setMessage('Error updating user info');
+      setMessageType('error');
     }
   };
 
   // Handle Convert to Seller
   const handleConvertToSeller = async () => {
-    const userId = 1; // Example: Use logged-in user's ID
+    // Check if contact details are provided and email is verified
+    if (
+      !userData.phoneNumber ||
+      !userData.address ||
+      !userData.city ||
+      !userData.isVerified
+    ) {
+      // If the details are missing or email is not verified, show an alert
+      alert("You should submit contact details and verify your email");
+      return;
+    }
+
+    const userId = localStorage.getItem('userId'); // Use logged-in user's ID
     try {
-      await axios.post(`/api/users/${userId}/convertToSeller`);
-      alert("Successfully converted to seller!");
+      await axios.put(`https://localhost:7281/convertToSeller/${userId}`);
+      alert('Successfully converted to seller!');
     } catch (error) {
-      console.error("Error converting to seller", error);
+      console.error('Error converting to seller', error);
+    }
+  };
+
+  // Handle updating contact details
+  const handleUpdateContactDetails = async () => {
+    const userId = localStorage.getItem('userId'); // Use logged-in user's ID
+    try {
+      await axios.put(`https://localhost:7281/updateContactDetails/${userId}`, {
+        phoneNumber: userData.phoneNumber,
+        address: userData.address,
+        street: userData.street,
+        lane: userData.lane,
+        city: userData.city,
+      });
+      setMessage('Contact details updated successfully!');
+      setMessageType('success');
+    } catch (error) {
+      console.error('Error updating contact details', error);
+      setMessage('Error updating contact details');
+      setMessageType('error');
     }
   };
 
@@ -67,6 +113,9 @@ const YourInfo = () => {
       <div className={styles.container}>
         <ProfileSidebar />
         <main className={styles.mainContent}>
+         
+
+          {/* Personal Information */}
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Personal Information</h2>
             <div className={styles.inputGroup}>
@@ -81,6 +130,7 @@ const YourInfo = () => {
             </div>
           </section>
 
+          {/* Login Information */}
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Login Information</h2>
             <div className={styles.inputGroup}>
@@ -101,7 +151,16 @@ const YourInfo = () => {
               <button className={styles.saveButton} onClick={handleSave}>Save</button>
             </div>
           </section>
+           {/* Display success or error message */}
+           {message && (
+            <div
+              className={`${styles.messageBox} ${messageType === 'success' ? styles.success : styles.error}`}
+            >
+              {message}
+            </div>
+          )}
 
+          {/* Contact Information */}
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>
               Contact Information
@@ -145,15 +204,38 @@ const YourInfo = () => {
                   placeholder="City"
                 />
               </div>
+
               <div className={styles.buttonGroup}>
-                <button className={styles.saveButton} onClick={handleSave}>Save</button>
-                <button className={styles.convertButton} onClick={handleConvertToSeller}>
-                  Convert to Seller
-                </button>
+                
+                <button className={styles.saveButton} onClick={handleUpdateContactDetails}>Update Contact Details</button>
+                {/* Only show Convert to Seller if user is not a seller */}
+                {userData.usertype !== 'seller' && (
+                  <button className={styles.convertButton} onClick={handleConvertToSeller}>
+                    Convert to Seller
+                  </button>
+                )}
               </div>
             </div>
           </section>
 
+          {/* Display usertype, registration date, and verified status */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Account Information</h2>
+            <div className={styles.infoGroup}>
+              <p><strong>User Type:</strong> {userData.usertype || 'Not Available'}</p>
+              <p><strong>Registration Date:</strong> {userData.register_date ? new Date(userData.register_date).toLocaleDateString() : 'N/A'}</p>
+              <p>
+                <strong>Email Verification Status:</strong> 
+                {userData.isVerified ? (
+                  <FaCheckCircle className={styles.verifiedIcon} />
+                ) : (
+                  <FaTimesCircle className={styles.notVerifiedIcon} />
+                )}
+              </p>
+            </div>
+          </section>
+
+          {/* Delete account link */}
           <div className={styles.deleteAccount}>
             <a href="#">Delete Your Account</a>
           </div>

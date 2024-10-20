@@ -90,3 +90,11 @@
 .addBtn:hover {
   background-color: #373771; /* Darker blue on hover */
 }
+.messageBox {
+  padding: 10px;
+  background-color: #4caf50; /* Green background for success */
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}

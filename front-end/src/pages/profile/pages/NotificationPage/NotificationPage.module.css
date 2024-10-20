@@ -1,0 +1,51 @@
+.pageWrapper {
+    display: flex;
+  }
+  
+  .contentWrapper {
+    margin-left: 220px; /* Same width as sidebar */
+    padding: 20px;
+    margin-top: 70px; /* Adjust according to navbar height */
+    width: calc(100% - 220px);
+  }
+  
+  h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .notificationList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .notificationCard {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .notificationCard:hover {
+    transform: scale(1.02);
+  }
+  
+  .notificationTitle {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .notificationMessage {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .notificationTime {
+    font-size: 1em;
+    color: #999;
+  }
+  

@@ -41,7 +41,7 @@ const VintageTimepiecesGallery = () => {
     const selectedPiece = timepieces[selectedIndex];
 
     return (
-        <div className="container">
+        <div className="containera">
             <div className="detail-view" style={{backgroundImage: `url('${selectedPiece.image}')`}}>
                 <div className="overlay"></div>
                 <div className="price">{selectedPiece.price}</div>

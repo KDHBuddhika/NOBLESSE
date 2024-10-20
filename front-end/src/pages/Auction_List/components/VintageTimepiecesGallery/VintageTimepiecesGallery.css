@@ -1,5 +1,5 @@
 /* VintageTimepieces.css */
-.container {
+.containera {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -28,6 +28,7 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 1;
+    width: 100%;
 }
 
 .detail-content {
@@ -38,18 +39,19 @@
     z-index: 2;
 }
 
-h1 {
+.containera h1 {
     font-size: 3.4em;
     margin-bottom: 10px;
+    font-weight: 700;
 }
 
-p {
-    font-size: 1em;
+.containera p {
+    font-size: 1.2em;
     color: #a29b9b;
     margin-bottom: 70px;
 }
 
-.price {
+.containera .price {
     position: absolute;
     top: 40px;
     right: 40px;
@@ -57,12 +59,12 @@ p {
     z-index: 2;
 }
 
-.buttons {
+.containera .buttons {
     display: flex;
     gap: 50px;
 }
 
-button {
+.containera button {
     font-size: 1.4rem;
     padding: 10px 20px;
     background-color: transparent;
@@ -72,7 +74,7 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
+.containera button:hover {
     background-color: rgba(255,255,255,0.1);
 }
 
