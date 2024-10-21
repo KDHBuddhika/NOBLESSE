@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Nobeless.api.Data;
 using Nobeless.api.Model.Domain;
+using Nobeless.api.Service;
 
 namespace Nobeless.api.Controllers
 {
@@ -12,10 +13,12 @@ namespace Nobeless.api.Controllers
     {
 
         private readonly NobelessDbContext _context;
+        private readonly AdminService _adminService;
 
-        public AdminController( NobelessDbContext nobelessDbContext)
+        public AdminController( NobelessDbContext nobelessDbContext, AdminService adminService)
         { 
             _context = nobelessDbContext;
+            this._adminService = adminService;
         }
 
         //------------------------- categorie ------------------------
@@ -95,6 +98,26 @@ namespace Nobeless.api.Controllers
         {
             var categories = await _context.categories.ToListAsync();
             return Ok(categories);
+        }
+
+
+
+
+
+
+        //-------------------------------Dashboard Statis Details---------------------------------
+        [HttpGet("statistics")]
+        public async Task<IActionResult> GetDashboardStatistics()
+        {
+            try
+            {
+                var statistics = await _adminService.GetDashboardStatisticsAsync();
+                return Ok(statistics); 
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error: " + ex.Message); 
+            }
         }
 
 
