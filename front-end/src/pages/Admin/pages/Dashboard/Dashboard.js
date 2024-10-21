@@ -26,7 +26,7 @@ const Dashboard = () => {
     // Fetch data from .NET backend
     const fetchData = async () => {
       try {
-        const response = await fetch('https://your-backend-api-url/dashboard');
+        const response = await fetch('https://localhost:7281/api/Admin/statistics');
         const data = await response.json();
         setDashboardData(data);
       } catch (error) {
@@ -45,9 +45,9 @@ const Dashboard = () => {
     labels: ['Approved Auctions', 'Pending Auctions', 'Completed Auctions'],
     datasets: [
       {
-        // data: [dashboardData.totalAuctions - dashboardData.pendingApproval, dashboardData.pendingApproval, dashboardData.ongoingAuctions],
+        data: [dashboardData.totalAuctions - dashboardData.pendingProductApprovals, dashboardData.pendingProductApprovals, dashboardData.ongoingAuctions],
         // backgroundColor: ['#4CAF50', '#FFEB3B', '#FF5722'],
-        data: [dashboardData.totalAuctions - 23, 45, 65],
+        // data: [dashboardData.totalAuctions - 23, 45, 65],
         backgroundColor: ['#1a1a54', '#d7d7f3', '#6a6aef'],
       },
     ],
@@ -78,7 +78,7 @@ const Dashboard = () => {
       {
         label: 'Numbers',
         backgroundColor: '#1A1A54',
-        data: [dashboardData.totalUsers, dashboardData.totalAuctions, dashboardData.bidders, dashboardData.sellers],
+        data: [dashboardData.totalUsers, dashboardData.totalAuctions, dashboardData.totalBidders, dashboardData.totalSellers],
       },
     ],
   };
@@ -104,15 +104,15 @@ const Dashboard = () => {
               <p>Ongoing Auction</p>
             </div>
             <div className="stat-item">
-              <h2>{dashboardData.pendingApproval}</h2>
+              <h2>{dashboardData.pendingProductApprovals}</h2>
               <p>Pending Approval</p>
             </div>
             <div className="stat-item">
-              <h2>{dashboardData.bidders}</h2>
+              <h2>{dashboardData.totalBidders}</h2>
               <p>Bidders</p>
             </div>
             <div className="stat-item">
-              <h2>{dashboardData.sellers}</h2>
+              <h2>{dashboardData.totalSellers}</h2>
               <p>Sellers</p>
             </div>
           </div>
