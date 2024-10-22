@@ -6,6 +6,7 @@ namespace Nobeless.api.Service
     public interface AuctionService
     {
         Task AddAuction(AddAuctionDtos addAuctionDto);
+        Task<bool> DeleteAuctionAsync(int auctionId);
         Task<List<auctionproductDtos>> GetIncompleteAuctionProductDtos();
     }
 }

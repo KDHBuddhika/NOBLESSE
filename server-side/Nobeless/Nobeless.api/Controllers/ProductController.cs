@@ -81,6 +81,27 @@ namespace Nobeless.api.Controllers
         }
 
 
+        //--------------------get all product-----------------------------------------------------
+        [HttpGet]
+        [Route("getAllProducts")]
+        public async Task<IActionResult> getProductByUserId()
+        {
+
+            try
+            {
+                var products = await _productService.GetAllProducts();
+                return Ok(products);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An unexpected error occurred.");
+            }
+        }
+
 
 
         //----------------------Get product By Product Id------------------------------------
@@ -108,25 +129,26 @@ namespace Nobeless.api.Controllers
         //----------------Product Delete by product id--------------------------
 
         [HttpDelete]
-        [Route("/deleteProduct/{id}")]
+        [Route("deleteProduct/{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
-            try
-            {
-                var result = await _productService.DeleteProductByIdAsync(id);
-
-                if (!result)
+           
+                try
                 {
-                    return NotFound("Product not found."); // Return 404 if product not found
-                }
+                    var result = await _productService.DeleteProductAsync(id);
 
-                return NoContent(); // Return 204 No Content on successful deletion
-            }
-            catch (Exception ex)
-            {
-                // Log the exception
-                return StatusCode(500, "Internal server error. Please try again later."); // Return 500
-            }
+                    if (!result)
+                    {
+                        return NotFound("Product not found."); // Return 404 if product not found
+                    }
+
+                return Ok(result); // Return 204 No Content on successful deletion
+                }
+                catch (Exception ex)
+                {
+                    return StatusCode(500, $"Internal server error: {ex.Message}"); // Handle internal server errors
+                }
+            
 
 
         }
@@ -185,6 +207,9 @@ namespace Nobeless.api.Controllers
                 return StatusCode(500, "An unexpected error occurred.");
             }
         }
+
+
+       
 
 
 
