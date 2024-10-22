@@ -3,6 +3,7 @@ using Nobeless.api.Data;
 using Nobeless.api.Model.Domain;
 using Nobeless.api.Model.Dtos.RequestDtos;
 using Nobeless.api.Model.Dtos.ResponseDtos;
+using Nobeless.api.Model.Dtos.ResponseDtos.Dashboard;
 
 namespace Nobeless.api.Service.IMPL
 {
@@ -114,6 +115,36 @@ namespace Nobeless.api.Service.IMPL
 
 
 
+        //---------------------------------get all auction by not completed with pagination ------------------------
+        public async Task<(List<AuctionDetailsDto>, int)> GetAuctionDetailsAsync(int page, int itemsPerPage)
+        {
+            var query = _nobelessDbContext.auctions
+            .Where(a => !a.IsCompleted)
+            .Include(a => a.Product)
+            .ThenInclude(p => p.Category)
+            .Select(a => new AuctionDetailsDto
+            {
+                AuctionId = a.AuctionId,
+                ProductId = a.ProductId,
+                ProductName = a.Product.Name,
+                StartTime = a.StartTime,
+                ImageUrl= a.Product.thumbnailImage,
+                EndTime = a.EndTime,
+                HighestBidPrice = a.CurrentHighestBid,
+                CategoryId = a.Product.Category.Id,
+                CategoryName = a.Product.Category.CategoriesName
+            });
 
+            // Calculate total records
+            var totalRecords = await query.CountAsync();
+
+            // Paginate the results
+            var paginatedResults = await query
+                .Skip((page - 1) * itemsPerPage)
+                .Take(itemsPerPage)
+                .ToListAsync();
+
+            return (paginatedResults, totalRecords);
+        }
     }
 }

@@ -38,19 +38,27 @@ namespace Nobeless.api.Controllers
 
 
         // --------------------Get All Incompleted Auction ---------------------------------
-        [HttpGet]
-        [Route("/getAllAuctionDetailsByInCompleted")]
-        public async Task<IActionResult> GetAllAuctionDetailsByInCompleted()
+        [HttpGet("getAuctionByNotCompleted")]
+        public async Task<IActionResult> GetAuctionDetails(int page = 1, int itemsPerPage = 10)
         {
-            var auctionProductDtos = await _auctionService.GetIncompleteAuctionProductDtos();
-
-            if (auctionProductDtos == null || !auctionProductDtos.Any())
+            try
             {
-                return NotFound("No incomplete auctions found.");
+                var (auctionDetails, totalRecords) = await _auctionService.GetAuctionDetailsAsync(page, itemsPerPage);
+
+                var response = new
+                {
+                    TotalRecords = totalRecords,
+                    Page = page,
+                    ItemsPerPage = itemsPerPage,
+                    Data = auctionDetails
+                };
+
+                return Ok(response); // Return 200 OK with paginated auction details
             }
-
-            return Ok(auctionProductDtos);
-
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}"); // Return 500 for any internal error
+            }
         }
 
 
