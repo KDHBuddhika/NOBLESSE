@@ -1,6 +1,6 @@
 .auctionListContainer{
   height: fit-content;
-  width: 100%; /* Viewport width */
+  width: 100%; /* Ensures the full width */
   padding: 0;
   margin: 0;
   box-sizing: border-box;

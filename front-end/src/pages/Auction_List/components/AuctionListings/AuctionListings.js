@@ -1,104 +1,88 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AuctionListings.css';
 
 const AuctionList = () => {
-  const auctions = [
-    {
-      name: "Green Colored Gemstone",
-      image: "GXPYNzrbgAI4bV0.jpeg",
-      auctionOpens: "September 20, 8:00 AM UTC",
-      winningBid: "$1000",
-      category: "jewelry",
-    },
-    {
-      name: "Harry Styles Autographed Gold Microphone",
-      image: "GXPYNzrbgAI4bV0.jpeg",
-      auctionOpens: "September 18, 12:00 AM",
-      winningBid: "$3500",
-      category: "music",
-    },
-    {
-      name: "Purple Sapphire necklace",
-      image: "GXPYNzrbgAI4bV0.jpeg",
-      auctionOpens: "September 15, 2:00 AM",
-      winningBid: "$800",
-      category: "jewelry",
-    },
-    {
-      name: "Antique Hand Blown Painted Glass Vase",
-      image: "GXPYNzrbgAI4bV0.jpeg",
-      auctionOpens: "September 14, 12:00 PM",
-      winningBid: "$500",
-      category: "antiques",
-    },
-    {
-      name: "Men's Rose Gold Diamond Ring",
-      image: "GXPYNzrbgAI4bV0.jpeg",
-      auctionOpens: "September 19, 10:00 AM",
-      winningBid: "$2500",
-      category: "jewelry",
-    },
-    {
-      name: "Painting: The Girl With A Pearl Earring",
-      image: "GXPYNzrbgAI4bV0.jpeg",
-      auctionOpens: "September 17, 9:00 AM",
-      winningBid: "$4500",
-      category: "art",
-    },
-    {
-      name: "Egyptian Artifact: The Mask of Tutankhamun",
-      image: "GXPYNzrbgAI4bV0.jpeg",
-      auctionOpens: "September 17, 8:00 AM UTC",
-      winningBid: "$8100",
-      category: "antiques",
-    },
-    {
-      name: "19th century Victorian Lamp",
-      image: "GXPYNzrbgAI4bV0.jpeg",
-      auctionOpens: "September 16, 10:00 AM",
-      winningBid: "$350",
-      category: "antiques",
-    },
-    {
-      name: "Ancient Greek Bronze Helmet",
-      image: "GXPYNzrbgAI4bV0.jpeg",
-      auctionCloses: "September 1, 3:00 PM",
-      winningBid: "$2800",
-      category: "antiques",
-    },
-  ];
+  const [auctions, setAuctions] = useState([]);  // To store auctions data
+  const [categories, setCategories] = useState([]);  // To store categories
+  const [category, setCategory] = useState('');  // Selected category
+  const [sort, setSort] = useState('');  // Selected sort method
+  const [currentPage, setCurrentPage] = useState(1);  // Current page number
+  const [totalPages, setTotalPages] = useState(1);  // Total number of pages
+  const itemsPerPage = 9;  // Items per page
 
-  const [category, setCategory] = useState('');
-  const [sort, setSort] = useState('');
+  useEffect(() => {
+    // Fetch auction categories from the backend
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch('https://localhost:7281/getAllCategory'); // Adjust backend URL
+        const data = await response.json();
+        setCategories(data.$values || []);  // Assuming categories are in $values array
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
 
+    fetchCategories();
+  }, []);
+
+  useEffect(() => {
+    // Fetch paginated auctions from the backend when the page changes
+    const fetchAuctions = async () => {
+      try {
+        const response = await fetch(
+          `https://localhost:7281/api/Auction/getAuctionByNotCompleted?page=${currentPage}&itemsPerPage=${itemsPerPage}`
+        );
+        const data = await response.json();
+        setAuctions(data.data.$values || []);  // Extract the auction data from $values array
+        setTotalPages(Math.ceil(data.totalRecords / itemsPerPage));  // Calculate total pages based on totalRecords
+      } catch (error) {
+        console.error('Error fetching auctions:', error);
+      }
+    };
+
+    fetchAuctions();
+  }, [currentPage]);
+
+  // Handle page change
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  // Client-side filter method (filter by category)
   const filteredAuctions = category
-    ? auctions.filter((auction) => auction.category === category)
+    ? auctions.filter((auction) => auction.categoryName === category)
     : auctions;
 
+  // Client-side sorting method
   const sortedAuctions = [...filteredAuctions].sort((a, b) => {
     switch (sort) {
       case 'price-asc':
-        return parseFloat(a.winningBid.slice(1)) - parseFloat(b.winningBid.slice(1));
+        return a.highestBidPrice - b.highestBidPrice;
       case 'price-desc':
-        return parseFloat(b.winningBid.slice(1)) - parseFloat(a.winningBid.slice(1));
+        return b.highestBidPrice - a.highestBidPrice;
       case 'time-left':
-        return new Date(a.auctionOpens || a.auctionCloses) - new Date(b.auctionOpens || b.auctionCloses);
+        return new Date(a.endTime) - new Date(b.endTime);
       default:
         return 0;
     }
   });
 
   return (
-    <div className='maincontainer'>
-      <div className="header">
+    <div className='maincontainerl'>
+      <div className="headerl">
         <h1>All Auctions</h1>
         <div>
+          {/* Client-side filter by category */}
           <select value={category} onChange={(e) => setCategory(e.target.value)}>
             <option value="">Select Category</option>
-            <option value="jewelry">Jewelry</option>
-            <option value="art">Art</option>
-            <option value="antiques">Antiques</option>
+            {categories.map((cat) => (
+              <option className='categoryname' key={cat.id} value={cat.categoriesName}>
+                {cat.categoriesName}
+              </option>
+            ))}
           </select>
+
+          {/* Client-side sorting */}
           <select value={sort} onChange={(e) => setSort(e.target.value)}>
             <option value="">Sort by</option>
             <option value="price-asc">Price: Low to High</option>
@@ -108,22 +92,36 @@ const AuctionList = () => {
         </div>
       </div>
 
-      <div className="container2">
+      {/* Auction listings */}
+      <div className="container2l">
         {sortedAuctions.map((auction) => (
-          <div key={auction.name} className="card2">
-            <img src={auction.image} alt={auction.name} />
+          <div key={auction.auctionId} className="card2">
+            <img src={require(`C:/Users/asus/Desktop/Nobeless/server-side/Nobeless/Nobeless.api/Uploads/${auction.imageUrl}`) || 'path_to_default_image.jpg'} alt={auction.productName} />
             <div className="card-content2">
-              <h3>{auction.name}</h3>
+              <h3>{auction.productName}</h3>
               <div className="auction-info2">
-                <span>Auction {auction.auctionOpens ? 'opens' : 'closes'}: {auction.auctionOpens || auction.auctionCloses}</span>
-                <span>Winning bid: {auction.winningBid}</span>
+                <span>Auction opens: {new Date(auction.startTime).toLocaleString()}</span>
+                <span>Highest bid: ${auction.highestBidPrice}</span>
               </div>
               <div className="buttons2">
                 <button className="btn btn-primary">Explore</button>
-                <button className="btn btn-secondary">{auction.auctionCloses ? 'Place a Bid' : 'Add to Watch'}</button>
+                <button className="btn btn-secondary">{auction.isCompleted ? 'Completed' : 'Place a Bid'}</button>
               </div>
             </div>
           </div>
+        ))}
+      </div>
+
+      {/* Pagination */}
+      <div className="pagination">
+        {[...Array(totalPages)].map((_, i) => (
+          <button
+            key={i}
+            className={`page-button ${currentPage === i + 1 ? 'active' : ''}`}
+            onClick={() => handlePageChange(i + 1)}
+          >
+            {i + 1}
+          </button>
         ))}
       </div>
     </div>
