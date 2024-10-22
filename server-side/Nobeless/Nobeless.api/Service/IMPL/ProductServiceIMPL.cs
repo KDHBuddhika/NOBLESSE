@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Nobeless.api.Data;
 using Nobeless.api.Exceptions;
 using Nobeless.api.Model.Domain;
@@ -14,12 +15,14 @@ namespace Nobeless.api.Service.IMPL
 
         private readonly NobelessDbContext _dbContext;
         private readonly UploadHandler _uploadHandler;
+        private readonly string _uploadPath; // Path to the uploaded folder
 
         public ProductServiceIMPL(NobelessDbContext nobelessDbContext,UploadHandler uploadHandler)
         {
             _dbContext = nobelessDbContext;
             _uploadHandler = uploadHandler;
-            
+            _uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+
         }
 
 
@@ -30,27 +33,27 @@ namespace Nobeless.api.Service.IMPL
         {
 
 
-            // Check if image is uploaded
+          
             if (productDto.thumbnailImage == null || productDto.thumbnailImage.Length == 0)
             {
                 throw new BadRequestException("Image is required.");
             }
 
-            // Check if the category exists
+         
             var categoryExists = await _dbContext.categories.FindAsync(productDto.CategoryId);
             if (categoryExists == null)
             {
                 throw new InvalidOperationException("Invalid Category ID. Category does not exist.");
             }
 
-            // Check if the user exists
+           
             var userExists = await _dbContext.users.FindAsync(productDto.UserId);
             if (userExists == null)
             {
                 throw new InvalidOperationException("Invalid User ID. User does not exist.");
             }
 
-            // Upload the image
+           
             string imageUrl = _uploadHandler.Upload(productDto.thumbnailImage);
             if (imageUrl.StartsWith("extension is not valid") || imageUrl.StartsWith("maximum size"))
             {
@@ -79,7 +82,7 @@ namespace Nobeless.api.Service.IMPL
 
 
 
-    
+
 
 
 
@@ -87,14 +90,16 @@ namespace Nobeless.api.Service.IMPL
 
         //------------------- delete product ----------------------------------------------
 
-        public async Task<bool> DeleteProductByIdAsync(int productId)
+        public async Task<bool> DeleteProductAsync(int productId)
         {
             using var transaction = await _dbContext.Database.BeginTransactionAsync(); 
+
             try
             {
                
                 var product = await _dbContext.products
-                    .Include(p => p.Auctions) 
+                    .Include(p => p.Auctions)
+                    .ThenInclude(a => a.Bids) 
                     .FirstOrDefaultAsync(p => p.ProductId == productId);
 
                 if (product == null)
@@ -102,31 +107,54 @@ namespace Nobeless.api.Service.IMPL
                     return false; 
                 }
 
-            
+               
                 var auction = product.Auctions;
 
                 if (auction != null)
                 {
-                  
-                    var bids = await _dbContext.Bids.Where(b => b.AuctionId == auction.AuctionId).ToListAsync();
-                    _dbContext.Bids.RemoveRange(bids); 
-
                     
+                    var bids = auction.Bids.ToList();
+                    if (bids.Any())
+                    {
+                        _dbContext.Bids.RemoveRange(bids); 
+                    }
+
+                  
                     _dbContext.auctions.Remove(auction);
                 }
 
-                _dbContext.products.Remove(product);
-                await _dbContext.SaveChangesAsync(); 
+                if (!string.IsNullOrEmpty(product.thumbnailImage))
+                {
+                    // Assuming ImageUrl contains the filename, construct the full path
+                    var filePath = Path.Combine(_uploadPath, product.thumbnailImage);
 
-                await transaction.CommitAsync(); 
+                    if (File.Exists(filePath))
+                    {
+                        File.Delete(filePath); // Delete the image file
+                    }
+                }
+
+
+                _dbContext.products.Remove(product);
+
+              
+                await _dbContext.SaveChangesAsync();
+                await transaction.CommitAsync();
+
                 return true; 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                await transaction.RollbackAsync(); 
-                throw; 
+              
+                await transaction.RollbackAsync();
+                throw new Exception("Error while deleting product", ex);
             }
         }
+
+
+
+
+
 
 
 
@@ -140,7 +168,7 @@ namespace Nobeless.api.Service.IMPL
                 throw new NotFoundException($"Product with ID {productId} not found.");
             }
 
-            product.is_approved = true; // Set is_approved to true
+            product.is_approved = true; 
 
             _dbContext.products.Update(product);
             await _dbContext.SaveChangesAsync();
@@ -153,15 +181,15 @@ namespace Nobeless.api.Service.IMPL
         public async Task<List<GetProductsUserDtos>> GetProductsByUserIdAsync(Guid userId)
         {
             var products = await _dbContext.products
-            .Where(p => p.UserId == userId) // Filter products by user ID
+            .Where(p => p.UserId == userId) 
             .Select(p => new GetProductsUserDtos
             {
                 productId = p.ProductId,
                 productName = p.Name,
-                CategoryName = p.Category.CategoriesName, // Assuming you have Category navigation property
+                CategoryName = p.Category.CategoriesName, 
                 StartingPrice = (float)p.StartingPrise,
                 IsApproved = p.is_approved,
-                ThumbnailImage = p.thumbnailImage // Assuming you store the image URL as string
+                ThumbnailImage = p.thumbnailImage 
             })
             .ToListAsync();
 
@@ -178,7 +206,7 @@ namespace Nobeless.api.Service.IMPL
                 .Select(p => new ProductDetailsDto
                 {
                     ProductName = p.Name,
-                    CategoryName = p.Category.CategoriesName, // Assuming Category navigation property
+                    CategoryName = p.Category.CategoriesName, 
                     Price = p.StartingPrise,
                     ImageUrl = p.thumbnailImage,
                     Description = p.Description,
@@ -194,5 +222,30 @@ namespace Nobeless.api.Service.IMPL
             return product;
         }
 
+
+
+        //------------------------- get all product-----------------------------------------------------------
+        public async Task<List<GetProductsUserDtos>> GetAllProducts()
+        {
+            var products = await _dbContext.products
+           
+           .Select(p => new GetProductsUserDtos
+           {
+               productId = p.ProductId,
+               productName = p.Name,
+               CategoryName = p.Category.CategoriesName, 
+               StartingPrice = (float)p.StartingPrise,
+               IsApproved = p.is_approved,
+               ThumbnailImage = p.thumbnailImage 
+           })
+           .ToListAsync();
+
+            if (!products.Any())
+            {
+                throw new NotFoundException("products are not found");
+            }
+
+            return products;
+        }
     }
 }

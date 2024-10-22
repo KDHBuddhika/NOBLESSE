@@ -54,6 +54,29 @@ namespace Nobeless.api.Controllers
         }
 
 
+        //--------------------Delete Auction ------------------------------------
+
+        [HttpDelete("deleteAuction/{auctionId}")]
+        public async Task<IActionResult> DeleteAuction(int auctionId)
+        {
+            try
+            {
+                var result = await _auctionService.DeleteAuctionAsync(auctionId);
+
+                if (!result)
+                {
+                    return NotFound("Auction not found."); // Return 404 if auction not found
+                }
+
+                return Ok(result); // Return 204 No Content on successful deletion
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}"); // Return 500 for any internal error
+            }
+        }
+
+
 
     }
 }

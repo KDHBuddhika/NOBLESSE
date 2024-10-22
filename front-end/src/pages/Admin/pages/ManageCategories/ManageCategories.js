@@ -13,9 +13,9 @@ const ManageCategories = () => {
     // Fetch categories from backend
     const fetchCategories = async () => {
       try {
-        const response = await fetch('https://your-backend-api-url/categories');
+        const response = await fetch('https://localhost:7281/getAllCategory');
         const data = await response.json();
-        setCategories(data);
+        setCategories(data.$values); // Access $values from the response body
       } catch (error) {
         console.error('Error fetching categories:', error);
       }
@@ -28,10 +28,10 @@ const ManageCategories = () => {
   const handleAddCategory = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://your-backend-api-url/categories', {
+      const response = await fetch('https://localhost:7281/addCategory', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: categoryName }),
+        body: JSON.stringify({ category: categoryName }), // Sending as an object with key 'category'
       });
 
       if (response.ok) {
@@ -40,20 +40,22 @@ const ManageCategories = () => {
         setCategoryName(''); // Clear the input field
         alert('Category added successfully');
       } else {
-        alert('Failed to add category');
+        const errorMessage = await response.text(); // Get the error message from the response
+        alert(`Failed to add category: ${errorMessage}`);
       }
     } catch (error) {
       console.error('Error adding category:', error);
       alert('An error occurred while adding the category');
     }
-  };
+};
+
 
   // Handle delete category
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this category?");
     if (confirmDelete) {
       try {
-        const response = await fetch(`https://your-backend-api-url/categories/${id}`, {
+        const response = await fetch(`https://localhost:7281/api/Admin/deleteCategory/${id}`, {
           method: 'DELETE',
         });
         if (response.ok) {
@@ -103,7 +105,7 @@ const ManageCategories = () => {
               {categories.map((category) => (
                 <tr key={category.id}>
                   <td>{category.id}</td>
-                  <td>{category.name}</td>
+                  <td>{category.categoriesName}</td> {/* Display categoriesName */}
                   <td>
                     <button
                       onClick={() => handleDelete(category.id)}

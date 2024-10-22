@@ -15,12 +15,17 @@ const ManageProducts = () => {
     // Fetch products and categories from backend
     const fetchData = async () => {
       try {
-        const productResponse = await fetch('https://your-backend-api-url/products');
-        const categoryResponse = await fetch('https://your-backend-api-url/categories');
+        // Fetch products
+        const productResponse = await fetch('https://localhost:7281/api/Product/getAllProducts');
         const productData = await productResponse.json();
+
+        // Fetch categories
+        const categoryResponse = await fetch('https://localhost:7281/getAllCategory');
         const categoryData = await categoryResponse.json();
-        setProducts(productData);
-        setCategories(categoryData);
+
+        // Set product and category data
+        setProducts(productData.$values);  // Assuming products are in the $values array
+        setCategories(categoryData.$values);  // Assuming categories are in the $values array
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -32,27 +37,28 @@ const ManageProducts = () => {
   // Filter handler
   const filteredProducts = products.filter((product) => {
     return (
-      (selectedCategory === '' || product.category === selectedCategory) &&
-      (isApproved === '' || product.is_approved === isApproved)
+      (selectedCategory === '' || product.categoryName === selectedCategory) &&
+      (isApproved === '' || product.isApproved.toString() === isApproved)
     );
   });
 
   // Handle view button click
-  const handleView = (id) => {
-    navigate(`/product/${id}`);
+  const handleView = (productId) => {
+    navigate(`/dashboardProduct/${productId}`);
   };
 
   // Handle delete button click
-  const handleDelete = async (id) => {
+  const handleDelete = async (productId) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this product?");
     if (confirmDelete) {
       try {
-        const response = await fetch(`https://your-backend-api-url/products/${id}`, {
+        const response = await fetch(`https://localhost:7281/api/Product/deleteProduct/${productId}`, {
           method: 'DELETE',
         });
-        if (response.ok) {
+        const result = await response.json();  // Parse the response
+        if (result === true) {
           // Remove the product from the local state after successful deletion
-          setProducts(products.filter(product => product.id !== id));
+          setProducts(products.filter(product => product.productId !== productId));
           alert('Product deleted successfully');
         } else {
           alert('Failed to delete product');
@@ -70,7 +76,7 @@ const ManageProducts = () => {
       <div className="manage-products-main-content">
         <Sidebar />
         <div className="manage-products-content">
-          <h1>Manage Product</h1>
+          <h1>Manage Products</h1>
 
           {/* Filter section */}
           <div className="filters">
@@ -79,10 +85,10 @@ const ManageProducts = () => {
               onChange={(e) => setSelectedCategory(e.target.value)}
               className="filter-dropdown"
             >
-              <option value="">Category</option>
+              <option value="">All Categories</option>
               {categories.map((category) => (
-                <option key={category.id} value={category.name}>
-                  {category.name}
+                <option key={category.id} value={category.categoriesName}>
+                  {category.categoriesName}
                 </option>
               ))}
             </select>
@@ -92,7 +98,7 @@ const ManageProducts = () => {
               onChange={(e) => setIsApproved(e.target.value)}
               className="filter-dropdown"
             >
-              <option value="">Is_Approved</option>
+              <option value="">Approval Status</option>
               <option value="true">Approved</option>
               <option value="false">Not Approved</option>
             </select>
@@ -106,21 +112,21 @@ const ManageProducts = () => {
                 <th>Name</th>
                 <th>Starting Price</th>
                 <th>Category</th>
-                <th>Is_Approved</th>
+                <th>Is Approved</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
               {filteredProducts.map((product) => (
-                <tr key={product.id}>
-                  <td><img src={product.imageUrl} alt={product.name} className="product-image" /></td>
-                  <td>{product.name}</td>
+                <tr key={product.productId}>
+                  <td><img src={require(`C:/Users/asus/Desktop/Nobeless/server-side/Nobeless/Nobeless.api/Uploads/${product.thumbnailImage}`)} alt={product.productName} className="product-image" /></td>
+                  <td>{product.productName}</td>
                   <td>{product.startingPrice}</td>
-                  <td>{product.category}</td>
-                  <td>{product.is_approved ? 'Approved' : 'Not Approved'}</td>
+                  <td>{product.categoryName}</td>
+                  <td>{product.isApproved ? 'Approved' : 'Not Approved'}</td>
                   <td>
-                    <button onClick={() => handleView(product.id)} className="view-btn">View</button>
-                    <button onClick={() => handleDelete(product.id)} className="delete-btn">Delete</button>
+                    <button onClick={() => handleView(product.productId)} className="view-btn">View</button>
+                    <button onClick={() => handleDelete(product.productId)} className="delete-btn">Delete</button>
                   </td>
                 </tr>
               ))}
@@ -130,6 +136,7 @@ const ManageProducts = () => {
       </div>
     </div>
   );
+  
 };
 
 export default ManageProducts;

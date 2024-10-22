@@ -1,0 +1,90 @@
+/* Main container for the layout */
+.product-view-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-view-main-content {
+    display: flex;
+    margin-top: 100px;
+  }
+  
+  .product-detailsd {
+    margin-left: 250px; /* Adjust to match Sidebar width */
+    padding: 20px;
+    background-color: #f9f9f9;
+    width: 100%;
+    min-height: 100vh;
+    text-align: center;
+   text-align: center;
+  }
+  
+  .product-detailsd h1  {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .product-detailsd .product-image {
+    max-width: 300px;
+    margin-bottom: 20px;
+    min-width: 300px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  
+  .product-detailsd p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+  }
+  
+  .product-detailsd .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .product-detailsd button {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    background-color: #1a1a54;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .product-detailsd button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
+  .product-detailsd button:hover:not(:disabled) {
+    background-color: #4caf50;
+  }
+  
+  .approve-button {
+    background-color: #4caf50;
+  }
+  
+  .report-button {
+    background-color: #ffeb3b;
+    color: #333;
+  }
+  
+  .set-auction-button {
+    background-color: #007bff;
+  }
+  
+  .view-user-button {
+    background-color: #1a1a54;
+  }
+  
+  .delete-button {
+    background-color: #ff5722;
+  }
+  
+  .delete-button:hover {
+    background-color: #d32f2f;
+  }
+  

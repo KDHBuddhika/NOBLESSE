@@ -33,6 +33,8 @@ namespace Nobeless.api.Service.IMPL
             
         }
 
+    
+
 
 
 
@@ -65,5 +67,53 @@ namespace Nobeless.api.Service.IMPL
 
             return auctionDtos;
         }
+
+
+
+
+
+
+        //----------------------- Delete Auction ---------------------------------
+
+        public async Task<bool> DeleteAuctionAsync(int auctionId)
+        {
+            using var transaction = await _nobelessDbContext.Database.BeginTransactionAsync();
+            try
+            {
+               
+                var auction = await _nobelessDbContext.auctions
+                    .Include(a => a.Bids) 
+                    .FirstOrDefaultAsync(a => a.AuctionId == auctionId);
+
+                if (auction == null)
+                {
+                    return false; 
+                }
+
+               
+                if (auction.Bids.Any())
+                {
+                    _nobelessDbContext.Bids.RemoveRange(auction.Bids);
+                }
+
+              
+                _nobelessDbContext.auctions.Remove(auction);
+
+             
+                await _nobelessDbContext.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return true; 
+            }
+            catch (Exception)
+            {
+                await transaction.RollbackAsync(); 
+                throw;
+            }
+        }
+
+
+
+
     }
 }

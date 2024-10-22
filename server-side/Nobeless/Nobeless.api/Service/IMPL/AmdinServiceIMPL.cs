@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Nobeless.api.Data;
+using Nobeless.api.Exceptions;
 using Nobeless.api.Model.Dtos.ResponseDtos;
+using Nobeless.api.Model.Dtos.ResponseDtos.Dashboard;
 
 namespace Nobeless.api.Service.IMPL
 {
@@ -12,6 +14,8 @@ namespace Nobeless.api.Service.IMPL
         {
             this._dbContext = dbContext;
         }
+
+    
 
 
         //---------------------------dashboard static details -------------------------------------------
@@ -58,5 +62,118 @@ namespace Nobeless.api.Service.IMPL
 
 
         }
+
+
+        //----------------------get product details for dashboard--------------------------------------------------------------
+        public async Task<DashboardProductDetailsDtos> GetProductDetailsByIdAsync(int productId)
+        {
+            var productDetails = await _dbContext.products
+            .Where(p => p.ProductId == productId)
+            .Select(p => new DashboardProductDetailsDtos
+            {
+                ImageUrl = p.thumbnailImage,
+                ProductName = p.Name,
+                Description = p.Description,
+                StartingPrice = p.StartingPrise,
+                CategoryName = p.Category.CategoriesName, 
+                IsApproved = p.is_approved,
+
+                // User details
+                UserId = p.User.Id,
+                UserName = p.User.UserName,
+                UserEmail = p.User.Email
+            })
+            .FirstOrDefaultAsync();
+
+            if (productDetails == null)
+            {
+                throw new NotFoundException($"Product with ID {productId} not found.");
+            }
+
+            return productDetails;
+        }
+
+
+
+
+
+       // ----------------------  get all auction details --------------------------------------------------
+        public async Task<List<AuctionDetailsDto>> GetAllAuctionDetailsAsync()
+        {
+            var auctionDetails = await _dbContext.auctions
+             .Include(a => a.Product) // Include the product details
+             .ThenInclude(p => p.Category) // Include the category details
+             .Select(a => new AuctionDetailsDto
+             {
+                 AuctionId = a.AuctionId,
+                 ProductId = a.ProductId,
+                 ProductName = a.Product.Name,
+                 ImageUrl = a.Product.thumbnailImage,
+                 HighestBidPrice = a.CurrentHighestBid,
+                 StartTime = a.StartTime,
+                 EndTime = a.EndTime,
+                 IsCompleted = a.IsCompleted,
+
+                 // Category details
+                 CategoryId = a.Product.Category.Id,
+                 CategoryName = a.Product.Category.CategoriesName
+             })
+             .ToListAsync();
+
+            return auctionDetails;
+        }
+
+
+        //----------------------------------Delete Category --------------------------------------------------
+        public async Task<bool> DeleteCategoryAsync(Guid categoryId)
+        {
+            using var transaction = await _dbContext.Database.BeginTransactionAsync(); 
+
+            try
+            {
+                
+                var category = await _dbContext.categories
+                    .Include(c => c.Products) 
+                    .FirstOrDefaultAsync(c => c.Id == categoryId);
+
+                if (category == null)
+                {
+                    return false; 
+                }
+
+                
+                if (category.Products.Any())
+                {
+                    _dbContext.products.RemoveRange(category.Products); 
+                }
+
+                
+                _dbContext.categories.Remove(category);
+
+               
+                await _dbContext.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return true; 
+            }
+            catch (Exception)
+            {
+                await transaction.RollbackAsync(); 
+                throw;
+            }
+
+
+        }
+
+
+
+
+
+
+
+
     }
+
+
+    
 }
