@@ -24,6 +24,9 @@ import ManageProducts from './pages/Admin/pages/ManageProducts/ManageProducts';
 import ManageAuctions from './pages/Admin/pages/ManageAuctions/ManageAuctions';
 import ManageCategories from './pages/Admin/pages/ManageCategories/ManageCategories';
 import ManageUsers from './pages/Admin/pages/ManageUser/ManageUser';
+import DashboardViewProduct from './pages/Admin/pages/DashboardViewProduct/DashboardViewProduct.js';
+import ConvertAuction from './pages/Admin/pages/ConvertAuctionPage/ConvertAuctionPage.js';
+import DashboardViewUser from './pages/Admin/pages/DashBoardViewUser/DashBoardViewUser.js';
 
 import YourInfo from './pages/profile/pages/YourInfo/YourInfo';
 import YourBids from './pages/profile/pages/YourBids/YourBids';
@@ -77,6 +80,12 @@ function App() {
        <Route path="/manageCategories" element={<ManageCategories/>} />
 
        <Route path="/manageUsers" element={<ManageUsers/>} />
+
+       <Route path="/dashboardProduct/:productId" element={<DashboardViewProduct/>} />
+
+       <Route path="/convertAuction/:productId" element={<ConvertAuction/>} />
+
+       <Route path="/dashboartUserView/:userId" element={<DashboardViewUser/>} />
 
 
 
