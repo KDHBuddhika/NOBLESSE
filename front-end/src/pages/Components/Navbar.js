@@ -22,10 +22,10 @@ function Navbar() {
 						<Link to="/watchlist">
 							<h2 className="">Watch List</h2>
 						</Link>
-						<Link to="/how-it-works">
+						<Link to="/howItwork">
 							<h2 className="">How It Works</h2>
 						</Link>
-						<Link to="/about-us">
+						<Link to="/aboutus">
 							<h2 className="">About Us</h2>
 						</Link>
 						<Link to="/yourInfo">
@@ -48,10 +48,10 @@ function Navbar() {
 						<Link to="/signup">
 							<h2 className="">Sign Up</h2>
 						</Link>
-						<Link to="/how-it-works">
+						<Link to="/howItwork">
 							<h2 className="">How It Works</h2>
 						</Link>
-						<Link to="/about-us">
+						<Link to="/aboutus">
 							<h2 className="">About Us</h2>
 						</Link>
 					</>
