@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useParams,useNavigate } from 'react-router-dom';
-import ProfileNavbar from '../../components/ProfileNavbark';  // Navbar component
-import ProfileSidebar from '../../components/ProfileSidebar'; // Sidebar component
-import styles from './AuctionResult.module.css'; // CSS module for styling
+import ProfileNavbar from '../../components/ProfileNavbark';  
+import ProfileSidebar from '../../components/ProfileSidebar'; 
+import styles from './AuctionResult.module.css'; 
 
 const AuctionResult = () => {
-  const { auctionId } = useParams();  // Capture auction ID from the URL
+  const { auctionId } = useParams();  
   const [auctionDetails, setAuctionDetails] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch auction details by auction ID from the .NET backend
-    fetch(`https://api.example.com/auctions/result/${auctionId}`)  // Replace with your actual API endpoint
+  
+    fetch(`https://api.example.com/auctions/result/${auctionId}`)  
       .then(response => response.json())
       .then(data => setAuctionDetails(data))
       .catch(error => console.error('Error fetching auction details:', error));
   }, [auctionId]);
 
   const handleBack = () => {
-    // Navigate back to "Your Products" page
+    
     navigate('/yourAuction');
   };
 

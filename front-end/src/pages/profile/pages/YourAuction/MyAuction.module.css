@@ -3,9 +3,9 @@
   }
   
   .contentWrapper {
-    margin-left: 220px; /* Same width as sidebar */
+    margin-left: 220px; 
     padding: 20px;
-    margin-top: 70px; /* Adjust according to navbar height */
+    margin-top: 70px; 
     width: calc(100% - 220px);
     animation: fadeIn 0.5s ease-in-out;
   }

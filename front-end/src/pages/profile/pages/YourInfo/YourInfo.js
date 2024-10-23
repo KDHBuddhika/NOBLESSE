@@ -3,7 +3,7 @@ import ProfileNavbar from '../../components/ProfileNavbark';
 import ProfileSidebar from '../../components/ProfileSidebar';
 import styles from './YourInfo.module.css';
 import axios from 'axios';
-import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa'; // Importing icons for verified status
+import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa'; 
 
 const YourInfo = () => {
   const [userData, setUserData] = useState({
@@ -17,23 +17,23 @@ const YourInfo = () => {
     city: '',
     usertype: '',
     register_date: '',
-    isVerified: false, // Track email verification status
+    isVerified: false, 
   });
 
-  const [message, setMessage] = useState(null); // To store success or error messages
-  const [messageType, setMessageType] = useState(''); // To differentiate between success and error messages
+  const [message, setMessage] = useState(null); 
+  const [messageType, setMessageType] = useState('');
 
-  // Fetch user data from .NET backend on component mount
+
   useEffect(() => {
     const fetchUserData = async () => {
-      const userId = localStorage.getItem('userId'); // Get user ID from local storage
+      const userId = localStorage.getItem('userId');
       if (!userId) {
         console.error('User ID not found in localStorage');
         return;
       }
       try {
         const response = await axios.get(`https://localhost:7281/api/getUser/${userId}`);
-        setUserData(response.data); // Set the fetched data in the state
+        setUserData(response.data); 
       } catch (error) {
         console.error('Error fetching user data', error);
       }
@@ -41,7 +41,7 @@ const YourInfo = () => {
     fetchUserData();
   }, []);
 
-  // Handle input changes
+ 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserData((prevData) => ({
@@ -50,9 +50,9 @@ const YourInfo = () => {
     }));
   };
 
-  // Handle Save button click to update user info
+
   const handleSave = async () => {
-    const userId = localStorage.getItem('userId'); // Use logged-in user's ID
+    const userId = localStorage.getItem('userId'); 
     try {
       await axios.put(`https://localhost:7281/api/users/${userId}`, userData);
       setMessage('User info updated successfully!');
@@ -66,19 +66,19 @@ const YourInfo = () => {
 
   // Handle Convert to Seller
   const handleConvertToSeller = async () => {
-    // Check if contact details are provided and email is verified
+    
     if (
       !userData.phoneNumber ||
       !userData.address ||
       !userData.city ||
       !userData.isVerified
     ) {
-      // If the details are missing or email is not verified, show an alert
+    
       alert("You should submit contact details and verify your email");
       return;
     }
 
-    const userId = localStorage.getItem('userId'); // Use logged-in user's ID
+    const userId = localStorage.getItem('userId'); 
     try {
       await axios.put(`https://localhost:7281/convertToSeller/${userId}`);
       alert('Successfully converted to seller!');
@@ -89,7 +89,7 @@ const YourInfo = () => {
 
   // Handle updating contact details
   const handleUpdateContactDetails = async () => {
-    const userId = localStorage.getItem('userId'); // Use logged-in user's ID
+    const userId = localStorage.getItem('userId');
     try {
       await axios.put(`https://localhost:7281/updateContactDetails/${userId}`, {
         phoneNumber: userData.phoneNumber,

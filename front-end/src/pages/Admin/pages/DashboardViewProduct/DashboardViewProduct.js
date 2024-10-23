@@ -1,61 +1,89 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // useNavigate instead of useHistory
-import Navbar from '../../components/AdminNavbar'; // Import your Navbar
-import Sidebar from '../../components/AdminSidebar'; // Import your Sidebar
-import './ProductView.css'; // Import the relevant CSS
+import { useParams, useNavigate } from 'react-router-dom'; 
+import Navbar from '../../components/AdminNavbar'; 
+import Sidebar from '../../components/AdminSidebar'; 
+import './ProductView.css'; 
 
 const ProductView = () => {
-  const { productId } = useParams(); // Capture productId from URL
+  const { productId } = useParams(); 
   const [product, setProduct] = useState(null);
-  const navigate = useNavigate(); // useNavigate hook for navigation
+  const navigate = useNavigate(); 
 
   useEffect(() => {
-    // Fetch product data from backend using productId
+   
     fetchProductDetails();
-  }, [productId]); // Re-fetch product data if productId changes
+  }, [productId]); 
 
   const fetchProductDetails = async () => {
-    // Replace with actual API call to fetch product data by productId
+    
     const response = await fetch(`https://localhost:7281/api/Admin/productDetails/${productId}`);
     const data = await response.json();
     setProduct(data);
   };
 
-  const handleApprove = async () => {
-    // API call to approve the product
-    await fetch(`https://localhost:7281/api/Product/ApproveProduct/${productId}`, {
-      method: 'POST',
-    });
 
-    setProduct({ ...product, isApproved: true });
+
+  const handleApprove = async () => {
+    try {
+      const response = await fetch(`https://localhost:7281/api/Product/ApproveProduct/${productId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json', 
+        },
+        body: JSON.stringify({ isApproved: true }), 
+      });
+  
+      if (response.ok) {
+        
+        const updatedProduct = await response.json(); 
+        setProduct({ ...product, isApproved: updatedProduct.isApproved || true });
+        alert('Product approved successfully!');
+      } else {
+        const errorData = await response.json();
+        alert(`Error approving product: ${errorData.message || response.statusText}`);
+      }
+    } catch (error) {
+      console.error('Error approving product:', error);
+      alert('Error approving product.');
+    }
   };
+
+
 
   const handleReport = () => {
-    navigate(`/report/${productId}/${product.userId}`); // Navigate to the report page
+    navigate(`/report/${productId}/${product.userId}`); 
   };
+
+
 
   const handleSetAuction = () => {
-    navigate(`/convertAuction/${productId}`); // Navigate to set auction page
+    navigate(`/convertAuction/${productId}`); 
   };
+
+
 
   const handleViewUser = () => {
-    navigate(`/dashboartUserView/${product.userId}`); // Navigate to view user details
+    navigate(`/dashboartUserView/${product.userId}`); 
   };
 
+
+
   const handleBack = () => {
-    navigate('/manageProducts'); // Navigate back to the manage products page
+    navigate('/manageProducts'); 
   };
+
+
 
   const handleDelete = async () => {
     if (window.confirm('Are you sure you want to delete this product?')) {
-      // API call to delete the product
+   
       await fetch(`https://localhost:7281/api/Product/deleteProduct/${productId}`, {
         method: 'DELETE',
       });
       alert('Product deleted successfully');
       setTimeout(() => {
         navigate(`/manageProducts`);
-      }, 2000); // Redirect after 2 seconds
+      }, 2000); 
       
      
     }

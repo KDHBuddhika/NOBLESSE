@@ -3,9 +3,9 @@
 }
 
 .contentWrapper {
-  margin-left: 220px; /* Same width as sidebar */
+  margin-left: 220px; 
   padding: 20px;
-  margin-top: 100px; /* Adjust according to navbar height */
+  margin-top: 100px; 
   width: calc(100% - 220px);
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -74,25 +74,25 @@
 }
 
 .clearBtn {
-  background-color: #1a1a54; /* Bootstrap Red */
+  background-color: #1a1a54; 
   color: white;
 }
 
 .clearBtn:hover {
-  background-color: #373771; /* Darker red on hover */
+  background-color: #373771; 
 }
 
 .addBtn {
-  background-color:#1a1a54; /* Bootstrap Blue */
+  background-color:#1a1a54;
   color: white;
 }
 
 .addBtn:hover {
-  background-color: #373771; /* Darker blue on hover */
+  background-color: #373771; 
 }
 .messageBox {
   padding: 10px;
-  background-color: #4caf50; /* Green background for success */
+  background-color: #4caf50; 
   color: white;
   text-align: center;
   margin-bottom: 20px;

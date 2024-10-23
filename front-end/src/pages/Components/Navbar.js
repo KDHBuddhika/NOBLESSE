@@ -19,7 +19,7 @@ function Navbar() {
 						<Link to="/auctionList">
 							<h2 className="">Auction</h2>
 						</Link>
-						<Link to="/watchlist">
+						<Link to="/profile/watchlist">
 							<h2 className="">Watch List</h2>
 						</Link>
 						<Link to="/howItwork">

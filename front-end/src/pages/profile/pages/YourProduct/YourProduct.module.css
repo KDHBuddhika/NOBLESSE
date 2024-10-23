@@ -3,9 +3,9 @@
 }
 
 .contentWrapper {
-  margin-left: 220px; /* Same width as sidebar */
+  margin-left: 220px; 
   padding: 20px;
-  margin-top: 70px; /* Adjust according to navbar height */
+  margin-top: 70px; 
   width: calc(100% - 220px);
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -24,7 +24,7 @@
 
 
 .addButton {
-  background-color: #1a1a54; /* Bootstrap Blue */
+  background-color: #1a1a54; 
   color: white;
   padding: 10px 20px;
   border: none;
@@ -36,7 +36,7 @@
 }
 
 .addButton:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3; 
 }
 
 .productsList {
@@ -94,19 +94,19 @@
 }
 
 .deleteBtn {
-  background-color: #dc3545; /* Bootstrap Red */
+  background-color: #dc3545; 
   transition: background-color 0.3s ease;
 }
 
 .deleteBtn:hover {
-  background-color: #b02a37; /* Darker red on hover */
+  background-color: #b02a37; 
 }
 
 .viewBtn {
-  background-color: #007bff; /* Bootstrap Blue */
+  background-color: #007bff; 
   transition: background-color 0.3s ease;
 }
 
 .viewBtn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3; 
 }

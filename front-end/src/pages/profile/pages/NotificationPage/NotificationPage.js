@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import ProfileNavbar from '../../components/ProfileNavbark';  // Navbar component
-import ProfileSidebar from '../../components/ProfileSidebar'; // Sidebar component
-import styles from './NotificationPage.module.css';  // CSS module for styling
+import ProfileNavbar from '../../components/ProfileNavbark';  
+import ProfileSidebar from '../../components/ProfileSidebar'; 
+import styles from './NotificationPage.module.css';  
 
 const NotificationPage = () => {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    // Fetch notifications data from the backend
-    fetch('https://api.example.com/notifications')  // Replace with your actual API endpoint
+    
+    fetch('https://api.example.com/notifications')  
       .then(response => response.json())
       .then(data => setNotifications(data))
       .catch(error => console.error('Error fetching notifications:', error));

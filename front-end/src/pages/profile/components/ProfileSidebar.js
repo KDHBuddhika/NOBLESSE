@@ -1,8 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import styles from './ProfileSidebar.module.css'; // Importing CSS module
+import { Link, useNavigate } from 'react-router-dom';
+import styles from './ProfileSidebar.module.css'; 
 
 const ProfileSidebar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    if (window.confirm('Are you sure you want to log out?')) {
+   
+      localStorage.removeItem('userId');
+    
+      navigate('/home');
+    }
+  };
+
   return (
     <aside className={styles.sidebar}>
       <ul className={styles.sidebarList}>
@@ -13,12 +24,16 @@ const ProfileSidebar = () => {
         <li><Link to="/profile/notification">Notifications</Link></li>
         <li><Link to="/profile/payment">Payment</Link></li>
         <li><hr className={styles.line}/></li>
-        <li><Link to="/profile/dashboard">Dashboard</Link></li>
+        <li><Link to="/profileDashboard">Dashboard</Link></li>
         <li><Link to="/yourAuction">Your Auctions</Link></li>
-        <li><Link to="/profile/earnings">Earnings</Link></li>
         <li><br/></li>
-        <li><Link to="home">Home</Link></li>
-        <li><Link to="">Log out</Link></li>
+        <li><br/></li>
+        <li><br/></li>
+        <li><Link to="/home">Home</Link></li>
+        {/* Log Out Button */}
+        <li>
+          <button className={styles.logoutBtn} onClick={handleLogout}>Log out</button>
+        </li>
       </ul>
     </aside>
   );

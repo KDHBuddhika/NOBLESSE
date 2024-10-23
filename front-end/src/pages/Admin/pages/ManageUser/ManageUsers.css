@@ -9,7 +9,7 @@
   }
   
   .manage-users-content {
-    margin-left: 250px; /* Sidebar width */
+    margin-left: 250px; 
     padding: 20px;
     background-color: #f9f9f9;
     width: 100%;
@@ -88,7 +88,7 @@
   
   @media (max-width: 768px) {
     .manage-users-content {
-      margin-left: 0;  /* Adjust for small screens */
+      margin-left: 0;  
     }
   
     .filters {

@@ -1,15 +1,15 @@
-/* ProfileSidebar.module.css */
+
 
 .sidebar {
   position: fixed;
-  top: 70px; /* Adjust according to navbar height */
+  top: 70px; 
   left: 0;
   width: 220px;
   height: 100%;
   background-color: #f0f0f0;
   border-right: 1px solid #ddd;
   padding-top: 20px;
-  z-index: 999; /* Ensure it's under the navbar */
+  z-index: 999;
 }
 
 .sidebarList {

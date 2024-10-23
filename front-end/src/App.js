@@ -36,6 +36,10 @@ import ProductView from './pages/profile/pages/ProductView/ProductView.js';
 import MyAuction from './pages/profile/pages/YourAuction/MyAuction.js';
 import AuctionResult from './pages/profile/pages/AuctionResult/AuctionResult.js';
 import NotificationPage from './pages/profile/pages/NotificationPage/NotificationPage.js';
+import PaymentPage from './pages/profile/pages/PaymentPage/PaymentPage.js';
+import PaymentDetails from './pages/profile/pages/PaymentDetailsPage/PaymentDetails.js';
+import WatchList from './pages/profile/pages/WatchList/WatchListPage.js';
+import ProfileDashboard from './pages/profile/pages/DashboardProfile/DashboardProfile.js';
 
 import Home from './pages/home/home';
 import AboutUs from './pages/AboutUs/AboutUs.jsx';
@@ -115,6 +119,14 @@ function App() {
        <Route path="/yourAuction/result" element={<AuctionResult/>} />
 
        <Route path="/profile/notification" element={<NotificationPage/>} />
+
+       <Route path="/profile/payment/:auctionId" element={<PaymentPage/>} />
+
+       <Route path="/profile/payment" element={<PaymentDetails/>} />
+
+       <Route path="/profile/watchlist" element={<WatchList/>} />
+
+       <Route path="/profileDashboard" element={<ProfileDashboard/>} />
 
 
    

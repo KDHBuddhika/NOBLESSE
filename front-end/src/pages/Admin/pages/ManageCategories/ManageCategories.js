@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../../components/AdminNavbar';  // Adjust path
-import Sidebar from '../../components/AdminSidebar'; // Adjust path
-import './ManageCategories.css'; // Import the relevant CSS
+import Navbar from '../../components/AdminNavbar';  
+import Sidebar from '../../components/AdminSidebar'; 
+import './ManageCategories.css'; 
 
 const ManageCategories = () => {
   const [categories, setCategories] = useState([]);
@@ -10,12 +10,12 @@ const ManageCategories = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch categories from backend
+    
     const fetchCategories = async () => {
       try {
         const response = await fetch('https://localhost:7281/getAllCategory');
         const data = await response.json();
-        setCategories(data.$values); // Access $values from the response body
+        setCategories(data.$values);
       } catch (error) {
         console.error('Error fetching categories:', error);
       }
@@ -24,23 +24,25 @@ const ManageCategories = () => {
     fetchCategories();
   }, []);
 
-  // Handle form submit to add a new category
+  
+
+  //add category
   const handleAddCategory = async (e) => {
     e.preventDefault();
     try {
       const response = await fetch('https://localhost:7281/addCategory', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ category: categoryName }), // Sending as an object with key 'category'
+        body: JSON.stringify({ category: categoryName }), 
       });
 
       if (response.ok) {
         const newCategory = await response.json();
-        setCategories([...categories, newCategory]); // Add new category to the table
-        setCategoryName(''); // Clear the input field
+        setCategories([...categories, newCategory]); 
+        setCategoryName('');
         alert('Category added successfully');
       } else {
-        const errorMessage = await response.text(); // Get the error message from the response
+        const errorMessage = await response.text(); 
         alert(`Failed to add category: ${errorMessage}`);
       }
     } catch (error) {
@@ -50,7 +52,7 @@ const ManageCategories = () => {
 };
 
 
-  // Handle delete category
+  //  delete category
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this category?");
     if (confirmDelete) {
@@ -70,6 +72,9 @@ const ManageCategories = () => {
       }
     }
   };
+
+
+
 
   return (
     <div className="manage-categories-layout">
@@ -105,7 +110,7 @@ const ManageCategories = () => {
               {categories.map((category) => (
                 <tr key={category.id}>
                   <td>{category.id}</td>
-                  <td>{category.categoriesName}</td> {/* Display categoriesName */}
+                  <td>{category.categoriesName}</td> 
                   <td>
                     <button
                       onClick={() => handleDelete(category.id)}

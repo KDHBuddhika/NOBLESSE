@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../../components/AdminNavbar';  // Adjust path
-import Sidebar from '../../components/AdminSidebar'; // Adjust path
+import Navbar from '../../components/AdminNavbar';  
+import Sidebar from '../../components/AdminSidebar'; 
 import './Dashboard.css';
 import { Pie, Bar } from 'react-chartjs-2';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
- // Import calendar styles
-import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement } from 'chart.js'; // Explicitly import components
+
+import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement } from 'chart.js'; 
 
 ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement);
 
@@ -23,7 +23,7 @@ const Dashboard = () => {
   const [calendarDate, setCalendarDate] = useState(new Date());
 
   useEffect(() => {
-    // Fetch data from .NET backend
+   
     const fetchData = async () => {
       try {
         const response = await fetch('https://localhost:7281/api/Admin/statistics');
@@ -40,7 +40,7 @@ const Dashboard = () => {
     setCalendarDate(date);
   };
 
-  // Example Pie Chart Data (replace with actual data)
+ 
   const pieData = {
     labels: ['Approved Auctions', 'Pending Auctions', 'Completed Auctions'],
     datasets: [
@@ -63,7 +63,7 @@ const Dashboard = () => {
           label: function (tooltipItem) {
             const label = tooltipItem.label || '';
             const value = tooltipItem.raw || '';
-            return `${label}: ${value}`; // Customize the format of the tooltip
+            return `${label}: ${value}`; 
           },
         },
       },
@@ -71,7 +71,7 @@ const Dashboard = () => {
   };
 
 
-  // Example Bar Chart Data (replace with actual data)
+ 
   const barData = {
     labels: ['Users', 'Auctions', 'Bidders', 'Sellers'],
     datasets: [

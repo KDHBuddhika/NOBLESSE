@@ -1,4 +1,4 @@
-/* Main container for the layout */
+
 .product-view-container {
     display: flex;
     flex-direction: column;
@@ -10,7 +10,7 @@
   }
   
   .product-detailsd {
-    margin-left: 250px; /* Adjust to match Sidebar width */
+    margin-left: 250px; 
     padding: 20px;
     background-color: #f9f9f9;
     width: 100%;

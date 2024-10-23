@@ -151,8 +151,8 @@ const PlaceABid = () => {
       {isCompleted && winnerDetails && (
         <div className="bg-green-100 p-6 mt-10 mx-10 rounded-lg text-center shadow-lg">
           <h2 className="text-2xl font-bold text-green-800">Auction Completed</h2>
-          <p className="text-lg text-green-700">Winner: <strong>{winnerDetails.name}</strong></p>
-          <p className="text-lg text-green-700">Winning Amount: <strong>${winnerDetails.amount}</strong></p>
+          <p className="text-lg text-green-700">Winner: <strong>{winnerDetails.winnerName}</strong></p>
+          <p className="text-lg text-green-700">Winning Amount: <strong>${winnerDetails.winningBidAmount}</strong></p>
         </div>
       )}
 
