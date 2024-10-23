@@ -85,14 +85,14 @@ namespace Nobeless.api.Controllers
 
                 if (!result)
                 {
-                    return NotFound("Category not found."); // Return 404 if category not found
+                    return NotFound("Category not found."); 
                 }
 
-                return NoContent(); // Return 204 No Content on successful deletion
+                return NoContent(); 
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}"); // Return 500 for any internal error
+                return StatusCode(500, $"Internal server error: {ex.Message}"); 
             }
         }
 
@@ -159,11 +159,11 @@ namespace Nobeless.api.Controllers
             try
             {
                 var auctionDetails = await _adminService.GetAllAuctionDetailsAsync();
-                return Ok(auctionDetails); // Return 200 OK with auction details
+                return Ok(auctionDetails); 
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}"); // Handle internal server errors
+                return StatusCode(500, $"Internal server error: {ex.Message}"); 
             }
         }
 
