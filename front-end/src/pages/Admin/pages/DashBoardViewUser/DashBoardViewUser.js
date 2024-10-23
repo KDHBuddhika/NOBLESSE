@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import Navbar from '../../components/AdminNavbar'; // Assuming you have a Navbar component
-import Sidebar from '../../components/AdminSidebar'; // Assuming you have a Sidebar component
-import './ViewUser.css'; // Importing CSS for styling
+import Navbar from '../../components/AdminNavbar';
+import Sidebar from '../../components/AdminSidebar'; 
+import './ViewUser.css'; 
 
 const DashboardViewUser = () => {
-  const { userId } = useParams(); // Get userId from URL params
+  const { userId } = useParams(); 
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
   
@@ -33,9 +33,9 @@ const DashboardViewUser = () => {
 
   return (
     <div className="view-user-container">
-      <Navbar /> {/* Navbar */}
+      <Navbar /> 
       <div className="main-content">
-        <Sidebar /> {/* Sidebar */}
+        <Sidebar /> 
         <div className="content-areau">
           <h2>User Details</h2>
           <div className="user-details-card">

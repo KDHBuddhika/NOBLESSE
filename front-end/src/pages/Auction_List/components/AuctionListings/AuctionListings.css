@@ -5,12 +5,12 @@
   width: 100%;
   height: fit-content;
   background-color: white;
-  color: #000; /* Text color changed for visibility */
+  color: #000; 
   overflow: hidden;
   align-items: center;
 }
 
-/* Auction list header */
+
 .headerl {
   margin-top: 50px;
   display: flex;
@@ -27,25 +27,25 @@
 
 /* Auction items container */
 .container2l {
-  margin: 10px 0; /* Adjusted margins */
+  margin: 10px 0; 
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center; /* Centers the items on the screen */
+  justify-content: center; 
   align-items: center;
-  width: 100%; /* Ensures the container takes full width */
+  width: 100%; 
 }
 
-/* Auction card styling */
+
 .card2 {
   background-color: white;
   border-radius: 8px;
   overflow: hidden;
-  width: calc(31.5%); /* Adjust width to fit more cards in a row */
+  width: calc(31.5%); 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Auction card image */
+
 .card2 img {
   width: 100%;
   height: 250px;
@@ -54,18 +54,18 @@
   border-top-right-radius: 10px;
 }
 
-/* Auction card content */
+
 .card-content2 {
   padding: 15px;
 }
 
-/* Auction card title */
+
 .card2 h3 {
   margin: 0 0 10px 0;
   font-size: 18px;
 }
 
-/* Auction information */
+
 .auction-info2 {
   display: flex;
   justify-content: space-between;
@@ -74,13 +74,13 @@
   margin-bottom: 10px;
 }
 
-/* Auction card buttons */
+
 .buttons2 {
   display: flex;
   justify-content: space-between;
 }
 
-/* Pagination styling */
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -101,7 +101,7 @@
   color: white;
 }
 
-/* General button styling */
+
 .btn {
   padding: 8px 15px;
   border: none;

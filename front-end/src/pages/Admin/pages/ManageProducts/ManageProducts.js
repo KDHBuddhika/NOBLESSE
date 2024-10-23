@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../../components/AdminNavbar';  // Adjust path
-import Sidebar from '../../components/AdminSidebar'; // Adjust path
-import './ManageProducts.css'; // Import the relevant CSS
+import Navbar from '../../components/AdminNavbar';  
+import Sidebar from '../../components/AdminSidebar'; 
+import './ManageProducts.css';
 
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
@@ -12,20 +12,20 @@ const ManageProducts = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch products and categories from backend
+ 
     const fetchData = async () => {
       try {
-        // Fetch products
+        
         const productResponse = await fetch('https://localhost:7281/api/Product/getAllProducts');
         const productData = await productResponse.json();
 
-        // Fetch categories
+       
         const categoryResponse = await fetch('https://localhost:7281/getAllCategory');
         const categoryData = await categoryResponse.json();
 
-        // Set product and category data
-        setProducts(productData.$values);  // Assuming products are in the $values array
-        setCategories(categoryData.$values);  // Assuming categories are in the $values array
+   
+        setProducts(productData.$values);  
+        setCategories(categoryData.$values);  
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -34,7 +34,7 @@ const ManageProducts = () => {
     fetchData();
   }, []);
 
-  // Filter handler
+
   const filteredProducts = products.filter((product) => {
     return (
       (selectedCategory === '' || product.categoryName === selectedCategory) &&
@@ -42,12 +42,12 @@ const ManageProducts = () => {
     );
   });
 
-  // Handle view button click
+ 
   const handleView = (productId) => {
     navigate(`/dashboardProduct/${productId}`);
   };
 
-  // Handle delete button click
+
   const handleDelete = async (productId) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this product?");
     if (confirmDelete) {
@@ -55,9 +55,9 @@ const ManageProducts = () => {
         const response = await fetch(`https://localhost:7281/api/Product/deleteProduct/${productId}`, {
           method: 'DELETE',
         });
-        const result = await response.json();  // Parse the response
+        const result = await response.json();  
         if (result === true) {
-          // Remove the product from the local state after successful deletion
+        
           setProducts(products.filter(product => product.productId !== productId));
           alert('Product deleted successfully');
         } else {
@@ -78,7 +78,7 @@ const ManageProducts = () => {
         <div className="manage-products-content">
           <h1>Manage Products</h1>
 
-          {/* Filter section */}
+       
           <div className="filters">
             <select
               value={selectedCategory}
@@ -104,7 +104,7 @@ const ManageProducts = () => {
             </select>
           </div>
 
-          {/* Product table */}
+        
           <table className="product-table">
             <thead>
               <tr>

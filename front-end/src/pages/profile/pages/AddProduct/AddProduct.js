@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ProfileNavbar from '../../components/ProfileNavbark';  // Navbar component
-import ProfileSidebar from '../../components/ProfileSidebar'; // Sidebar component
-import styles from './AddProduct.module.css';  // CSS module for styling
+import ProfileNavbar from '../../components/ProfileNavbark';  
+import ProfileSidebar from '../../components/ProfileSidebar'; 
+import styles from './AddProduct.module.css';  
 
 const AddProduct = () => {
   const [categories, setCategories] = useState([]);
@@ -12,18 +12,18 @@ const AddProduct = () => {
     startingPrice: '',
     category: '',
     thumbnailImage: null,
-    userId: localStorage.getItem('userId') || '', // Assuming UserId is stored in localStorage
+    userId: localStorage.getItem('userId') || '', 
   });
-  const [successMessage, setSuccessMessage] = useState(''); // State to store success message
+  const [successMessage, setSuccessMessage] = useState(''); 
   const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch categories from backend
-    fetch('https://localhost:7281/getAllCategory')  // Replace with your actual API endpoint
+    fetch('https://localhost:7281/getAllCategory')  
       .then(response => response.json())
       .then(data => {
         if (data && data.$values) {
-          setCategories(data.$values);  // Access the $values array
+          setCategories(data.$values);  
         }
       })
       .catch(error => console.error('Error fetching categories:', error));
@@ -40,40 +40,40 @@ const AddProduct = () => {
   const handleImageChange = (e) => {
     setFormData({
       ...formData,
-      thumbnailImage: e.target.files[0]  // Store the image as a file
+      thumbnailImage: e.target.files[0] 
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
   
-    // Prepare form data for submission
+    
     const formDataToSend = new FormData();
     formDataToSend.append('name', formData.name);
     formDataToSend.append('description', formData.description);
-    formDataToSend.append('StartingPrise', parseFloat(formData.startingPrice)); // Ensure number is sent
-    formDataToSend.append('thumbnailImage', formData.thumbnailImage); // Image binary
-    formDataToSend.append('userId', formData.userId); // User ID as UUID
-    formDataToSend.append('categoryId', formData.category); // Category ID as UUID
+    formDataToSend.append('StartingPrise', parseFloat(formData.startingPrice)); 
+    formDataToSend.append('thumbnailImage', formData.thumbnailImage); 
+    formDataToSend.append('userId', formData.userId); 
+    formDataToSend.append('categoryId', formData.category); 
   
-    // Send the data to the backend
+   
     fetch('https://localhost:7281/addproduct', {
       method: 'POST',
       body: formDataToSend
     })
-    .then(response => response.json())  // Parse response as JSON
+    .then(response => response.json())  
     .then(data => {
       if (data.message) {
-        setSuccessMessage(data.message); // Set success message from backend response
+        setSuccessMessage(data.message); 
       } else {
         setSuccessMessage('Unexpected response format');
       }
       
-      // Redirect to the products page after a delay
+     
       setTimeout(() => {
-        setSuccessMessage(''); // Clear success message after 3 seconds
+        setSuccessMessage(''); 
         navigate('/products'); 
-      }, 3000); // 3-second delay before redirection
+      }, 3000); 
     })
     .catch(error => {
       console.error('Error adding product:', error);

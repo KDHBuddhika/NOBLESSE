@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import Navbar from '../../components/AdminNavbar'; // Import your Navbar
-import Sidebar from '../../components/AdminSidebar'; // Import your Sidebar
-import './ConvertAuction.css'; // CSS for the page
+import Navbar from '../../components/AdminNavbar'; 
+import Sidebar from '../../components/AdminSidebar'; 
+import './ConvertAuction.css'; 
 
 const ConvertAuction = () => {
-  const { productId } = useParams(); // Capture productId from URL
+  const { productId } = useParams(); 
   const [product, setProduct] = useState(null);
   const [currentHighestBid, setHighestPrice] = useState('');
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
-  const [isCompleted] = useState(false); // Set isCompleted as a boolean
+  const [isCompleted] = useState(false); 
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const ConvertAuction = () => {
       const response = await fetch(`https://localhost:7281/api/Admin/productDetails/${productId}`);
       const data = await response.json();
       setProduct(data);
-      setHighestPrice(data.startingPrice); // Set default highest price
+      setHighestPrice(data.startingPrice); 
     } catch (error) {
       setErrorMessage('Failed to load product details');
     }
@@ -33,13 +33,13 @@ const ConvertAuction = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if startTime and endTime are valid
+   
     if (!currentHighestBid || !startTime || !endTime) {
       setErrorMessage('Please fill in all fields');
       return;
     }
 
-    // Parse the dates to ensure they are valid
+    
     const formattedStartTime = new Date(startTime);
     const formattedEndTime = new Date(endTime);
 
@@ -51,10 +51,10 @@ const ConvertAuction = () => {
 
     const auctionData = {
       productId,
-      currentHighestBid: parseFloat(currentHighestBid), // Ensure it's a decimal
-      startTime: formattedStartTime.toISOString(), // Convert to ISO string
-      endTime: formattedEndTime.toISOString(), // Convert to ISO string
-      isCompleted, // Send isCompleted as a boolean
+      currentHighestBid: parseFloat(currentHighestBid), 
+      startTime: formattedStartTime.toISOString(), 
+      endTime: formattedEndTime.toISOString(), 
+      isCompleted, 
     };
 
     try {
@@ -70,7 +70,7 @@ const ConvertAuction = () => {
         setSuccessMessage('Auction created successfully');
         setTimeout(() => {
           navigate(`/dashboardProductView/${productId}`);
-        }, 3000); // Redirect after 2 seconds
+        }, 3000); 
       } else {
         const errorData = await response.json();
         setErrorMessage(errorData.message || 'Failed to create auction');
@@ -81,7 +81,7 @@ const ConvertAuction = () => {
   };
 
   const handleBack = () => {
-    navigate(`/dashboardProduct/${productId}`); // Navigate back to product view page
+    navigate(`/dashboardProduct/${productId}`); 
   };
 
   if (!product) {
@@ -90,9 +90,9 @@ const ConvertAuction = () => {
 
   return (
     <div className="convert-auction-container">
-      <Navbar /> {/* Include Navbar */}
+      <Navbar /> 
       <div className="main-content">
-        <Sidebar /> {/* Include Sidebar */}
+        <Sidebar /> 
         <div className="content-aread">
           <h2>Auction</h2>
           <div className="auction-details">

@@ -1,4 +1,4 @@
-// VintageTimepieces.js
+
 import React, { useState } from 'react';
 import './VintageTimepiecesGallery.css';
 

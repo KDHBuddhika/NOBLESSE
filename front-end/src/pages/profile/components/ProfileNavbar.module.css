@@ -1,4 +1,4 @@
-/* ProfileNavbar.module.css */
+
 .navbar {
   position: fixed;
   top: 0;
@@ -10,7 +10,7 @@
   align-items: center;
   border-bottom: 1px solid #ddd;
   left: 0;
-  z-index: 1000; /* Ensure it's always on top */
+  z-index: 1000; 
 }
 
 .brand {

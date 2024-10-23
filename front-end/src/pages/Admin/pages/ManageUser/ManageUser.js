@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../../components/AdminNavbar';  // Adjust path
-import Sidebar from '../../components/AdminSidebar'; // Adjust path
-import './ManageUsers.css'; // Import the relevant CSS
+import Navbar from '../../components/AdminNavbar';  
+import Sidebar from '../../components/AdminSidebar'; 
+import './ManageUsers.css'; 
 
 const ManageUsers = () => {
   const [users, setUsers] = useState([]);
@@ -9,7 +9,7 @@ const ManageUsers = () => {
   const [isVerifiedFilter, setIsVerifiedFilter] = useState('');
 
   useEffect(() => {
-    // Fetch users from backend
+    
     const fetchUsers = async () => {
       try {
         const response = await fetch('https://your-backend-api-url/users');
@@ -23,7 +23,7 @@ const ManageUsers = () => {
     fetchUsers();
   }, []);
 
-  // Filter users based on userType and isVerified
+
   const filteredUsers = users.filter((user) => {
     return (
       (userTypeFilter === '' || user.userType === userTypeFilter) &&
@@ -31,7 +31,7 @@ const ManageUsers = () => {
     );
   });
 
-  // Handle delete user
+
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this user?");
     if (confirmDelete) {
@@ -60,7 +60,7 @@ const ManageUsers = () => {
         <div className="manage-users-content">
           <h1>Manage Users</h1>
 
-          {/* Filter section */}
+         
           <div className="filters">
             <select
               value={userTypeFilter}
@@ -86,7 +86,7 @@ const ManageUsers = () => {
             <button className="search-btn">Search</button>
           </div>
 
-          {/* Users Table */}
+        
           <table className="users-table">
             <thead>
               <tr>

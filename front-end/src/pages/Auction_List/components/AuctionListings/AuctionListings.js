@@ -3,22 +3,22 @@ import './AuctionListings.css';
 import { useNavigate } from 'react-router-dom';
 
 const AuctionList = () => {
-  const [auctions, setAuctions] = useState([]);  // To store auctions data
-  const [categories, setCategories] = useState([]);  // To store categories
-  const [category, setCategory] = useState('');  // Selected category
-  const [sort, setSort] = useState('');  // Selected sort method
-  const [currentPage, setCurrentPage] = useState(1);  // Current page number
-  const [totalPages, setTotalPages] = useState(1);  // Total number of pages
-  const itemsPerPage = 9;  // Items per page
+  const [auctions, setAuctions] = useState([]);  
+  const [categories, setCategories] = useState([]);  
+  const [category, setCategory] = useState('');  
+  const [sort, setSort] = useState('');  
+  const [currentPage, setCurrentPage] = useState(1);  
+  const [totalPages, setTotalPages] = useState(1);  
+  const itemsPerPage = 9;  
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch auction categories from the backend
+    
     const fetchCategories = async () => {
       try {
-        const response = await fetch('https://localhost:7281/getAllCategory'); // Adjust backend URL
+        const response = await fetch('https://localhost:7281/getAllCategory'); 
         const data = await response.json();
-        setCategories(data.$values || []);  // Assuming categories are in $values array
+        setCategories(data.$values || []);  
       } catch (error) {
         console.error('Error fetching categories:', error);
       }
@@ -27,8 +27,10 @@ const AuctionList = () => {
     fetchCategories();
   }, []);
 
+
+
   useEffect(() => {
-    // Fetch paginated auctions from the backend when the page changes
+  
     const fetchAuctions = async () => {
       try {
         const response = await fetch(
@@ -45,22 +47,25 @@ const AuctionList = () => {
     fetchAuctions();
   }, [currentPage]);
 
-  // Handle page change
+
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
   const handleExplore = (auctionId) => {
-    // Navigate to the auction story page with auctionId in the URL
+
     navigate(`/plasebid2/${auctionId}`);
   };
 
-  // Client-side filter method (filter by category)
+ 
   const filteredAuctions = category
     ? auctions.filter((auction) => auction.categoryName === category)
     : auctions;
 
-  // Client-side sorting method
+
+
+
+  //  sorting method
   const sortedAuctions = [...filteredAuctions].sort((a, b) => {
     switch (sort) {
       case 'price-asc':
@@ -79,6 +84,7 @@ const AuctionList = () => {
       <div className="headerl">
         <h1>All Auctions</h1>
         <div>
+
           {/* Client-side filter by category */}
           <select value={category} onChange={(e) => setCategory(e.target.value)}>
             <option value="">Select Category</option>
@@ -89,6 +95,8 @@ const AuctionList = () => {
             ))}
           </select>
 
+
+
           {/* Client-side sorting */}
           <select value={sort} onChange={(e) => setSort(e.target.value)}>
             <option value="">Sort by</option>
@@ -98,6 +106,8 @@ const AuctionList = () => {
           </select>
         </div>
       </div>
+
+
 
       {/* Auction listings */}
       <div className="container2l">
@@ -118,6 +128,8 @@ const AuctionList = () => {
           </div>
         ))}
       </div>
+
+      
 
       {/* Pagination */}
       <div className="pagination">

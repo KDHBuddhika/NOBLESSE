@@ -1,0 +1,68 @@
+.pageWrapper {
+    display: flex;
+  }
+  
+  .contentWrapper {
+    margin-left: 220px; 
+    padding: 20px;
+    margin-top: 70px; 
+    width: calc(100% - 220px);
+  }
+  
+  .contentWrapper h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+
+  }
+  
+  .watchList {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  
+  .watchCard {
+    display: flex;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .watchImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+  
+  .watchDetails {
+    flex-grow: 1;
+  }
+  
+  .watchDetails h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+  }
+  
+  .watchDetails p {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+  }
+  
+  .removeBtn {
+    background-color: #dc3545; 
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .removeBtn:hover {
+    background-color: #b02a37;
+  }
+  

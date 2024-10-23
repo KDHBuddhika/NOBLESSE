@@ -1,0 +1,114 @@
+.pageWrapper {
+    display: flex;
+  }
+  
+  .contentWrapper {
+    margin-left: 220px;
+    padding: 20px;
+    margin-top: 70px; 
+    width: calc(100% - 220px);
+  }
+  
+  .contentWrapper h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .cardWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+  
+  .addressDetails, .summaryDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .changeAddressBtn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .changeAddressBtn:hover {
+    background-color: #0056b3;
+  }
+  
+  .summaryItem, .summaryItemTotal {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2em;
+  }
+  
+  .summaryItemTotal {
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  
+  .cardMethods {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .cardIcon {
+    width: 40px;
+    height: auto;
+  }
+  
+  .inputGroup {
+    margin-bottom: 15px;
+  }
+  
+  .inputGroup label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .inputGroup input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .cardRow {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .confirmPaymentBtn {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .confirmPaymentBtn:hover {
+    background-color: #0056b3;
+  }
+  

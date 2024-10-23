@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../../components/AdminNavbar';  // Adjust path
-import Sidebar from '../../components/AdminSidebar'; // Adjust path
-import './ManageAuctions.css'; // Import the relevant CSS
+import Navbar from '../../components/AdminNavbar';  
+import Sidebar from '../../components/AdminSidebar'; 
+import './ManageAuctions.css';
 
 const ManageAuctions = () => {
   const [auctions, setAuctions] = useState([]);
@@ -13,17 +13,17 @@ const ManageAuctions = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch auctions and categories from backend
+    
     const fetchData = async () => {
       try {
         const auctionResponse = await fetch('https://localhost:7281/api/Admin/auctiondetails');
         const auctionData = await auctionResponse.json();
         setAuctions(auctionData.$values);
 
-        // Fetch categories
+      
         const categoryResponse = await fetch('https://localhost:7281/getAllCategory');
         const categoryData = await categoryResponse.json();
-        setCategories(categoryData.$values); // Assuming categories are returned similarly
+        setCategories(categoryData.$values); 
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -31,14 +31,14 @@ const ManageAuctions = () => {
     fetchData();
   }, []);
 
-  // Handle sorting by highest and lowest price
+
   const sortedAuctions = [...auctions].sort((a, b) => {
     if (sortOrder === 'high-to-low') return b.highestBidPrice - a.highestBidPrice;
     if (sortOrder === 'low-to-high') return a.highestBidPrice - b.highestBidPrice;
     return 0;
   });
 
-  // Filter by isCompleted and categoryId
+
   const filteredAuctions = sortedAuctions.filter((auction) => {
     const isCompletedMatch =
       isCompletedFilter === '' || auction.isCompleted === (isCompletedFilter === 'true');
@@ -47,12 +47,14 @@ const ManageAuctions = () => {
     return isCompletedMatch && categoryMatch;
   });
 
-  // Handle view button click
+
   const handleView = (id) => {
     navigate(`/auction/${id}`);
   };
 
-  // Handle delete button click
+
+
+
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this auction?");
     if (confirmDelete) {
@@ -61,7 +63,7 @@ const ManageAuctions = () => {
           method: 'DELETE',
         });
         if (response.ok) {
-          // Remove the auction from the local state after successful deletion
+      
           setAuctions(auctions.filter(auction => auction.auctionId !== id));
           alert('Auction deleted successfully');
         } else {
@@ -84,7 +86,7 @@ const ManageAuctions = () => {
 
           {/* Filter and Sort section */}
           <div className="filters">
-            {/* Dropdown for filtering by is_completed */}
+            {/*  filtering by is_completed */}
             <select
               value={isCompletedFilter}
               onChange={(e) => setIsCompletedFilter(e.target.value)}
@@ -95,7 +97,7 @@ const ManageAuctions = () => {
               <option value="false">Not Completed</option>
             </select>
 
-            {/* Dropdown for filtering by category */}
+            {/* filtering by category */}
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
