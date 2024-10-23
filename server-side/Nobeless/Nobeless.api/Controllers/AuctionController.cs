@@ -132,6 +132,29 @@ namespace Nobeless.api.Controllers
 
 
 
+        //---------------------- get all auction details by user id for profile section ---------------------------
+
+        [HttpGet("user/{userId}")]
+        public async Task<IActionResult> GetAuctionDetailsByUserId(Guid userId)
+        {
+            try
+            {
+                var auctionDetails = await _auctionService.GetAuctionDetailsByUserIdAsync(userId);
+
+                if (auctionDetails == null || !auctionDetails.Any())
+                {
+                    return NotFound("No auctions found for this user."); 
+                }
+
+                return Ok(auctionDetails); 
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}"); 
+            }
+        }
+
+
 
     }
 }

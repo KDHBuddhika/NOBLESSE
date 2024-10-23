@@ -218,5 +218,31 @@ namespace Nobeless.api.Service.IMPL
 
             return winnerDetails;
         }
+
+
+
+        //--------------------- get all auction detail by user id  for user prfile -----------------------
+        public async Task<List<AuctionDetailsByUserIdDto>> GetAuctionDetailsByUserIdAsync(Guid userId)
+        {
+            var auctions = await _nobelessDbContext.auctions
+              .Include(a => a.Product)
+              .ThenInclude(p => p.Auctions.Bids) 
+              .Where(a => a.Product.UserId == userId) 
+              .Select(a => new AuctionDetailsByUserIdDto
+              {
+                  ImageUrl = a.Product.thumbnailImage,
+                  ProductName = a.Product.Name,
+                  BidderCount = a.Bids.Count(),
+                  StartTime = a.StartTime,
+                  EndTime = a.EndTime,
+                  StartingPrice = a.Product.StartingPrise,
+                  HighestPrice = a.CurrentHighestBid,
+                  AuctionState = a.IsCompleted ? "Completed" : "Ongoing",
+                  TimeRemaining = a.EndTime > DateTime.UtcNow ? a.EndTime - DateTime.UtcNow : TimeSpan.Zero
+              })
+              .ToListAsync();
+
+            return auctions;
+        }
     }
 }
