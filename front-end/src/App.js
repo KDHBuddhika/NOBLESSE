@@ -37,9 +37,12 @@ import MyAuction from './pages/profile/pages/YourAuction/MyAuction.js';
 import AuctionResult from './pages/profile/pages/AuctionResult/AuctionResult.js';
 import NotificationPage from './pages/profile/pages/NotificationPage/NotificationPage.js';
 
-
-
 import Home from './pages/home/home';
+import AboutUs from './pages/AboutUs/AboutUs.jsx';
+import HowItWork from './pages/HowItWork/HowItWork.jsx';
+import PlaceABid from './pages/PlaceABid/PlaceABid.jsx'; 
+import PlaceABid2 from './pages/PlaceABid/placeabid2.jsx'; 
+
 
 import Layout from "./pages/Components/Layout";
 import { ImRoad } from 'react-icons/im';
@@ -49,6 +52,10 @@ function App() {
   return (
     <Router>
       <Routes>
+
+
+
+
         <Route path="/forgotpw" element={<Forgot />} />
         <Route path="/termsform" element={<TermsCondition />} />
         <Route path="/forgotpwVerify" element={<Verification />} />
@@ -59,7 +66,7 @@ function App() {
         {/* <Route path='/auctionList' element={<AuctionListPage/>} />
         <Route path="/Privacy&Policy" element={<PrivacyPolicyContent />} /> */}
       
-       <Route exact path="/Privacy&Policy" element={<PrivacyPolicyContent />} />
+      
 
        <Route path="/verifyAccount" element={<VerifyAccount />} />
 
@@ -119,6 +126,11 @@ function App() {
         <Route element={<Layout />}>
 					<Route path="/home" element={<Home />} />
           <Route exact path="/auctionList" element={<AuctionListPage />} />
+          <Route exact path="/aboutus" element={<AboutUs />} />
+          <Route exact path="/howItwork" element={<HowItWork />} />
+          <Route exact path="/Privacy&Policy" element={<PrivacyPolicyContent />} />
+          <Route exact path="/plasebid" element={<PlaceABid />} />
+          <Route exact path="/plasebid2/:auctionId" element={<PlaceABid2 />} />
 				</Route>
 
 

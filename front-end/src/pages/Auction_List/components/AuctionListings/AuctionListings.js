@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './AuctionListings.css';
+import { useNavigate } from 'react-router-dom';
 
 const AuctionList = () => {
   const [auctions, setAuctions] = useState([]);  // To store auctions data
@@ -9,6 +10,7 @@ const AuctionList = () => {
   const [currentPage, setCurrentPage] = useState(1);  // Current page number
   const [totalPages, setTotalPages] = useState(1);  // Total number of pages
   const itemsPerPage = 9;  // Items per page
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch auction categories from the backend
@@ -46,6 +48,11 @@ const AuctionList = () => {
   // Handle page change
   const handlePageChange = (page) => {
     setCurrentPage(page);
+  };
+
+  const handleExplore = (auctionId) => {
+    // Navigate to the auction story page with auctionId in the URL
+    navigate(`/plasebid2/${auctionId}`);
   };
 
   // Client-side filter method (filter by category)
@@ -104,7 +111,7 @@ const AuctionList = () => {
                 <span>Highest bid: ${auction.highestBidPrice}</span>
               </div>
               <div className="buttons2">
-                <button className="btn btn-primary">Explore</button>
+              <button className="btn btn-primary" onClick={() => handleExplore(auction.auctionId)}>Explore</button>
                 <button className="btn btn-secondary">{auction.isCompleted ? 'Completed' : 'Place a Bid'}</button>
               </div>
             </div>
