@@ -15,5 +15,10 @@ namespace Nobeless.api.Service
 
         // new
         Task<List<BidderDetailsDto>> GetBiddersByAuctionIdAsync(int auctionId);
+
+
+        Task<List<BidderDetailsByUserIdDto>> GetBidsByUserIdAsync(Guid userId);
+
+        Task<bool> DeleteBidAsync(int bidId);
     }
 }

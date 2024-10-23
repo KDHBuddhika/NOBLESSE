@@ -201,5 +201,48 @@ namespace Nobeless.api.Service.IMPL
 
             return bidders;
         }
+
+
+
+        // ------------------------- get bidder details by user id for profile section -----------------
+
+        public async Task<List<BidderDetailsByUserIdDto>> GetBidsByUserIdAsync(Guid userId)
+        {
+
+            var bids = await _DbContext.Bids
+           .Where(b => b.UserId == userId)
+           .Include(b => b.Auction)
+           .ThenInclude(a => a.Product) 
+           .Select(b => new BidderDetailsByUserIdDto
+           {
+               BidId = b.BidId,
+               AuctionId = b.Auction.AuctionId,
+               AuctionName = b.Auction.Product.Name, 
+               ImageUrl = b.Auction.Product.thumbnailImage, 
+               BidAmount = b.Amount,
+               State = b.State 
+           })
+           .ToListAsync();
+
+            return bids;
+
+        }
+
+
+        // ---------------------- Delete Bid ------------------------
+        public async Task<bool> DeleteBidAsync(int bidId)
+        {
+            var bid = await _DbContext.Bids.FirstOrDefaultAsync(b => b.BidId == bidId);
+
+            if (bid == null)
+            {
+                return false; 
+            }
+
+            _DbContext.Bids.Remove(bid);
+            await _DbContext.SaveChangesAsync();
+
+            return true; 
+        }
     }
 }

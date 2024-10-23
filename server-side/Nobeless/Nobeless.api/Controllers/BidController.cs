@@ -108,6 +108,52 @@ namespace Nobeless.api.Controllers
         }
 
 
+        //-------------------- Get bidder details by user id for profile section -------------------------
+
+        [HttpGet("bids/user/{userId}")]
+        public async Task<IActionResult> GetBidsByUserId(Guid userId)
+        {
+            try
+            {
+                var bidDetails = await _bidService.GetBidsByUserIdAsync(userId);
+
+                if (bidDetails == null || !bidDetails.Any())
+                {
+                    return NotFound("No bids found for this user."); 
+                }
+
+                return Ok(bidDetails); 
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}"); 
+            }
+        }
+
+
+
+
+        // ------------------- Delete Bid ----------------------------
+        [HttpDelete("bid/{bidId}")]
+        public async Task<IActionResult> DeleteBid(int bidId)
+        {
+            try
+            {
+                var result = await _bidService.DeleteBidAsync(bidId);
+
+                if (!result)
+                {
+                    return NotFound("Bid not found."); 
+                }
+
+                return Ok(); 
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}"); 
+            }
+        }
+
 
 
 

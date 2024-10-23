@@ -112,15 +112,15 @@ namespace Nobeless.api.Controllers
             try
             {
                 var productDetails = await _productService.GetProductDetailsByIdAsync(productId);
-                return Ok(productDetails); // Return 200 OK with product details
+                return Ok(productDetails); 
             }
             catch (KeyNotFoundException ex)
             {
-                return NotFound(ex.Message); // Return 404 Not Found if the product does not exist
+                return NotFound(ex.Message); 
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal server error: " + ex.Message); // Return 500 for other errors
+                return StatusCode(500, "Internal server error: " + ex.Message); 
             }
         }
 
@@ -139,14 +139,14 @@ namespace Nobeless.api.Controllers
 
                     if (!result)
                     {
-                        return NotFound("Product not found."); // Return 404 if product not found
+                        return NotFound("Product not found."); 
                     }
 
-                return Ok(result); // Return 204 No Content on successful deletion
+                return Ok(result); 
                 }
                 catch (Exception ex)
                 {
-                    return StatusCode(500, $"Internal server error: {ex.Message}"); // Handle internal server errors
+                    return StatusCode(500, $"Internal server error: {ex.Message}");
                 }
             
 
@@ -195,7 +195,7 @@ namespace Nobeless.api.Controllers
             try
             {
                 await _productService.ApproveProductAsync(productId);
-                return Ok(new { message = $"Product with ID {productId} has been approved." });
+                return Ok(true);
             }
             catch (NotFoundException ex)
             {

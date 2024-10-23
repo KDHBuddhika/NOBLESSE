@@ -29,23 +29,25 @@ namespace Nobeless.api.Util
         {
             using (var scope = _serviceProvider.CreateScope())
             {
-                var dbContext = scope.ServiceProvider.GetRequiredService<NobelessDbContext>(); 
-                var currentTime = DateTime.UtcNow;
+                var dbContext = scope.ServiceProvider.GetRequiredService<NobelessDbContext>();
+
+                var currentTime = DateTime.Now; // Or DateTime.UtcNow, based on your stored time
 
                 var auctionsToUpdate = await dbContext.auctions
                     .Where(a => a.EndTime <= currentTime && !a.IsCompleted)
                     .ToListAsync();
 
+                _logger.LogInformation($"{auctionsToUpdate.Count} auctions found for completion.");
+
                 foreach (var auction in auctionsToUpdate)
                 {
                     auction.IsCompleted = true;
+                    _logger.LogInformation($"Auction {auction.AuctionId} marked as completed.");
                 }
 
                 await dbContext.SaveChangesAsync();
             }
-
-
-
         }
+
     }
 }
