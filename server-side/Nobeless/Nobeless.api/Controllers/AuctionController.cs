@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nobeless.api.Data;
+using Nobeless.api.Exceptions;
 using Nobeless.api.Model.Dtos.RequestDtos;
 using Nobeless.api.Service;
 
@@ -53,16 +54,16 @@ namespace Nobeless.api.Controllers
                     Data = auctionDetails
                 };
 
-                return Ok(response); // Return 200 OK with paginated auction details
+                return Ok(response); 
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}"); // Return 500 for any internal error
+                return StatusCode(500, $"Internal server error: {ex.Message}"); 
             }
         }
 
 
-        //--------------------Delete Auction ------------------------------------
+        //-------------------------------- ----- Delete Auction ---------------------------------------------
 
         [HttpDelete("deleteAuction/{auctionId}")]
         public async Task<IActionResult> DeleteAuction(int auctionId)
@@ -73,16 +74,62 @@ namespace Nobeless.api.Controllers
 
                 if (!result)
                 {
-                    return NotFound("Auction not found."); // Return 404 if auction not found
+                    return NotFound("Auction not found."); 
                 }
 
-                return Ok(result); // Return 204 No Content on successful deletion
+                return Ok(result); 
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}"); // Return 500 for any internal error
+                return StatusCode(500, $"Internal server error: {ex.Message}"); 
             }
         }
+
+
+        //---------------------------------- Get Auction Details by Auction Id --------------------------------------
+
+
+        [HttpGet("getAuction-details-byId/{auctionId}")]
+        public async Task<IActionResult> GetAuctionDetailsById(int auctionId)
+        {
+            try
+            {
+                var auctionDetails = await _auctionService.GetAuctionDetailsByIdAsync(auctionId);
+
+                return Ok(auctionDetails); 
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message); 
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}"); 
+            }
+        }
+
+
+
+
+        // -------------------------- Get bid Winner Details by Auction Id -------------------------------
+        [HttpGet("winner/{auctionId}")]
+        public async Task<IActionResult> GetWinnerDetailsByAuctionId(int auctionId)
+        {
+            try
+            {
+                var winnerDetails = await _auctionService.GetWinnerDetailsByAuctionIdAsync(auctionId);
+                return Ok(winnerDetails); 
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message); 
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}"); 
+            }
+        }
+
 
 
 

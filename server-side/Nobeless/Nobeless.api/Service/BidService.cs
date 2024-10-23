@@ -7,8 +7,13 @@ namespace Nobeless.api.Service
     {
         Task AddBid(BidDtos bidDtos);
         Task<List<BidderItemDetailsDtos>> GetBidderItemsByUserId(Guid userId);
+       
+        // old
         Task<List<BidResponseDtos>> getBidsByAuctionId(int id);
 
         Task ProcessAuctionCompletion();
+
+        // new
+        Task<List<BidderDetailsDto>> GetBiddersByAuctionIdAsync(int auctionId);
     }
 }

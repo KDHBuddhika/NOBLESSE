@@ -11,8 +11,9 @@ namespace Nobeless.api.Service
 
 
         Task<(List<AuctionDetailsDto>, int)> GetAuctionDetailsAsync(int page, int itemsPerPage);
-
+        Task<AuctionDetailsByIdDto> GetAuctionDetailsByIdAsync(int auctionId);
 
         Task<List<auctionproductDtos>> GetIncompleteAuctionProductDtos();
+        Task<WinnerDetailsDto> GetWinnerDetailsByAuctionIdAsync(int auctionId);
     }
 }

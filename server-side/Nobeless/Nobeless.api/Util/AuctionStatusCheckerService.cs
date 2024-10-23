@@ -21,7 +21,7 @@ namespace Nobeless.api.Util
             while (!stoppingToken.IsCancellationRequested)
             {
                 await CheckAndUpdateAuctionStatusesAsync();
-                await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken); // Check every 1 minute
+                await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken); 
             }
         }
 
@@ -29,7 +29,7 @@ namespace Nobeless.api.Util
         {
             using (var scope = _serviceProvider.CreateScope())
             {
-                var dbContext = scope.ServiceProvider.GetRequiredService<NobelessDbContext>(); // Inject your DbContext
+                var dbContext = scope.ServiceProvider.GetRequiredService<NobelessDbContext>(); 
                 var currentTime = DateTime.UtcNow;
 
                 var auctionsToUpdate = await dbContext.auctions
