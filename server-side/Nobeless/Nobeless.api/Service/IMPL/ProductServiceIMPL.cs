@@ -15,7 +15,7 @@ namespace Nobeless.api.Service.IMPL
 
         private readonly NobelessDbContext _dbContext;
         private readonly UploadHandler _uploadHandler;
-        private readonly string _uploadPath; // Path to the uploaded folder
+        private readonly string _uploadPath; 
 
         public ProductServiceIMPL(NobelessDbContext nobelessDbContext,UploadHandler uploadHandler)
         {
@@ -125,12 +125,12 @@ namespace Nobeless.api.Service.IMPL
 
                 if (!string.IsNullOrEmpty(product.thumbnailImage))
                 {
-                    // Assuming ImageUrl contains the filename, construct the full path
+                   
                     var filePath = Path.Combine(_uploadPath, product.thumbnailImage);
 
                     if (File.Exists(filePath))
                     {
-                        File.Delete(filePath); // Delete the image file
+                        File.Delete(filePath); 
                     }
                 }
 

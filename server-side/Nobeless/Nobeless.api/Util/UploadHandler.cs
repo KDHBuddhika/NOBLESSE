@@ -26,8 +26,8 @@
                 throw new InvalidOperationException($"Invalid file extension. Allowed extensions are: {string.Join(", ", validExtensions)}");
             }
 
-            // Validate file size (max 10MB)
-            const long maxSize = 10 * 1024 * 1024; // 10MB
+          
+            const long maxSize = 10 * 1024 * 1024; 
             if (file.Length > maxSize)
             {
                 throw new InvalidOperationException("File size exceeds the 10MB limit.");
@@ -43,8 +43,7 @@
                 file.CopyTo(stream);
             }
 
-            // Return the relative path or URL as needed
-            return fileName; // Adjust this based on how you serve the uploaded files
+            return fileName;
         }
     }
 }

@@ -101,8 +101,8 @@ namespace Nobeless.api.Service.IMPL
         public async Task<List<AuctionDetailsDto>> GetAllAuctionDetailsAsync()
         {
             var auctionDetails = await _dbContext.auctions
-             .Include(a => a.Product) // Include the product details
-             .ThenInclude(p => p.Category) // Include the category details
+             .Include(a => a.Product) 
+             .ThenInclude(p => p.Category) 
              .Select(a => new AuctionDetailsDto
              {
                  AuctionId = a.AuctionId,

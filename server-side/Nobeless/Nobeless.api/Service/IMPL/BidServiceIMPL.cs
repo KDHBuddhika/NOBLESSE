@@ -173,5 +173,33 @@ namespace Nobeless.api.Service.IMPL
 
             return bidderItems;
         }
+
+
+
+
+
+        // --------------------------- Get All Bid Details By Auction Id -----------------------------
+        public async Task<List<BidderDetailsDto>> GetBiddersByAuctionIdAsync(int auctionId)
+        {
+            var bidders = await _DbContext.Bids
+           .Where(b => b.AuctionId == auctionId)
+           .Include(b => b.User) 
+           .Select(b => new BidderDetailsDto
+           {
+               BidderId = b.User.Id,
+               BidderName = b.User.UserName,
+               BidAmount = b.Amount,
+               BidderState = b.State, 
+               BidTime = b.BidTime
+           })
+           .ToListAsync();
+
+            if (!bidders.Any())
+            {
+                throw new NotFoundException($"No bidders found for auction with ID {auctionId}");
+            }
+
+            return bidders;
+        }
     }
 }

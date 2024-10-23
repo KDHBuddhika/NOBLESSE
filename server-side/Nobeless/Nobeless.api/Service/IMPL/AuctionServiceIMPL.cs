@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Nobeless.api.Data;
+using Nobeless.api.Exceptions;
 using Nobeless.api.Model.Domain;
 using Nobeless.api.Model.Dtos.RequestDtos;
 using Nobeless.api.Model.Dtos.ResponseDtos;
@@ -135,16 +136,87 @@ namespace Nobeless.api.Service.IMPL
                 CategoryName = a.Product.Category.CategoriesName
             });
 
-            // Calculate total records
+            // --Calculate total records--
             var totalRecords = await query.CountAsync();
 
-            // Paginate the results
+            // --Paginate-- 
             var paginatedResults = await query
                 .Skip((page - 1) * itemsPerPage)
                 .Take(itemsPerPage)
                 .ToListAsync();
 
             return (paginatedResults, totalRecords);
+        }
+
+
+
+        // ----------------------------- get auction details by auction id -------------------------------------
+        public async Task<AuctionDetailsByIdDto> GetAuctionDetailsByIdAsync(int auctionId)
+        {
+            var auction = await _nobelessDbContext.auctions
+             .Where(a => a.AuctionId == auctionId)
+             .Include(a => a.Product)
+             .ThenInclude(p => p.Category)
+             .Include(a => a.Product.User) 
+             .Select(a => new AuctionDetailsByIdDto
+             {
+                 ProductName = a.Product.Name,
+                 ImageUrl = a.Product.thumbnailImage,
+                 Description = a.Product.Description,
+                 HighestBid = a.CurrentHighestBid,
+                 StartTime = a.StartTime,
+                 EndTime = a.EndTime,
+                 CategoryName = a.Product.Category.CategoriesName,
+                 CategoryId = a.Product.Category.Id,
+                 UserId = a.Product.User.Id,
+                 IsCompleted = a.IsCompleted,
+             })
+             .FirstOrDefaultAsync();
+
+            if (auction == null)
+            {
+                throw new NotFoundException($"Auction with ID {auctionId} not found.");
+            }
+
+            return auction;
+        }
+
+
+
+        // -------------------------- get winner By Auctiion Id --------------------------------
+        public async Task<WinnerDetailsDto> GetWinnerDetailsByAuctionIdAsync(int auctionId)
+        {
+            var auction = await _nobelessDbContext.auctions
+           .Where(a => a.AuctionId == auctionId && a.IsCompleted)
+           .Include(a => a.Bids)
+           .ThenInclude(b => b.User) 
+           .FirstOrDefaultAsync();
+
+            if (auction == null)
+            {
+                throw new KeyNotFoundException($"No completed auction found with ID {auctionId}");
+            }
+
+          
+            var winningBid = auction.Bids
+                .OrderByDescending(b => b.Amount)
+                .FirstOrDefault();
+
+            if (winningBid == null)
+            {
+                throw new Exception($"No bids found for auction with ID {auctionId}");
+            }
+
+         
+            var winnerDetails = new WinnerDetailsDto
+            {
+                WinnerId = winningBid.User.Id,
+                WinnerName = winningBid.User.UserName,
+                WinningBidAmount = winningBid.Amount,
+                BidTime = winningBid.BidTime
+            };
+
+            return winnerDetails;
         }
     }
 }

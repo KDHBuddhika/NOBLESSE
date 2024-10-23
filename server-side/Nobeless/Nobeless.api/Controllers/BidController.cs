@@ -60,8 +60,29 @@ namespace Nobeless.api.Controllers
         }
 
 
+        // ------------------- get all bidder details by auction id ------------------------
 
-      //---------------------------------automatycally update bidding state-------------------------------
+        [HttpGet("getBidder-by-auctionId/{auctionId}")]
+        public async Task<IActionResult> GetBiddersByAuctionId(int auctionId)
+        {
+            try
+            {
+                var bidders = await _bidService.GetBiddersByAuctionIdAsync(auctionId);
+                return Ok(bidders); 
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message); 
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}"); 
+            }
+        }
+
+
+
+        //---------------------------------automatycally update bidding state-------------------------------
 
         [HttpPost("process-bid-state")]
         public async Task<IActionResult> ProcessAuctions()

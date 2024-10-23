@@ -164,7 +164,7 @@ namespace Nobeless.api.Controllers
 
             Guid productId = Guid.Parse(id);
 
-            // Find the product in the database
+        
             var product1 = await _dbContext.products.FindAsync(productId);
 
             if (product1 == null)
@@ -172,13 +172,12 @@ namespace Nobeless.api.Controllers
                 return NotFound("Product not found");
             }
 
-            // Update the product's properties
+         
 
             product1.Name = product.Name;
             product1.Description = product.Description;
-            // Add other fields as needed...
+           
 
-            // Save the changes
             _dbContext.Entry(product1).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             await _dbContext.SaveChangesAsync();
 
