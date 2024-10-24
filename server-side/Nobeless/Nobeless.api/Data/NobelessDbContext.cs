@@ -25,6 +25,8 @@ namespace Nobeless.api.Data
 
         public DbSet<Bid> Bids { get; set; }
 
+        public DbSet<Contact> contacts { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
