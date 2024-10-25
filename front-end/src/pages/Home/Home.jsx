@@ -99,7 +99,7 @@ function Home() {
 				</div>
 				<div
 					id="carousel-cover"
-					className="h-full w-4/5 absolute bg-primaryBlue/10  transform -translate-x-52 skew-x-[30deg] backdrop-blur-sm z-1"
+					className="h-full w-4/5 absolute bg-primaryBlue/10  transform -translate-x-52 skew-x-[30deg] backdrop-blur-sm z-1 "
 				></div>
 				<h1 className="w-1/2 text-primaryBlue text-center text-4xl font-Montserrat absolute left-[100px] top-52">
 					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et impedi
@@ -116,7 +116,7 @@ function Home() {
 			>
 				<button
 					onClick={() => setCurrentModel(1)}
-					className="w-4 h-4 border border-primaryBlue rounded-full m-2"
+					className="w-4 h-4 border border-primaryBlue rounded-full m-2 .border"
 				></button>
 				<button
 					onClick={() => setCurrentModel(2)}

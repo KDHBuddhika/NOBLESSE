@@ -1,8 +1,8 @@
 /* Auction list container */
 .maincontainerl {
   position: relative;
-  /* width: 1520px;  */
-  width: 100%;
+  width: 1520px; 
+  /* width: 100%; */
   height: fit-content;
   background-color: white;
   color: #000; 
