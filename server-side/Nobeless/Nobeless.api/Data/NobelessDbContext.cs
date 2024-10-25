@@ -27,7 +27,7 @@ namespace Nobeless.api.Data
 
         public DbSet<Contact> contacts { get; set; }
 
-
+        public DbSet<QuestionAnswer> QuestionAnswers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
