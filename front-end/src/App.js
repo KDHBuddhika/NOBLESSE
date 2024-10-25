@@ -46,6 +46,8 @@ import AboutUs from './pages/AboutUs/AboutUs.jsx';
 import HowItWork from './pages/HowItWork/HowItWork.jsx';
 import PlaceABid from './pages/PlaceABid/PlaceABid.jsx'; 
 import PlaceABid2 from './pages/PlaceABid/placeabid2.jsx'; 
+import ChatBot from './pages/chatbot/ChatBot.js';
+import TrainBot from './pages/chatbot/TrainBot.js';
 
 
 import Layout from "./pages/Components/Layout";
@@ -60,6 +62,8 @@ function App() {
 
 
 
+
+
         <Route path="/forgotpw" element={<Forgot />} />
         <Route path="/termsform" element={<TermsCondition />} />
         <Route path="/forgotpwVerify" element={<Verification />} />
@@ -69,11 +73,11 @@ function App() {
         <Route path="/signup" element={<SignUpForm />} />
         {/* <Route path='/auctionList' element={<AuctionListPage/>} />
         <Route path="/Privacy&Policy" element={<PrivacyPolicyContent />} /> */}
-      
-      
-
        <Route path="/verifyAccount" element={<VerifyAccount />} />
 
+      
+
+       
       
     
 
@@ -143,6 +147,8 @@ function App() {
           <Route exact path="/Privacy&Policy" element={<PrivacyPolicyContent />} />
           <Route exact path="/plasebid" element={<PlaceABid />} />
           <Route exact path="/plasebid2/:auctionId" element={<PlaceABid2 />} />
+          <Route exact path="/chatbot" element={<ChatBot />} />
+          <Route exact path="/trainbot" element={<TrainBot />} />
 				</Route>
 
 
