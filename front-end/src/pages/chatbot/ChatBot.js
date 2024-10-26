@@ -50,6 +50,7 @@ const ChatBot = () => {
     <div className="chat-container">
       <div className="chat-header">
         <img src={require("./iconizer-2ntpb8cyDlEEYAs9PdfhSAJUIuy.png")} alt="Noblesse" className="chat-logo" />
+        <h1>BOT</h1>
       </div>
       <div className="chat-box">
         {messages.map((msg, index) => (
@@ -67,7 +68,7 @@ const ChatBot = () => {
           onKeyPress={handleKeyPress}
           placeholder="Type a message"
         />
-        <button onClick={sendMessage}>Chat</button>
+        <button className='chat-button' onClick={sendMessage}>Chat</button>
       </div>
     </div>
   );

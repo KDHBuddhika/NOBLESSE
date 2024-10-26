@@ -60,12 +60,19 @@
     width: 450px;
   }
   
-  .chat-input button {
-    padding:0px 16px;
-    background-color: #4CAF50;
-    color: white;
+  .chat-button {
+    padding:10px;
+    background-color: #d1e7dd;
+    color: #001242;
     border: none;
     border-radius: 5px;
     margin-left: 10px;
+    height: fit-content;
+    
+  }
+
+  .chat-button:hover{
+    font-weight: 800;
+    background-color: white;
   }
   

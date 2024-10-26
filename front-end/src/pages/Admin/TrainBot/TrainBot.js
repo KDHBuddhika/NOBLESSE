@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Navbar from '../../components/AdminNavbar';  
-import Sidebar from '../../components/AdminSidebar'; 
-import './TrainBot.css';
+import Navbar from '../components/AdminNavbar';  
+import Sidebar from '../components/AdminSidebar'; 
+import './Trainbot.css';
 
 const TrainBot = () => {
   const [question, setQuestion] = useState('');
@@ -27,7 +27,7 @@ const TrainBot = () => {
         <Sidebar />
         <div className="train-container">
           <div className="top-image">
-            <img src={require("./iconizer-2ntpb8cyDlEEYAs9PdfhSAJUIuy.png")} alt="Noblesse" />
+            <img src={require("../../../assets/images/noblesselogo.png")} alt="Noblesse" />
           </div>
           <div className="form-box">
             <form onSubmit={handleSubmit}>
