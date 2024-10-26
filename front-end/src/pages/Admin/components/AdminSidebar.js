@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaTachometerAlt, FaBox, FaGavel, FaTags, FaUsers, FaClipboardList, FaMoneyCheckAlt, FaChartBar } from 'react-icons/fa'; // Import icons from Font Awesome
-import './Sidebar.css'; // For styling
+import { FaTachometerAlt, FaBox, FaGavel, FaTags, FaUsers, FaClipboardList, FaMoneyCheckAlt, FaChartBar } from 'react-icons/fa'; // Import 
+import './Sidebar.css'; 
+import { FaRobot } from "react-icons/fa";
 
 const Sidebar = () => {
   return (
@@ -30,6 +31,11 @@ const Sidebar = () => {
         <li>
           <Link to="/ManageUsers">
             <FaUsers className="icon" /> Manage Users
+          </Link>
+        </li>
+        <li>
+          <Link to="/Trainbot">
+            <FaRobot className="icon" /> Train Bot
           </Link>
         </li>
         <li>
