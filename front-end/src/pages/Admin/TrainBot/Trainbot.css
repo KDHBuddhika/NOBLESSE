@@ -1,0 +1,47 @@
+/* TrainBot.css */
+
+.trainbot-layout {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .trainbot-main-content {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+  }
+  
+  .train-container {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .top-image {
+    margin-bottom: 20px;
+  }
+  
+  .form-box {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #001f3f; /* Customize as needed */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #00509e; /* Customize as needed */
+  }
+  
