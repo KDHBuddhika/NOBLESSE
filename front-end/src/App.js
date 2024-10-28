@@ -48,6 +48,7 @@ import PlaceABid from './pages/PlaceABid/PlaceABid.jsx';
 import PlaceABid2 from './pages/PlaceABid/placeabid2.jsx'; 
 import ChatBot from './pages/chatbot/ChatBot.js';
 import TrainBot from './pages/Admin/TrainBot/TrainBot.js';
+import ContactUs from './pages/ContactUs/ContactUs.jsx';
 
 
 import Layout from "./pages/Components/Layout";
@@ -148,7 +149,8 @@ function App() {
           <Route exact path="/plasebid" element={<PlaceABid />} />
           <Route exact path="/plasebid2/:auctionId" element={<PlaceABid2 />} />
           <Route exact path="/chatbot" element={<ChatBot />} />
-          
+          <Route exact path="/chatbot" element={<ChatBot />} />
+          <Route exact path="/contactus" element={<ContactUs />} />
 				</Route>
 
 
