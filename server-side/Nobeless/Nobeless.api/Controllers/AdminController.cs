@@ -170,6 +170,28 @@ namespace Nobeless.api.Controllers
 
 
 
+        //-----------------Get all User ---------------
+        [HttpGet("getAllUser")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            try
+            {
+                var users = await _adminService.GetAllUsersAsync();
+                if (users == null || users.Count == 0)
+                {
+                    return NotFound("No users found.");
+                }
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+
+
+
 
 
     }

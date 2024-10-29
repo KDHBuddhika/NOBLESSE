@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\asus\\Documents\\GitHub\\NOBLESSE\\server-side\\Nobeless\\Nobeless.api\\Nobeless.api.csproj": {}
+    "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Nobeless.api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\asus\\Documents\\GitHub\\NOBLESSE\\server-side\\Nobeless\\Nobeless.api\\Nobeless.api.csproj": {
+    "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Nobeless.api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\asus\\Documents\\GitHub\\NOBLESSE\\server-side\\Nobeless\\Nobeless.api\\Nobeless.api.csproj",
+        "projectUniqueName": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Nobeless.api.csproj",
         "projectName": "Nobeless.api",
-        "projectPath": "C:\\Users\\asus\\Documents\\GitHub\\NOBLESSE\\server-side\\Nobeless\\Nobeless.api\\Nobeless.api.csproj",
+        "projectPath": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\Nobeless.api.csproj",
         "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\asus\\Documents\\GitHub\\NOBLESSE\\server-side\\Nobeless\\Nobeless.api\\obj\\",
+        "outputPath": "C:\\Users\\asus\\Desktop\\Nobeless\\server-side\\Nobeless\\Nobeless.api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
