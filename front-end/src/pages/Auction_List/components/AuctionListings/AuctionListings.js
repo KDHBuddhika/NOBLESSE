@@ -83,7 +83,7 @@ const AuctionList = () => {
     <div className='maincontainerl'>
       <div className="headerl">
         <h1>All Auctions</h1>
-        <div>
+        <div className='header2l'>
 
           {/* Client-side filter by category */}
           <select value={category} onChange={(e) => setCategory(e.target.value)}>

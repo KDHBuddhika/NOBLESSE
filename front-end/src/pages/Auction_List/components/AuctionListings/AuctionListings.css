@@ -21,6 +21,12 @@
   width: 100%;
 }
 
+.header2l{
+  display: flex;
+  gap: 20px;
+  right: 30px;
+}
+
 .headerl h1{
   font-size: 2.5rem;
 }

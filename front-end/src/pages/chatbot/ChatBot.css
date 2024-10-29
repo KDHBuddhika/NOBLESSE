@@ -18,6 +18,22 @@
     height: 60px;
     margin-bottom: 20px;
   }
+
+
+  .chat-logo-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .chat-logo {
+    height: 60px;
+    margin-bottom: 20px;
+  
+  }
+  
+  
+  
+  
   
   .chat-box {
     width: 600px;

@@ -4,23 +4,25 @@ import './VintageTimepiecesGallery.css';
 
 const timepieces = [
     {
+        title: "Art Deco Wristwatch",
+        description: "Stylish art deco design with geometric patterns and silver finish",
+        price: "Starting from $400",
+        image: "Leonardo_Phoenix_A_highly_detailed_3D_realistic_illustration_o_0.jpg"
+    },
+
+    {
         title: "Vintage Rose Timepiece",
         description: "Elegant vintage pocket watch with delicate Roman numerals and gold accents",
         price: "Starting from $350",
-        image: "GXPYNzrbgAI4bV0.jpeg"
+        image: "Leonardo_Phoenix_Elegant_vintage_pocket_watch_with_delicate_Ro_0.jpg"
     },
     {
         title: "Antique Chronograph",
         description: "Precision chronograph with intricate detailing and leather strap",
         price: "Starting from $450",
-        image: "GXPYNzrbgAI4bV0.jpeg"
+        image: "Leonardo_Phoenix_Highly_detailed_3D_realistic_antique_chronogr_0.jpg"
     },
-    {
-        title: "Art Deco Wristwatch",
-        description: "Stylish art deco design with geometric patterns and silver finish",
-        price: "Starting from $400",
-        image: "GXPYNzrbgAI4bV0.jpeg"
-    }
+   
 ];
 
 const VintageTimepiecesGallery = () => {

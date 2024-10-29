@@ -48,10 +48,12 @@ const ChatBot = () => {
 
   return (
     <div className="chat-container">
-      <div className="chat-header">
-        <img src={require("./iconizer-2ntpb8cyDlEEYAs9PdfhSAJUIuy.png")} alt="Noblesse" className="chat-logo" />
-        <h1>BOT</h1>
+     <div className="chat-header">
+        <div className="chat-logo-container">
+          <img src={require("./iconizer-2ntpb8cyDlEEYAs9PdfhSAJUIuy.png")} alt="Noblesse" className="chat-logo" />
+        </div>
       </div>
+
       <div className="chat-box">
         {messages.map((msg, index) => (
           <div key={index} className={`message ${msg.sender === 'User' ? 'user' : 'bot'}`}>

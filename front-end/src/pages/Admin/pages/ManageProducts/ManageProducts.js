@@ -12,20 +12,17 @@ const ManageProducts = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
- 
     const fetchData = async () => {
       try {
-        
         const productResponse = await fetch('https://localhost:7281/api/Product/getAllProducts');
         const productData = await productResponse.json();
-
-       
+        
         const categoryResponse = await fetch('https://localhost:7281/getAllCategory');
         const categoryData = await categoryResponse.json();
 
-   
-        setProducts(productData.$values);  
-        setCategories(categoryData.$values);  
+        // Check if $values exists in the response data, or fallback to an empty array
+        setProducts(productData.$values || []);  
+        setCategories(categoryData.$values || []);  
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -34,19 +31,17 @@ const ManageProducts = () => {
     fetchData();
   }, []);
 
-
-  const filteredProducts = products.filter((product) => {
+  // Conditional rendering: only filter if products is defined as an array
+  const filteredProducts = (products || []).filter((product) => {
     return (
       (selectedCategory === '' || product.categoryName === selectedCategory) &&
       (isApproved === '' || product.isApproved.toString() === isApproved)
     );
   });
 
- 
   const handleView = (productId) => {
     navigate(`/dashboardProduct/${productId}`);
   };
-
 
   const handleDelete = async (productId) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this product?");
@@ -57,8 +52,7 @@ const ManageProducts = () => {
         });
         const result = await response.json();  
         if (result === true) {
-        
-          setProducts(products.filter(product => product.productId !== productId));
+          setProducts((prevProducts) => prevProducts.filter(product => product.productId !== productId));
           alert('Product deleted successfully');
         } else {
           alert('Failed to delete product');
@@ -78,7 +72,6 @@ const ManageProducts = () => {
         <div className="manage-products-content">
           <h1>Manage Products</h1>
 
-       
           <div className="filters">
             <select
               value={selectedCategory}
@@ -104,7 +97,6 @@ const ManageProducts = () => {
             </select>
           </div>
 
-        
           <table className="product-table">
             <thead>
               <tr>
@@ -119,7 +111,13 @@ const ManageProducts = () => {
             <tbody>
               {filteredProducts.map((product) => (
                 <tr key={product.productId}>
-                  <td><img src={require(`C:/Users/asus/Desktop/Nobeless/server-side/Nobeless/Nobeless.api/Uploads/${product.thumbnailImage}`)} alt={product.productName} className="product-image" /></td>
+                  <td>
+                    <img
+                      src={require(`C:/Users/asus/Desktop/Nobeless/server-side/Nobeless/Nobeless.api/Uploads/${product.thumbnailImage}`)}
+                      alt={product.productName}
+                      className="product-image"
+                    />
+                  </td>
                   <td>{product.productName}</td>
                   <td>{product.startingPrice}</td>
                   <td>{product.categoryName}</td>
@@ -136,7 +134,6 @@ const ManageProducts = () => {
       </div>
     </div>
   );
-  
 };
 
 export default ManageProducts;

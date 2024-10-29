@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../../components/AdminNavbar';  
-import Sidebar from '../../components/AdminSidebar'; 
-import './ManageUsers.css'; 
+import Navbar from '../../components/AdminNavbar';
+import Sidebar from '../../components/AdminSidebar';
+import './ManageUsers.css';
 
 const ManageUsers = () => {
   const [users, setUsers] = useState([]);
@@ -9,12 +9,12 @@ const ManageUsers = () => {
   const [isVerifiedFilter, setIsVerifiedFilter] = useState('');
 
   useEffect(() => {
-    
+    // Fetch users from backend
     const fetchUsers = async () => {
       try {
-        const response = await fetch('https://your-backend-api-url/users');
+        const response = await fetch('https://localhost:7281/api/Admin/getAllUser');
         const data = await response.json();
-        setUsers(data);
+        setUsers(data.$values); // Accessing user data from $values
       } catch (error) {
         console.error('Error fetching users:', error);
       }
@@ -23,24 +23,24 @@ const ManageUsers = () => {
     fetchUsers();
   }, []);
 
-
+  // Filter the users based on selected filters
   const filteredUsers = users.filter((user) => {
     return (
       (userTypeFilter === '' || user.userType === userTypeFilter) &&
-      (isVerifiedFilter === '' || user.is_verified === (isVerifiedFilter === 'true'))
+      (isVerifiedFilter === '' || user.isVerified === (isVerifiedFilter === 'true'))
     );
   });
 
-
-  const handleDelete = async (id) => {
+  // Handle user deletion
+  const handleDelete = async (userId) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this user?");
     if (confirmDelete) {
       try {
-        const response = await fetch(`https://your-backend-api-url/users/${id}`, {
+        const response = await fetch(`https://your-backend-api-url/users/${userId}`, {
           method: 'DELETE',
         });
         if (response.ok) {
-          setUsers(users.filter(user => user.id !== id));
+          setUsers(users.filter(user => user.userId !== userId));
           alert('User deleted successfully');
         } else {
           alert('Failed to delete user');
@@ -60,7 +60,7 @@ const ManageUsers = () => {
         <div className="manage-users-content">
           <h1>Manage Users</h1>
 
-         
+          {/* Filter Section */}
           <div className="filters">
             <select
               value={userTypeFilter}
@@ -71,6 +71,7 @@ const ManageUsers = () => {
               <option value="admin">Admin</option>
               <option value="seller">Seller</option>
               <option value="buyer">Buyer</option>
+              <option value="bidder">Bidder</option>
             </select>
 
             <select
@@ -86,7 +87,7 @@ const ManageUsers = () => {
             <button className="search-btn">Search</button>
           </div>
 
-        
+          {/* User Table */}
           <table className="users-table">
             <thead>
               <tr>
@@ -100,15 +101,15 @@ const ManageUsers = () => {
             </thead>
             <tbody>
               {filteredUsers.map((user) => (
-                <tr key={user.id}>
-                  <td>{user.username}</td>
+                <tr key={user.userId}>
+                  <td>{user.userName}</td>
                   <td>{user.email}</td>
-                  <td>{new Date(user.registerDate).toLocaleString()}</td>
+                  <td>{new Date(user.registrationDate).toLocaleString()}</td>
                   <td>{user.userType}</td>
-                  <td>{user.is_verified ? 'Yes' : 'No'}</td>
+                  <td>{user.isVerified ? 'Yes' : 'No'}</td>
                   <td>
                     <button
-                      onClick={() => handleDelete(user.id)}
+                      onClick={() => handleDelete(user.userId)}
                       className="delete-btn"
                     >
                       Delete

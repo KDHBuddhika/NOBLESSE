@@ -20,9 +20,9 @@ const PlaceABid = () => {
     setMainImage(image);
   };
 
-  // Function to fetch bidder details
+
   const fetchBidderDetails = async () => {
-    const userId = localStorage.getItem('userId'); // Get current userId from localStorage
+    const userId = localStorage.getItem('userId'); 
 
     try {
       const response = await fetch(`https://localhost:7281/api/getUser/${userId}`);
@@ -33,26 +33,26 @@ const PlaceABid = () => {
     }
   };
 
-  // Function to fetch all bids
+
   const fetchBids = async () => {
     try {
       const response = await fetch(`https://localhost:7281/api/Bid/getBidder-by-auctionId/${auctionId}`);
       if (!response.ok) {
         if (response.status === 500) {
-          setBids([]); // Initialize bids as an empty array if no bidders are found
+          setBids([]); 
           return;
         }
         throw new Error('Failed to fetch bidders');
       }
       const data = await response.json();
-      setBids(data.$values || []); // Ensure bids is an array or empty
+      setBids(data.$values || []);
     } catch (error) {
       console.error('Error fetching bids:', error);
-      setBids([]); // Ensure bids is set as an empty array in case of an error
+      setBids([]); 
     }
   };
 
-  // Function to fetch the auction details, including winner details if completed
+ 
   const fetchAuctionDetails = async () => {
     try {
       const response = await fetch(`https://localhost:7281/api/Auction/getAuction-details-byId/${auctionId}`);
@@ -121,7 +121,7 @@ const PlaceABid = () => {
     return <div>Loading auction details...</div>; 
   }
 
-  const { productName, description, highestBid, startTime, endTime, categoryName, isCompleted } = auctionDetails;
+  const { productName, description, highestBid, startTime, endTime, categoryName, isCompleted ,imageUrl} = auctionDetails;
 
   const timeLeft = () => {
     const end = new Date(endTime);
@@ -133,10 +133,14 @@ const PlaceABid = () => {
     return `${daysLeft} Days, ${hoursLeft} Hours`;
   };
 
+
+
+  
+
   return (
     <div className="bg-gray-100 w-full min-w-full">
       {/* Auction Banner */}
-      <div className="relative w-full h-screen bg-cover bg-center" style={{ backgroundImage: `url(${imagepb})` }}>
+      <div className="relative w-full h-screen bg-cover bg-center"  style={{ backgroundImage: `url('${imageUrl}')` }}>
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-12">
           <h1 className="text-4xl lg:text-5xl font-bold text-shadow-md">{productName}</h1>
@@ -226,14 +230,13 @@ const PlaceABid = () => {
         <div className="w-full lg:w-1/2 flex flex-col justify-center items-start text-left md:px-32 mb-8">
           <h2 className="text-3xl font-bold text-black mb-4 justify-center">Condition Report</h2>
           <p className="description text-lg mb-4 max-w-3xl">
-            In good condition, with very minor wear and abrasions to the mounting. Stamped PT950/AU750 for platinum and 18 karat gold.
-            The trapezoid-shaped diamonds, weighing a total of approximately 1.00 carat, are approximately G-H color, VS clarity. Accompanied by GIA report no. 5234356297 dated July 30, 2024 stating that the diamond is Natural, Fancy Intense Yellow color, SI2 clarity.
+          {description}
           </p>
         </div>
 
         <div className="w-full lg:w-1/2 h-full flex flex-col items-end pt-20 pr-3 px-8">
           {/* Main Image */}
-          <img src={mainImage} alt="Auction Image" className="object-cover w-[80%] h-auto object-right-top mb-4" />
+          <img src={require(`C:/Users/asus/Desktop/Nobeless/server-side/Nobeless/Nobeless.api/Uploads/${imageUrl}`)} alt="Auction Image" className="object-cover w-[80%] h-auto object-right-top mb-4" />
 
           <div className="flex justify-center space-x-4 w-[80%]">
             <img
