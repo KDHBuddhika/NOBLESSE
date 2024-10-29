@@ -104,11 +104,15 @@ function Home() {
 				<h1 className="w-1/2 text-primaryBlue text-center text-4xl font-Montserrat absolute left-[100px] top-52">
 					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et impedi
 				</h1>
-				<button className="text-primaryBlue text-2xl font-Montserrat font-semibold absolute left-[380px] top-[350px] p-4 w-52 border-primaryBlue border-[3px] bg-primaryWhite hover:bg-primaryBlue hover:text-primaryWhite transition-colors duration-300 "> 
-				<Link to="/auctionList">
-							<h2 className="">Auction</h2>
-						</Link>
-				</button>
+						<button
+		className="text-white text-2xl font-Montserrat font-semibold absolute left-[380px] top-[350px] p-4 w-52 border-primaryBlue border-[3px] hover:bg-primaryBlue hover:text-primaryWhite transition-colors duration-300"
+		style={{ backgroundColor: 'white' }}
+		>
+		<Link to="/auctionList">
+			<h2 className="">Auction</h2>
+		</Link>
+		</button>
+
 			</div>
 			<div
 				id="carousel-controller"
@@ -116,7 +120,7 @@ function Home() {
 			>
 				<button
 					onClick={() => setCurrentModel(1)}
-					className="w-4 h-4 border border-primaryBlue rounded-full m-2 .border"
+					className="w-4 h-4 border border-primaryBlue rounded-full m-2"
 				></button>
 				<button
 					onClick={() => setCurrentModel(2)}

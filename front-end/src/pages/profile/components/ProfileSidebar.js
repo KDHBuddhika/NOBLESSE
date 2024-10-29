@@ -28,7 +28,6 @@ const ProfileSidebar = () => {
         <li><Link to="/yourAuction">Your Auctions</Link></li>
         <li><br/></li>
         <li><br/></li>
-        <li><br/></li>
         <li><Link to="/home">Home</Link></li>
         {/* Log Out Button */}
         <li>
