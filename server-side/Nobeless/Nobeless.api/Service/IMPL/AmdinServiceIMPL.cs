@@ -167,6 +167,24 @@ namespace Nobeless.api.Service.IMPL
 
 
 
+        // ----------------------- Get All User---------------
+        public async Task<List<UserDetailsDto>> GetAllUsersAsync()
+        {
+            return await _dbContext.users
+                .Select(user => new UserDetailsDto
+                {
+                    UserId = user.Id,
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    RegistrationDate = user.Register_date,
+                    IsVerified = user.isVerified,
+                    UserType = user.usertype.ToString() 
+                })
+                .ToListAsync();
+        }
+
+
+
 
 
 

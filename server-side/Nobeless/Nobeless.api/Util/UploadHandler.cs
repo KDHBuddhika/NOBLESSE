@@ -19,7 +19,7 @@
         public string Upload(IFormFile file)
         {
             // Validate extension
-            List<string> validExtensions = new List<string> { ".jpg", ".jpeg", ".png", ".gif" };
+            List<string> validExtensions = new List<string> { ".jpg", ".jpeg", ".png", ".gif",".webp" };
             string extension = Path.GetExtension(file.FileName).ToLowerInvariant();
             if (!validExtensions.Contains(extension))
             {

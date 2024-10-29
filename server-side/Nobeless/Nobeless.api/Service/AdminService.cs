@@ -9,5 +9,7 @@ namespace Nobeless.api.Service
         Task<List<AuctionDetailsDto>> GetAllAuctionDetailsAsync();
         Task<DashboardStatisticsDtos> GetDashboardStatisticsAsync();
         Task<DashboardProductDetailsDtos> GetProductDetailsByIdAsync(int productId);
+
+        Task<List<UserDetailsDto>> GetAllUsersAsync();
     }
 }
