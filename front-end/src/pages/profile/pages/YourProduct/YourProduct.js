@@ -58,7 +58,33 @@ const YourProduct = () => {
         <button className={styles.addButton} onClick={handleAddProduct}>Add Product</button>
         <div className={styles.productsList}>
          
-        <div className={styles.productCard} >
+        
+         
+         
+         
+            {products.map(product => (
+            <div className={styles.productCard} key={product.productId}>
+            
+              <img src={require(`C:/Users/asus/Desktop/Nobeless/server-side/Nobeless/Nobeless.api/Uploads/${product.thumbnailImage}`)} alt={product.productName} className={styles.productImage} />
+              <div className={styles.productDetails}>
+                <p>Product Name: <strong>{product.productName}</strong></p>
+                <span className={styles.dash}>|</span> 
+                <p>Category: <strong>{product.categoryName}</strong></p>
+                <span className={styles.dash}>|</span> 
+                <p>Starting Price: <strong>${product.startingPrice}</strong></p>
+                <span className={styles.dash}>|</span> 
+                <p>Approval State: <strong>{product.isApproved ? 'Approved' : 'Pending'}</strong></p>
+                <span className={styles.dash}>|</span> 
+                <div className={styles.buttons}>
+                  <button className={styles.deleteBtn} onClick={() => handleDelete(product.productId)}>Delete</button>
+                  <button className={styles.viewBtn} onClick={() => handleView(product.productId)}>View</button>
+                </div>
+              </div>
+            </div>
+          ))}
+
+
+<div className={styles.productCard} >
               <img src={require("../../../../assets/images/C9AA9089-398E-4702-9C96-54CD007B27CF.jpg")} alt=
               "" className={styles.productImage} />
               <div className={styles.productDetails}>
@@ -95,29 +121,6 @@ const YourProduct = () => {
                 </div>
               </div>
             </div>
-         
-         
-         
-            {products.map(product => (
-            <div className={styles.productCard} key={product.productId}>
-            
-              <img src={require(`C:/Users/asus/Desktop/Nobeless/server-side/Nobeless/Nobeless.api/Uploads/${product.thumbnailImage}`)} alt={product.productName} className={styles.productImage} />
-              <div className={styles.productDetails}>
-                <p>Product Name: <strong>{product.productName}</strong></p>
-                <span className={styles.dash}>|</span> 
-                <p>Category: <strong>{product.categoryName}</strong></p>
-                <span className={styles.dash}>|</span> 
-                <p>Starting Price: <strong>${product.startingPrice}</strong></p>
-                <span className={styles.dash}>|</span> 
-                <p>Approval State: <strong>{product.isApproved ? 'Approved' : 'Pending'}</strong></p>
-                <span className={styles.dash}>|</span> 
-                <div className={styles.buttons}>
-                  <button className={styles.deleteBtn} onClick={() => handleDelete(product.productId)}>Delete</button>
-                  <button className={styles.viewBtn} onClick={() => handleView(product.productId)}>View</button>
-                </div>
-              </div>
-            </div>
-          ))}
 
 
         </div>

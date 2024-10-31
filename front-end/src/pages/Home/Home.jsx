@@ -102,7 +102,7 @@ function Home() {
 					className="h-full w-4/5 absolute bg-primaryBlue/10  transform -translate-x-52 skew-x-[30deg] backdrop-blur-sm z-1 "
 				></div>
 				<h1 className="w-1/2 text-primaryBlue text-center text-4xl font-Montserrat absolute left-[100px] top-52">
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et impedi
+				Exclusive Access to Prestigious Collections – Bid on Luxury Redefined.
 				</h1>
 						<button
 		className="text-white text-2xl font-Montserrat font-semibold absolute left-[380px] top-[350px] p-4 w-52 border-primaryBlue border-[3px] hover:bg-primaryBlue hover:text-primaryWhite transition-colors duration-300"
