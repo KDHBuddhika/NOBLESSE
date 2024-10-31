@@ -39,7 +39,7 @@ const YourBids = () => {
 
   const handleView = (auctionId) => {
     
-    navigate(`/auction/${auctionId}`);
+    navigate(`/plasebid2/${auctionId}`);
   };
 
   const handlePay = (auctionId) => {

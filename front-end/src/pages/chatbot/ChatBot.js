@@ -49,8 +49,9 @@ const ChatBot = () => {
   return (
     <div className="chat-container">
      <div className="chat-header">
-        <div className="chat-logo-container">
-          <img src={require("./iconizer-2ntpb8cyDlEEYAs9PdfhSAJUIuy.png")} alt="Noblesse" className="chat-logo" />
+        <div className="chat-logo-container" >
+        <button className='chat-button'><img src={require("./iconizer-2ntpb8cyDlEEYAs9PdfhSAJUIuy.png")} alt="Noblesse" className="chat-logo" /></button>
+          
         </div>
       </div>
 

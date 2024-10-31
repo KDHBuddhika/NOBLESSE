@@ -92,10 +92,10 @@ const MyAuction = () => {
                 <p>Time remaining: {auction.timeLeft}</p>
                 <div className={styles.buttons}>
                   {auction.auctionState === 'Ongoing' && (
-                    <button className={styles.viewBtn} onClick={() => handleView(auction.$id)}>View</button>
+                    <button className={styles.viewBtn} onClick={() => handleView(auction.auctionId)}>View</button>
                   )}
                   {auction.auctionState === 'Completed' && (
-                    <button className={styles.resultBtn} onClick={() => handleResult(auction.$id)}>Result</button>
+                    <button className={styles.resultBtn} onClick={() => handleResult(auction.auctionId)}>Result</button>
                   )}
                 </div>
               </div>

@@ -140,7 +140,7 @@ const PlaceABid = () => {
   return (
     <div className="bg-gray-100 w-full min-w-full">
       {/* Auction Banner */}
-      <div className="relative w-full h-screen bg-cover bg-center"  style={{ backgroundImage: `url('${imageUrl}')` }}>
+      <div className="relative w-full h-screen bg-cover bg-center"  style={{ backgroundImage: `url('${imagepb}')` }}>
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-12">
           <h1 className="text-4xl lg:text-5xl font-bold text-shadow-md">{productName}</h1>

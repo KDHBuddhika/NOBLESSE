@@ -230,6 +230,7 @@ namespace Nobeless.api.Service.IMPL
               .Where(a => a.Product.UserId == userId) 
               .Select(a => new AuctionDetailsByUserIdDto
               {
+                  AuctionId = a.AuctionId,
                   ImageUrl = a.Product.thumbnailImage,
                   ProductName = a.Product.Name,
                   BidderCount = a.Bids.Count(),
