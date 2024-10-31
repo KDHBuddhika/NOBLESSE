@@ -2,6 +2,7 @@
 {
     public class AuctionDetailsByUserIdDto
     {
+        public int AuctionId { get; set; }
         public string ImageUrl { get; set; }
         public string ProductName { get; set; }
         public int BidderCount { get; set; }
